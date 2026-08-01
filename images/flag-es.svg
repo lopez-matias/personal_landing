@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" role="img" aria-label="España">
+  <clipPath id="c"><circle cx="18" cy="18" r="18"/></clipPath>
+  <g clip-path="url(#c)">
+    <path fill="#AA151B" d="M0 0h36v36H0z"/>
+    <path fill="#F1BF00" d="M0 9h36v18H0z"/>
+  </g>
+</svg>

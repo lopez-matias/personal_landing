@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es-UY">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MatuDev | Análisis de datos, Power BI, SQL, ETL y automatizaciones</title>
+  <meta name="description" content="Soluciones personalizadas para convertir toda la información y procesos de tu negocio en decisiones claras y eficientes.">
+  <meta name="author" content="Matias Lopez">
+  <meta name="robots" content="index,follow">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://www.matudev.com/">
+  <link rel="icon" href="images/icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/icon.png">
+  <meta name="theme-color" content="#0f172a">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_UY">
+  <meta property="og:url" content="https://www.matudev.com/">
+  <meta property="og:title" content="MatuDev | Análisis de datos, Power BI, SQL, ETL y automatizaciones">
+  <meta property="og:description" content="Dashboards, automatizaciones y soluciones de datos para ahorrar tiempo, ordenar información y decidir con claridad.">
+  <meta property="og:image" content="https://www.matudev.com/images/og-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MatuDev | Datos claros y procesos eficientes">
+  <meta name="twitter:description" content="Soluciones de Power BI, SQL, Python, ETL e integraciones para empresas y profesionales.">
+  <meta name="twitter:image" content="https://www.matudev.com/images/og-cover.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "MatuDev",
+    "url": "https://www.matudev.com/",
+    "description": "Soluciones personalizadas de analisis de datos, dashboards, SQL, Power BI y automatizacion con Python.",
+    "founder": {
+      "@type": "Person",
+      "name": "Matias Lopez",
+      "jobTitle": "Analista de datos y administrador de bases de datos",
+      "sameAs": [
+        "https://github.com/lopez-matias",
+        "https://www.linkedin.com/in/lopez-matias/"
+      ]
+    },
+    "email": "lopeznunezmati@gmail.com",
+    "areaServed": ["Uruguay", "Remoto"],
+    "availableLanguage": ["Spanish", "English"],
+    "serviceType": [
+      "Automatizacion de procesos y ETL",
+      "Business Intelligence y dashboards",
+      "Bases de datos y modelos analiticos",
+      "Aplicaciones internas e integraciones"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skipLink">Saltar al contenido</a>
+
+  <header class="site-header" data-header>
+    <nav class="site-nav" aria-label="Navegación principal" data-i18n-attr="aria-label:navAria">
+      <a class="brand" href="#inicio" aria-label="MatuDev, volver al inicio" data-i18n-attr="aria-label:brandAria">
+        <span class="brand-mark" aria-hidden="true">&gt;_</span>
+        <span>@matudev</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú" data-i18n-attr="aria-label:openMenu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <div class="nav-menu" id="nav-menu" data-mobile-menu>
+        <a href="#inicio" data-i18n="navHome">Inicio</a>
+        <a href="#servicios" data-i18n="navServices">Servicios</a>
+        <a href="#proceso" data-i18n="navProcess">Proceso</a>
+        <a href="#sobre-mi" data-i18n="navAbout">Sobre mí</a>
+        <a href="#contacto" data-i18n="navContact">Contacto</a>
+        <div class="nav-controls" aria-label="Preferencias" data-i18n-attr="aria-label:preferencesAria">
+          <button class="icon-button" type="button" data-theme-toggle aria-label="Cambiar tema" title="Cambiar tema" data-i18n-attr="aria-label:themeToggle;title:themeToggle">
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 4V2m0 20v-2m8-8h2M2 12h2m14.36-6.36 1.42-1.42M4.22 19.78l1.42-1.42m0-12.72L4.22 4.22m15.56 15.56-1.42-1.42M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5Z"/>
+            </svg>
+          </button>
+          <button class="icon-button lang-toggle" type="button" data-lang-toggle aria-label="Ver sitio en inglés" title="Ver sitio en inglés" data-i18n-attr="aria-label:langToggle;title:langToggle">
+            <img src="images/flag-us.svg" alt="" width="22" height="22" data-lang-flag>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <p class="eyebrow" data-i18n="heroEyebrow">Datos, automatización y soluciones internas</p>
+        <h1 id="hero-title" data-i18n="heroTitle">Soluciono problemas cotidianos con tecnología simple y bien hecha.</h1>
+        <p class="hero-lead" data-i18n="heroLead">Ayudo a ordenar datos, automatizar las tareas repetitivas que alimentan esos datos y crear herramientas internas para que tu negocio trabaje con menos fricción y mayor claridad.</p>
+        <div class="hero-service-strip" aria-label="Servicios disponibles" data-i18n-attr="aria-label:heroStripAria">
+          <span data-i18n="stripAutomation">Automatizaciones que ahorran tiempo</span>
+          <span data-i18n="stripDashboards">Reportes para decisiones óptimas</span>
+          <span data-i18n="stripDatabases">Bases de datos más ordenadas</span>
+          <span data-i18n="stripApps">Herramientas internas conectadas</span>
+        </div>
+        <a class="hero-scroll" href="#servicios" aria-label="Ir a servicios" data-i18n-attr="aria-label:heroScroll">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 5v14m0 0 6-6m-6 6-6-6"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Tomar como opción pero para otra sección, sacar de acá -->
+      <!-- <div class="hero-visual reveal" aria-hidden="true">
+        <div class="workflow-line"></div>
+        <div class="workflow-card card-a">
+          <span>01</span>
+          <strong data-i18n="visualProblemTitle">Problema</strong>
+          <p data-i18n="visualProblemText">Reportes manuales, archivos repetidos y tareas que consumen horas.</p>
+        </div>
+        <div class="workflow-card card-b">
+          <span>02</span>
+          <strong data-i18n="visualSolutionTitle">Soluci&oacute;n</strong>
+          <p data-i18n="visualSolutionText">Datos conectados, procesos programados y tableros claros.</p>
+        </div>
+      </div>
+    </section> -->
+
+    <section class="trust-band" aria-labelledby="trust-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-i18n="trustEyebrow">Transparencia y realidad desde el primer mensaje</p>
+          <h2 id="trust-title" data-i18n="trustTitle">Soluciones pensadas para que tus datos sean claros y útiles.</h2>
+        </div>
+        <ul class="trust-list reveal" aria-label="Indicadores de confianza" data-i18n-attr="aria-label:trustListAria">
+          <li data-i18n="trustItem1">Diagnástico claro</li>
+          <li data-i18n="trustItem2">Comunicación directa</li>
+          <li data-i18n="trustItem3">Enfoque en resultados</li>
+          <li data-i18n="trustItem4">Procesos trazables</li>
+          <li data-i18n="trustItem5">Soluciones escalables</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section services" id="servicios" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-i18n="servicesEyebrow">Servicios</p>
+          <h2 id="services-title" data-i18n="servicesTitle">Servicios concretos para ordenar informaci&oacute;n, automatizar trabajo y conectar sistemas.</h2>
+          <p data-i18n="servicesIntro">Cada soluci&oacute;n parte del problema operativo: menos tareas manuales, datos m&aacute;s confiables y herramientas que el equipo pueda usar sin vueltas.</p>
+        </div>
+
+        <div class="services-grid reveal">
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 7h5m6 0h5M9 7a3 3 0 1 0 6 0 3 3 0 0 0-6 0Zm-2 10h10m-3-3 3 3-3 3"/>
+              </svg>
+            </div>
+            <h3 data-i18n="service1Title">Automatizaci&oacute;n de procesos y ETL</h3>
+            <p data-i18n="service1Description">Automatizo tareas repetitivas, cargas de informaci&oacute;n y generaci&oacute;n de reportes mediante procesos programados, controlados y preparados para manejar errores. Las soluciones pueden conectarse con archivos, bases de datos, APIs y herramientas empresariales.</p>
+            <div class="service-result">
+              <span data-i18n="resultLabel">Resultado</span>
+              <p data-i18n="service1Result">Menos tareas manuales, menor riesgo de error y procesos ejecutados de forma programada y trazable.</p>
+            </div>
+            <ul class="tech-tags" aria-label="Tecnolog&iacute;as" data-i18n-attr="aria-label:techAria">
+              <li>Python</li>
+              <li>SQL</li>
+              <li>Pentaho</li>
+              <li>Power Automate</li>
+              <li>Crontab</li>
+            </ul>
+            <a class="service-cta" href="#contacto" data-i18n="service1Cta">Automatizar un proceso</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 19V5m0 14h16M8 16v-5m4 5V8m4 8v-7m3-3H7"/>
+              </svg>
+            </div>
+            <h3 data-i18n="service2Title">Business Intelligence y dashboards</h3>
+            <p data-i18n="service2Description">Dise&ntilde;o y optimizo soluciones de Business Intelligence que convierten informaci&oacute;n operativa en indicadores &uacute;tiles para el negocio. Trabajo con modelado de datos, dashboards, m&eacute;tricas, permisos, publicaci&oacute;n y mantenimiento de entornos anal&iacute;ticos.</p>
+            <div class="service-result">
+              <span data-i18n="resultLabel">Resultado</span>
+              <p data-i18n="service2Result">Informaci&oacute;n centralizada, indicadores claros y dashboards confiables para la toma de decisiones.</p>
+            </div>
+            <ul class="tech-tags" aria-label="Tecnolog&iacute;as" data-i18n-attr="aria-label:techAria">
+              <li>Power BI</li>
+              <li>Apache Superset</li>
+              <li>Looker Studio</li>
+              <li>SQL</li>
+              <li>Analysis Services</li>
+            </ul>
+            <a class="service-cta" href="#contacto" data-i18n="service2Cta">Mejorar mis reportes</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M5 6c0-1.66 3.13-3 7-3s7 1.34 7 3-3.13 3-7 3-7-1.34-7-3Zm0 0v6c0 1.66 3.13 3 7 3s7-1.34 7-3V6M5 12v6c0 1.66 3.13 3 7 3s7-1.34 7-3v-6"/>
+              </svg>
+            </div>
+            <h3 data-i18n="service3Title">Bases de datos y modelos anal&iacute;ticos</h3>
+            <p data-i18n="service3Description">Analizo y mejoro consultas, estructuras y procesos de bases de datos para reducir tiempos de ejecuci&oacute;n, organizar informaci&oacute;n hist&oacute;rica y mantener soluciones anal&iacute;ticas m&aacute;s estables. Tambi&eacute;n trabajo con modelos y cubos de Analysis Services.</p>
+            <div class="service-result">
+              <span data-i18n="resultLabel">Resultado</span>
+              <p data-i18n="service3Result">Consultas m&aacute;s eficientes, procesos de carga m&aacute;s estables y modelos de datos m&aacute;s mantenibles.</p>
+            </div>
+            <ul class="tech-tags" aria-label="Tecnolog&iacute;as" data-i18n-attr="aria-label:techAria">
+              <li>SQL Server</li>
+              <li>SQL</li>
+              <li>T-SQL</li>
+              <li>Analysis Services</li>
+              <li>Visual Studio</li>
+            </ul>
+            <a class="service-cta" href="#contacto" data-i18n="service3Cta">Revisar mi base de datos</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M8 8 4 12l4 4m8-8 4 4-4 4M14 4l-4 16M5 20h14"/>
+              </svg>
+            </div>
+            <h3 data-i18n="service4Title">Aplicaciones internas e integraciones</h3>
+            <p data-i18n="service4Description">Desarrollo herramientas internas, APIs e integraciones orientadas a centralizar informaci&oacute;n, conectar sistemas y reemplazar procesos que actualmente dependen de planillas, correos o tareas manuales.</p>
+            <div class="service-result">
+              <span data-i18n="resultLabel">Resultado</span>
+              <p data-i18n="service4Result">Informaci&oacute;n centralizada, sistemas conectados y procesos internos m&aacute;s simples.</p>
+            </div>
+            <ul class="tech-tags" aria-label="Tecnolog&iacute;as" data-i18n-attr="aria-label:techAria">
+              <li>Python</li>
+              <li>JavaScript</li>
+              <li>REST APIs</li>
+              <li data-i18n="service4TechDatabases">Bases de datos</li>
+              <li>Notion</li>
+            </ul>
+            <a class="service-cta" href="#contacto" data-i18n="service4Cta">Consultar una soluci&oacute;n interna</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" id="proceso" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-i18n="processEyebrow">C&oacute;mo empezamos</p>
+          <h2 id="process-title" data-i18n="processTitle">Un camino simple para pasar del problema a una soluci&oacute;n usable.</h2>
+        </div>
+        <ol class="process-list reveal">
+          <li><span>01</span><h3 data-i18n="process1Title">Me cont&aacute;s el problema</h3><p data-i18n="process1Text">Revisamos qu&eacute; tarea consume tiempo, qu&eacute; informaci&oacute;n existe y qu&eacute; resultado necesit&aacute;s obtener.</p></li>
+          <li><span>02</span><h3 data-i18n="process2Title">Definimos alcance</h3><p data-i18n="process2Text">Acordamos prioridades, fuentes de datos, entregables y una forma clara de validar que la soluci&oacute;n sirve.</p></li>
+          <li><span>03</span><h3 data-i18n="process3Title">Construyo y valido</h3><p data-i18n="process3Text">Avanzo por etapas cortas para mostrar progreso, ajustar criterios y evitar sorpresas al final.</p></li>
+          <li><span>04</span><h3 data-i18n="process4Title">Entrego y acompa&ntilde;o</h3><p data-i18n="process4Text">Dejo la soluci&oacute;n documentada, lista para usar y con una transferencia clara para el equipo.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section about" id="sobre-mi" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-photo reveal">
+          <img src="images/profile.jpeg" alt="Foto de Mat&iacute;as L&oacute;pez, profesional de datos" width="800" height="800" loading="lazy" data-i18n-attr="alt:aboutImageAlt">
+        </div>
+        <div class="about-copy reveal">
+          <p class="eyebrow" data-i18n="aboutEyebrow">Sobre m&iacute;</p>
+          <h2 id="about-title" data-i18n="aboutTitle">Soy Mat&iacute;as, trabajo con datos, bases y automatizaciones para resolver problemas reales.</h2>
+          <p data-i18n="aboutP1">Soy analista de datos y administrador de bases de datos, adem&aacute;s de estudiante de Ingenier&iacute;a en Computaci&oacute;n. Trabajo en la intersecci&oacute;n entre datos, tecnolog&iacute;a y negocio, creando soluciones que convierten informaci&oacute;n dispersa y procesos manuales en herramientas claras, eficientes y f&aacute;ciles de utilizar.</p>
+          <p data-i18n="aboutP2">Mi experiencia combina diagn&oacute;stico, criterio t&eacute;cnico y comunicaci&oacute;n directa. Puedo conversar con usuarios del negocio, entender el proceso completo y llevarlo a una soluci&oacute;n mantenible, documentada y pensada para el uso diario.</p>
+          <div class="about-highlights" aria-label="Experiencia relevante" data-i18n-attr="aria-label:aboutHighlightsAria">
+            <div><span data-i18n="aboutHighlight1Title">Enfoque pr&aacute;ctico</span><p data-i18n="aboutHighlight1Text">Primero entiendo el problema, luego elijo la tecnolog&iacute;a adecuada.</p></div>
+            <div><span data-i18n="aboutHighlight2Title">Trabajo sostenible</span><p data-i18n="aboutHighlight2Text">Entrego soluciones claras para usar, revisar y mantener.</p></div>
+            <div><span data-i18n="aboutHighlight3Title">Comunicación clara</span><p data-i18n="aboutHighlight3Text">Explico avances, decisiones y l&iacute;mites sin vueltas.</p></div>
+          </div>
+          <div class="social-links" aria-label="Perfiles profesionales" data-i18n-attr="aria-label:socialAria">
+            <a href="https://www.linkedin.com/in/lopez-matias/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/lopez-matias" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contacto" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <p class="eyebrow" data-i18n="contactEyebrow">Contacto</p>
+          <h2 id="contact-title" data-i18n="contactTitle">&iquest;Ten&eacute;s datos o procesos que podr&iacute;an funcionar mejor?</h2>
+          <p data-i18n="contactIntro">Contame brevemente qu&eacute; necesit&aacute;s y evaluemos c&oacute;mo convertirlo en una soluci&oacute;n clara, &uacute;til y sostenible.</p>
+          <div class="contact-priority" aria-label="Canales de contacto" data-i18n-attr="aria-label:contactChannelsAria">
+            <a class="btn btn-primary" href="https://wa.me/59898445531" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a class="btn btn-secondary" href="#formulario-contacto" data-i18n="contactFormButton">Formulario</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/lopez-matias/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+          <p class="contact-note"><span data-i18n="contactEmailPrefix">Tambi&eacute;n pod&eacute;s escribir a</span> <a href="mailto:lopeznunezmati@gmail.com">lopeznunezmati@gmail.com</a>.</p>
+        </div>
+
+        <form class="contact-form reveal" id="formulario-contacto" action="https://formsubmit.co/lopeznunezmati@gmail.com" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Nueva consulta desde MatuDev">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://www.matudev.com/gracias.html">
+          <input type="hidden" name="form_started_at" id="form-started-at" value="">
+          <div class="spam-field" aria-hidden="true">
+            <label for="website">Sitio web</label>
+            <input type="text" id="website" name="_honey" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="name" data-i18n="formName">Nombre</label>
+              <input id="name" name="nombre" type="text" autocomplete="name" required minlength="2" aria-describedby="name-error">
+              <p class="field-error" id="name-error"></p>
+            </div>
+            <div class="field">
+              <label for="company"><span data-i18n="formCompany">Empresa</span> <span data-i18n="formOptional">opcional</span></label>
+              <input id="company" name="empresa" type="text" autocomplete="organization">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email" data-i18n="formEmail">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error">
+            <p class="field-error" id="email-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="project-type" data-i18n="formProjectType">Tipo de proyecto</label>
+            <select id="project-type" name="tipo_de_proyecto" required aria-describedby="project-type-error">
+              <option value="" data-i18n="formSelect">Seleccion&aacute; una opci&oacute;n</option>
+              <option value="Automatizacion de procesos y ETL" data-i18n="service1Title">Automatizaci&oacute;n de procesos y ETL</option>
+              <option value="Business Intelligence y dashboards" data-i18n="service2Title">Business Intelligence y dashboards</option>
+              <option value="Bases de datos y modelos analiticos" data-i18n="service3Title">Bases de datos y modelos anal&iacute;ticos</option>
+              <option value="Aplicaciones internas e integraciones" data-i18n="service4Title">Aplicaciones internas e integraciones</option>
+              <option value="No estoy seguro" data-i18n="formNotSure">No estoy seguro</option>
+            </select>
+            <p class="field-error" id="project-type-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="message" data-i18n="formMessage">Mensaje</label>
+            <textarea id="message" name="mensaje" rows="6" required minlength="20" aria-describedby="message-help message-error"></textarea>
+            <p class="field-help" id="message-help" data-i18n="formHelp">Inclu&iacute; el proceso actual, datos disponibles y resultado que esper&aacute;s.</p>
+            <p class="field-error" id="message-error"></p>
+          </div>
+
+          <label class="consent" for="privacy">
+            <input id="privacy" name="privacidad" type="checkbox" required aria-describedby="privacy-error">
+            <span><span data-i18n="formPrivacy">Acepto que MatuDev use estos datos para responder mi consulta.</span> <a href="privacy.html" data-i18n="formPrivacyLink">Ver pol&iacute;tica de privacidad</a>.</span>
+          </label>
+          <p class="field-error" id="privacy-error"></p>
+
+          <button class="btn btn-primary" type="submit" data-submit data-i18n="formSubmit">Enviar consulta</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="#inicio" aria-label="MatuDev, volver al inicio" data-i18n-attr="aria-label:brandAria">
+          <span class="brand-mark" aria-hidden="true">&gt;_</span>
+          <span>@matudev</span>
+        </a>
+        <p data-i18n="footerText">An&aacute;lisis de datos, Power BI, SQL, automatizaci&oacute;n e integraciones para convertir informaci&oacute;n dispersa en decisiones claras.</p>
+      </div>
+      <div class="footer-faq" aria-labelledby="footer-faq-title">
+        <h2 id="footer-faq-title" data-i18n="faqTitle">Preguntas frecuentes</h2>
+        <div class="faq-list compact" data-faq-list>
+          <details>
+            <summary data-i18n="faq1Q">&iquest;Con qu&eacute; tipo de proyectos trabaj&aacute;s?</summary>
+            <p data-i18n="faq1A">Trabajo con datos, reportes, bases, planillas, automatizaciones o integraciones que necesiten ordenarse para operar o decidir mejor.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq2Q">&iquest;Pod&eacute;s mejorar algo existente?</summary>
+            <p data-i18n="faq2A">S&iacute;. Muchas veces conviene revisar lo que ya existe, detectar problemas de modelo, dise&ntilde;o, rendimiento o mantenimiento, y mejorar desde ah&iacute;.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq3Q">&iquest;C&oacute;mo se calcula el costo?</summary>
+            <p data-i18n="faq3A">Depende del alcance, fuentes de datos, complejidad del proceso, urgencia y nivel de acompa&ntilde;amiento requerido.</p>
+          </details>
+        </div>
+      </div>
+      <nav class="footer-nav" aria-label="Navegaci&oacute;n secundaria" data-i18n-attr="aria-label:footerNavAria">
+        <a href="#inicio" data-i18n="navHome">Inicio</a>
+        <a href="#servicios" data-i18n="navServices">Servicios</a>
+        <a href="#proceso" data-i18n="navProcess">Proceso</a>
+        <a href="#sobre-mi" data-i18n="navAbout">Sobre m&iacute;</a>
+        <a href="#contacto" data-i18n="navContact">Contacto</a>
+        <a href="privacy.html" data-i18n="privacy">Privacidad</a>
+      </nav>
+      <div class="footer-social" aria-label="Enlaces externos" data-i18n-attr="aria-label:socialAria">
+        <a href="https://github.com/lopez-matias" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/lopez-matias/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://wa.me/59898445531" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+      <small>&copy; <span id="year"></span> MatuDev. <a href="#inicio" data-i18n="backTop">Volver al inicio</a>.</small>
+    </div>
+  </footer>
+
+  <div class="mobile-float-actions" aria-label="Acciones r&aacute;pidas" data-i18n-attr="aria-label:quickActionsAria">
+    <a class="float-action to-top" href="#inicio" aria-label="Volver al inicio" data-i18n-attr="aria-label:backTop">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0-6 6m6-6 6 6"/></svg>
+    </a>
+    <a class="float-action whatsapp" href="https://wa.me/59898445531" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" data-i18n-attr="aria-label:whatsappAria">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.8a8.4 8.4 0 0 1-12.4 7.4L4 20.4l1.2-4A8.4 8.4 0 1 1 20.5 11.8Zm-8.3-6.6a6.6 6.6 0 0 0-5.6 10.1l.2.4-.7 2.3 2.4-.7.4.2a6.6 6.6 0 1 0 3.3-12.3Zm3.7 9.5c-.2.6-1.1 1.1-1.6 1.2-.4.1-.9.1-1.5-.1-.3-.1-.8-.3-1.4-.6-2.4-1.1-4-3.5-4.1-3.6-.1-.1-1-1.3-1-2.5s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.7.7 1.8.1.1.1.3 0 .5-.1.2-.1.3-.3.5l-.4.5c-.1.1-.2.3-.1.5.1.2.5.9 1.1 1.5.8.7 1.4 1 1.6 1.1.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.6-.1.2.1 1.5.7 1.8.9.3.1.5.2.5.3.1.1.1.5-.1.9Z"/></svg>
+    </a>
+  </div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
