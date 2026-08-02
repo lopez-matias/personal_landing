@@ -1,27 +1,57 @@
-﻿<!DOCTYPE html>
-<html lang="es-UY">
+<!DOCTYPE html>
+<html lang="es-UY" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página no encontrada | MatuDev</title>
   <meta name="description" content="La página solicitada no existe en MatuDev.">
   <meta name="robots" content="noindex,follow">
-  <link rel="icon" href="images/person_icon.png" type="image/png">
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/main.js" defer></script>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/icon.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/system.css">
+  <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem("matudev-system-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); } catch (error) {}
+  </script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Saltar al contenido</a>
-  <main id="main" class="simple-page">
-    <section class="simple-content reveal" aria-labelledby="not-found-title">
-      <p class="eyebrow">404</p>
-      <h1 id="not-found-title">Página no encontrada</h1>
-      <p>La URL no existe o fue movida. Puedes volver al inicio o contarme qué necesitas resolver.</p>
-      <div class="simple-actions">
-        <a class="btn btn-primary" href="index.html">Ir al inicio</a>
-        <a class="btn btn-secondary" href="index.html#contacto">Contactar a MatuDev</a>
+  <a class="skip-link" href="#main" data-i18n="skipLink">Saltar al contenido</a>
+  <header class="topbar">
+    <nav class="container nav" aria-label="Navegación principal" data-i18n-attr="aria-label:navAria">
+      <a class="brand" href="index.html" aria-label="MatuDev, volver al inicio" data-i18n-attr="aria-label:brandAria"><strong>@matudev</strong></a>
+      <div class="nav-actions">
+        <button class="theme-icon-button" type="button" data-theme-toggle aria-label="Cambiar tema" data-i18n-attr="aria-label:themeAria">
+          <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+          <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+        </button>
+        <button type="button" data-lang-toggle aria-label="View site in English" data-i18n="langButton" data-i18n-attr="aria-label:langAria">EN</button>
+        <a href="index.html#contacto" data-i18n="navContact">Contacto</a>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="container simple-page">
+    <section class="system-window simple-content" aria-labelledby="not-found-title">
+      <div class="window-bar"><span>404.sys</span><span>not found</span></div>
+      <div class="window-body">
+        <span class="stamp" data-i18n="notFoundKicker">ERROR / RUTA NO ENCONTRADA</span>
+        <h1 id="not-found-title" data-i18n="notFoundTitle">Esta pantalla no existe.</h1>
+        <p class="lead" data-i18n="notFoundLead">La URL fue movida o no está disponible. Podés volver al inicio o escribirme si buscabas información sobre un proyecto.</p>
+        <div class="simple-actions">
+          <a class="button primary" href="index.html" data-i18n="goHome">Ir al inicio</a>
+          <a class="button secondary" href="index.html#contacto" data-i18n="contactMatudev">Contactar a matudev</a>
+        </div>
       </div>
     </section>
   </main>
+  <a class="top-bubble" href="#main" aria-label="Volver al inicio" data-i18n-attr="aria-label:backTopAria">
+    <span aria-hidden="true">↑</span>
+  </a>
+  <a class="whatsapp-bubble" href="https://wa.me/59898445531" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp" data-i18n-attr="aria-label:whatsappAria">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16.02 3.2c-7.04 0-12.76 5.72-12.76 12.76 0 2.25.59 4.45 1.71 6.39L3.15 29l6.81-1.79a12.72 12.72 0 0 0 6.06 1.54c7.04 0 12.76-5.72 12.76-12.76S23.06 3.2 16.02 3.2Zm0 23.4c-1.93 0-3.82-.52-5.47-1.5l-.39-.23-4.04 1.06 1.08-3.94-.25-.4a10.57 10.57 0 0 1-1.62-5.63c0-5.89 4.79-10.68 10.68-10.68S26.7 10.07 26.7 15.96 21.91 26.6 16.02 26.6Zm5.86-7.99c-.32-.16-1.9-.94-2.19-1.04-.29-.11-.5-.16-.72.16-.21.32-.83 1.04-1.02 1.26-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.58-1.59-.95-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66s1.15 3.09 1.31 3.3c.16.21 2.26 3.45 5.47 4.84.76.33 1.36.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.9-.78 2.17-1.53.27-.75.27-1.39.19-1.53-.08-.13-.29-.21-.61-.37Z"/>
+    </svg>
+    <span class="sr-only">WhatsApp</span>
+  </a>
+  <script src="assets/js/i18n.js" defer></script>
+  <script src="assets/js/system.js" defer></script>
 </body>
 </html>

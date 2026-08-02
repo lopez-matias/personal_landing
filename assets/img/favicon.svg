@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">MatuDev</title>
+  <rect width="64" height="64" rx="8" fill="#03102d"/>
+  <path d="M7 7h50v50H7z" fill="#07183d" stroke="#77a7ff" stroke-width="3"/>
+  <path d="M14 16h36M14 48h36M16 14v36M48 14v36" stroke="#77a7ff" stroke-width="1.5" opacity=".38"/>
+  <path d="M16 43V21h7l9 12 9-12h7v22h-7V32l-9 11-9-11v11z" fill="#ffffff"/>
+  <path d="M16 21h7l9 12 9-12h7" fill="none" stroke="#9bd7ff" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M12 12h8v4h-8zM44 48h8v4h-8z" fill="#0068ff"/>
+</svg>
