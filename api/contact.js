@@ -1,15 +1,5 @@
 const required = ["name", "email", "projectType", "message"];
 
-function json(data, status = 200) {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: {
-      "content-type": "application/json; charset=utf-8",
-      "cache-control": "no-store"
-    }
-  });
-}
-
 function isEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || ""));
 }
@@ -43,16 +33,21 @@ function buildText(payload) {
   ].join("\n");
 }
 
-async function sendWithResend(env, payload) {
+function sendJson(response, status, data) {
+  response.status(status).setHeader("cache-control", "no-store");
+  response.json(data);
+}
+
+async function sendWithResend(payload) {
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
-      "authorization": `Bearer ${env.RESEND_API_KEY}`,
+      "authorization": `Bearer ${process.env.RESEND_API_KEY}`,
       "content-type": "application/json"
     },
     body: JSON.stringify({
-      from: env.CONTACT_FROM_EMAIL,
-      to: [env.CONTACT_TO_EMAIL],
+      from: process.env.CONTACT_FROM_EMAIL,
+      to: [process.env.CONTACT_TO_EMAIL],
       reply_to: payload.email,
       subject: `Nueva consulta MatuDev: ${payload.projectType}`,
       text: buildText(payload)
@@ -65,14 +60,12 @@ async function sendWithResend(env, payload) {
   }
 }
 
-export async function onRequestPost({ request, env }) {
-  let payload;
-  try {
-    payload = await request.json();
-  } catch (error) {
-    return json({ ok: false, message: "invalid_json" }, 400);
+export default async function handler(request, response) {
+  if (request.method !== "POST") {
+    return sendJson(response, 405, { ok: false, message: "method_not_allowed" });
   }
 
+  const payload = request.body || {};
   const normalized = {
     name: clean(payload.name, 160),
     email: clean(payload.email, 220),
@@ -85,12 +78,12 @@ export async function onRequestPost({ request, env }) {
 
   const errors = validate(normalized);
   if (Object.keys(errors).length) {
-    return json({ ok: false, message: "validation_error", errors }, 422);
+    return sendJson(response, 422, { ok: false, message: "validation_error", errors });
   }
 
-  const hasResend = Boolean(env.RESEND_API_KEY && env.CONTACT_FROM_EMAIL && env.CONTACT_TO_EMAIL);
+  const hasResend = Boolean(process.env.RESEND_API_KEY && process.env.CONTACT_FROM_EMAIL && process.env.CONTACT_TO_EMAIL);
   if (!hasResend) {
-    return json({
+    return sendJson(response, 200, {
       ok: true,
       emailSent: false,
       mode: "development",
@@ -100,14 +93,10 @@ export async function onRequestPost({ request, env }) {
   }
 
   try {
-    await sendWithResend(env, normalized);
-    return json({ ok: true, emailSent: true });
+    await sendWithResend(normalized);
+    return sendJson(response, 200, { ok: true, emailSent: true });
   } catch (error) {
     console.error(error);
-    return json({ ok: false, message: "email_send_failed" }, 502);
+    return sendJson(response, 502, { ok: false, message: "email_send_failed" });
   }
-}
-
-export async function onRequestGet() {
-  return json({ ok: false, message: "method_not_allowed" }, 405);
 }

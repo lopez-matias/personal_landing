@@ -1,11 +1,5 @@
-# Local dependencies and package-manager caches
-node_modules/
-.pnpm-store/
-dist/
-
-# Cloudflare / Wrangler local state
-.wrangler/
-.dev.vars
+# Vercel local state
+.vercel/
 
 # Logs
 *.log

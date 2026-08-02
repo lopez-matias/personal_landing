@@ -1,6 +1,0 @@
-{
-  "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "matudev",
-  "compatibility_date": "2026-08-02",
-  "pages_build_output_dir": "dist"
-}

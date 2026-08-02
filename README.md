@@ -15,16 +15,7 @@ Abrir:
 - `http://localhost:4173/404.html`
 - `http://localhost:4173/gracias.html`
 
-Con `python -m http.server` la función de Cloudflare no corre. En ese caso el formulario muestra fallback por correo/WhatsApp.
-
-Para probar el sitio con Cloudflare Pages Functions:
-
-```powershell
-npm install
-npm run dev:build
-```
-
-Wrangler sirve el proyecto con la función `/api/contact` incluida.
+Con `python -m http.server` la función serverless de Vercel no corre. En ese caso el formulario muestra fallback por correo/WhatsApp.
 
 ## Estructura
 
@@ -36,12 +27,9 @@ Wrangler sirve el proyecto con la función `/api/contact` incluida.
 ├── gracias.html
 ├── robots.txt
 ├── sitemap.xml
-├── _headers
-├── _redirects
-├── package.json
-├── wrangler.jsonc
-├── scripts/
-│   └── build-cloudflare.mjs
+├── vercel.json
+├── api/
+│   └── contact.js
 ├── assets/
 │   ├── css/
 │   │   └── system.css
@@ -53,9 +41,6 @@ Wrangler sirve el proyecto con la función `/api/contact` incluida.
 │       ├── icon.png
 │       ├── og-system.svg
 │       └── profile.jpeg
-└── functions/
-    └── api/
-        └── contact.js
 ```
 
 ## Idiomas
@@ -106,7 +91,7 @@ El formulario envía un `POST` a:
 La función está en:
 
 ```text
-functions/api/contact.js
+api/contact.js
 ```
 
 Variables necesarias para envío real con Resend:
@@ -117,7 +102,7 @@ CONTACT_FROM_EMAIL=contacto@tu-dominio.com
 CONTACT_TO_EMAIL=lopeznunezmati@gmail.com
 ```
 
-Usar `.env.example` como referencia. Para desarrollo local con Wrangler, crear `.dev.vars` con esos valores. Para producción, cargarlos en Cloudflare Pages:
+Usar `.env.example` como referencia. Para producción, cargarlos en Vercel como Environment Variables:
 
 - `RESEND_API_KEY`
 - `CONTACT_FROM_EMAIL`
@@ -125,56 +110,28 @@ Usar `.env.example` como referencia. Para desarrollo local con Wrangler, crear `
 
 Si esas variables faltan, la función responde en modo desarrollo y el sitio muestra fallback. No se simula un envío real.
 
-## Publicar en Cloudflare Pages
+## Publicar en Vercel
 
-El proyecto está preparado para Cloudflare Pages con Functions.
+El proyecto está preparado para Vercel como sitio estático con una función serverless en `/api/contact`.
 
-Configuración recomendada en Cloudflare:
+Configuración recomendada en Vercel:
 
 ```text
 Framework preset: None
-Node.js version: 22
-Build command: npm run build
-Build output directory: dist
+Build command: vacío
+Output directory: vacío
 Root directory: /
-```
-
-En **Settings > Environment variables**, agregar como variable de build:
-
-```text
-NODE_VERSION=22
-```
-
-No usar `npx wrangler deploy` como comando de build dentro del proyecto de Pages. Ese comando corresponde al flujo de Workers/CLI y puede instalar la versión más nueva de Wrangler con una versión de Node incompatible. Para Pages conectado a Git, Cloudflare solo necesita:
-
-```text
-npm run build
-```
-
-Publicación por Wrangler:
-
-```powershell
-npm install
-npm run deploy
-```
-
-Publicación preview:
-
-```powershell
-npm run deploy:preview
 ```
 
 Archivos relevantes:
 
-- `wrangler.jsonc`: define `pages_build_output_dir` en `dist`.
-- `scripts/build-cloudflare.mjs`: copia solo los archivos públicos al directorio de salida.
-- `functions/api/contact.js`: endpoint serverless del formulario.
-- `_headers`: headers de seguridad y cache.
-- `_redirects`: redirects básicos, incluyendo `www` hacia dominio raíz.
+- `vercel.json`: headers de seguridad, cache y redirects simples.
+- `api/contact.js`: endpoint serverless del formulario.
+- `assets/`: CSS, JavaScript e imágenes.
 
 ## Notas para GitHub privado
 
-- No subir `.env`, `.dev.vars`, `.wrangler/` ni logs.
+- No subir `.env`, `.vercel/` ni logs.
 - `.gitignore` ya cubre archivos locales y temporales.
-- No hay dependencias de Node ni build step.
+- No hay dependencias instalables ni build step.
 - No hay prototipos ni assets exploratorios en la versión final.

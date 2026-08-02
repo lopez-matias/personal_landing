@@ -133,7 +133,7 @@
     privacyUseTitle: "Use of information",
     privacyUseText: "The data is used only to answer inquiries, understand project context and prepare a technical or commercial response.",
     privacyProcessTitle: "Form processing",
-    privacyProcessText: "The form is prepared to be sent through a Cloudflare Pages Function. The email provider is configured through environment variables and can be replaced without exposing secrets in the repository.",
+    privacyProcessText: "The form is prepared to be sent through a Vercel serverless function. The email provider is configured through environment variables and can be replaced without exposing secrets in the repository.",
     privacyFallbackTitle: "Contact fallback",
     privacyFallbackText: "If automatic sending is not configured or fails, you can write directly to my <a href=\"mailto:lopeznunezmati@gmail.com\">Mail</a> or through <a href=\"https://wa.me/59898445531\" target=\"_blank\" rel=\"noopener noreferrer\">WhatsApp</a>.",
     privacyDeleteTitle: "Deletion",
