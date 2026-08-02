@@ -133,10 +133,22 @@ Configuración recomendada en Cloudflare:
 
 ```text
 Framework preset: None
-Node.js version: 20
+Node.js version: 22
 Build command: npm run build
 Build output directory: dist
 Root directory: /
+```
+
+En **Settings > Environment variables**, agregar como variable de build:
+
+```text
+NODE_VERSION=22
+```
+
+No usar `npx wrangler deploy` como comando de build dentro del proyecto de Pages. Ese comando corresponde al flujo de Workers/CLI y puede instalar la versión más nueva de Wrangler con una versión de Node incompatible. Para Pages conectado a Git, Cloudflare solo necesita:
+
+```text
+npm run build
 ```
 
 Publicación por Wrangler:
