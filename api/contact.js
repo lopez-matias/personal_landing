@@ -1,4 +1,8 @@
+import { Resend } from "resend";
+
 const required = ["name", "email", "projectType", "message"];
+const defaultFromEmail = "MatuDev <contacto@matudev.com>";
+const defaultToEmail = "lopeznunezmati@gmail.com";
 
 function isEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || ""));
@@ -33,31 +37,46 @@ function buildText(payload) {
   ].join("\n");
 }
 
+function escapeHtml(value) {
+  return String(value || "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function buildHtml(payload) {
+  return `
+    <h2>Nueva consulta desde MatuDev</h2>
+    <p><strong>Nombre:</strong> ${escapeHtml(payload.name)}</p>
+    <p><strong>Correo:</strong> ${escapeHtml(payload.email)}</p>
+    <p><strong>Empresa:</strong> ${escapeHtml(payload.company || "No indicada")}</p>
+    <p><strong>Tipo de proyecto:</strong> ${escapeHtml(payload.projectType)}</p>
+    <p><strong>Ruta:</strong> ${escapeHtml(payload.sourcePath || "No indicada")}</p>
+    <hr>
+    <p><strong>Mensaje:</strong></p>
+    <p>${escapeHtml(payload.message).replaceAll("\n", "<br>")}</p>
+  `;
+}
+
 function sendJson(response, status, data) {
   response.status(status).setHeader("cache-control", "no-store");
   response.json(data);
 }
 
 async function sendWithResend(payload) {
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      "authorization": `Bearer ${process.env.RESEND_API_KEY}`,
-      "content-type": "application/json"
-    },
-    body: JSON.stringify({
-      from: process.env.CONTACT_FROM_EMAIL,
-      to: [process.env.CONTACT_TO_EMAIL],
-      reply_to: payload.email,
-      subject: `Nueva consulta MatuDev: ${payload.projectType}`,
-      text: buildText(payload)
-    })
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  const { error } = await resend.emails.send({
+    from: process.env.CONTACT_FROM_EMAIL || defaultFromEmail,
+    to: [process.env.CONTACT_TO_EMAIL || defaultToEmail],
+    replyTo: payload.email,
+    subject: `MATUDEV Contacto: ${payload.projectType}`,
+    html: buildHtml(payload),
+    text: buildText(payload)
   });
 
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(`resend_error:${response.status}:${text.slice(0, 180)}`);
-  }
+  if (error) throw new Error(`resend_error:${JSON.stringify(error).slice(0, 180)}`);
 }
 
 export default async function handler(request, response) {
@@ -81,7 +100,7 @@ export default async function handler(request, response) {
     return sendJson(response, 422, { ok: false, message: "validation_error", errors });
   }
 
-  const hasResend = Boolean(process.env.RESEND_API_KEY && process.env.CONTACT_FROM_EMAIL && process.env.CONTACT_TO_EMAIL);
+  const hasResend = Boolean(process.env.RESEND_API_KEY);
   if (!hasResend) {
     return sendJson(response, 200, {
       ok: true,

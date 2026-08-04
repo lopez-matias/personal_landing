@@ -97,14 +97,32 @@ api/contact.js
 Variables necesarias para envío real con Resend:
 
 ```text
-RESEND_API_KEY=...
-CONTACT_FROM_EMAIL=contacto@tu-dominio.com
+RESEND_API_KEY=re_xxxxxxxxx
+```
+
+Valores configurados por defecto en `api/contact.js`:
+
+```text
+CONTACT_FROM_EMAIL=MatuDev <contacto@matudev.com>
 CONTACT_TO_EMAIL=lopeznunezmati@gmail.com
 ```
 
-Usar `.env.example` como referencia. Para producción, cargarlos en Vercel como Environment Variables:
+Si querés cambiarlos sin tocar código, también podés cargarlos en Vercel como variables de entorno.
+
+El proyecto usa el SDK oficial de Resend, declarado en `package.json`. Si vas a probar con Node/Vercel local, primero instala dependencias:
+
+```powershell
+npm install
+```
+
+Reemplaza `re_xxxxxxxxx` por tu API key real de Resend; no subas esa clave al repositorio.
+
+Usar `.env.example` como referencia. Para producción, cargá al menos esta variable en Vercel como Environment Variable:
 
 - `RESEND_API_KEY`
+
+Opcionales:
+
 - `CONTACT_FROM_EMAIL`
 - `CONTACT_TO_EMAIL`
 
@@ -133,5 +151,6 @@ Archivos relevantes:
 
 - No subir `.env`, `.vercel/` ni logs.
 - `.gitignore` ya cubre archivos locales y temporales.
-- No hay dependencias instalables ni build step.
+- Hay una dependencia de Node para el SDK de Resend: `resend`.
+- No hay build step.
 - No hay prototipos ni assets exploratorios en la versión final.
