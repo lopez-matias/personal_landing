@@ -389,9 +389,9 @@ p {
 }
 
 h1 {
-  max-width: 9.8ch;
+  max-width: 13ch;
   margin: 0.85rem 0 0;
-  font-size: clamp(3rem, 7.2vw, 5.8rem);
+  font-size: clamp(3rem, 6vw, 5.25rem);
   text-wrap: balance;
 }
 
@@ -415,6 +415,12 @@ h3 {
 
 .hero .lead {
   margin: 0.85rem 0 0;
+}
+
+.hero-lead {
+  max-width: 620px;
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  line-height: 1.55;
 }
 
 .hero-actions,
@@ -603,6 +609,7 @@ h3 {
   .system-window:hover,
   .flow-node:hover,
   .service-card:hover,
+  .project-card:hover,
   .process-step:hover,
   .faq-item:hover,
   .contact-form:hover,
@@ -652,6 +659,109 @@ h3 {
 .service-number {
   display: inline-flex;
   align-self: start;
+}
+
+.projects-section {
+  background: color-mix(in srgb, var(--panel-2) 58%, transparent);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.project-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: var(--border);
+  background: var(--panel);
+  transition: background-color 220ms ease, border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+.project-image {
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: var(--border);
+  background: var(--paper-2);
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  transition: transform 240ms ease;
+}
+
+@media (hover: hover) {
+  .project-card:hover .project-image img {
+    transform: scale(1.018);
+  }
+}
+
+.project-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.project-card-text {
+  background: var(--panel-2);
+}
+
+.project-card-text .project-content {
+  min-height: 100%;
+  justify-content: center;
+  padding-block: clamp(2rem, 7vw, 5rem);
+}
+
+.project-type,
+.project-link,
+.project-points {
+  font-family: var(--mono);
+  font-weight: 900;
+}
+
+.project-type {
+  color: var(--signal);
+  font-size: 0.76rem;
+}
+
+.project-content p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 750;
+}
+
+.project-link {
+  margin-top: auto;
+  color: var(--line);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.project-points {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.projects-note {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 900;
 }
 
 .process-grid {
@@ -986,10 +1096,8 @@ textarea[aria-invalid="true"] {
 
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 520ms ease, transform 520ms ease;
-    will-change: opacity, transform;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .reveal.in {
@@ -1203,6 +1311,7 @@ textarea[aria-invalid="true"] {
   }
 
   .flow-grid,
+  .projects-grid,
   .process-grid,
   .faq-list,
   .form-row {
