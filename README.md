@@ -1,138 +1,145 @@
-# MatuDev landing
+# MatuDev
 
-Landing profesional estática con estética **Retro Data System**, paleta azul técnica y cambio de idioma por JavaScript.
+Portfolio personal de Matías López. Presenta proyectos y capacidades en backend, aplicaciones web, datos e integraciones con un sistema visual monocromático y acentos azul marino.
 
-## Ejecutar en local
+## Stack del sitio
 
-```powershell
-python -m http.server 4173
-```
+- HTML semántico.
+- CSS nativo, responsive y sin frameworks visuales.
+- JavaScript ES modules para contenido dinámico.
+- Función serverless de Vercel para el formulario.
+- Resend como proveedor de correo.
+- ESLint, Prettier, Node Test Runner y Playwright Core para calidad.
 
-Abrir:
-
-- `http://localhost:4173/`
-- `http://localhost:4173/privacy.html`
-- `http://localhost:4173/404.html`
-- `http://localhost:4173/gracias.html`
-
-Con `python -m http.server` la función serverless de Vercel no corre. En ese caso el formulario muestra fallback por correo/WhatsApp.
+No hay un framework de frontend ni un proceso de compilación de assets. Esta decisión mantiene el sitio rápido, legible y fácil de modificar.
 
 ## Estructura
 
 ```text
 .
-├── index.html
-├── privacy.html
-├── 404.html
-├── gracias.html
-├── robots.txt
-├── sitemap.xml
-├── vercel.json
+├── index.html                    # Landing principal y metadata SEO
+├── privacy.html                  # Política de privacidad
+├── gracias.html                  # Estado de contacto recibido
+├── 404.html                      # Página no encontrada
 ├── api/
-│   └── contact.js
+│   └── contact.js                # Endpoint serverless del formulario
 ├── assets/
 │   ├── css/
-│   │   └── system.css
-│   ├── js/
-│   │   ├── i18n.js
-│   │   └── system.js
-│   └── img/
-│       ├── favicon.svg
-│       ├── icon.png
-│       ├── og-system.svg
-│       └── profile.jpeg
+│   │   └── system.css            # Sistema visual y responsive
+│   ├── img/                      # Screenshots, SVG y favicons
+│   └── js/
+│       ├── app.js                # Render de proyectos y tecnologías
+│       ├── i18n.js               # Español / inglés
+│       ├── system.js             # Navegación, tema y formulario
+│       └── data/
+│           ├── projects.js
+│           └── technologies.js
+├── scripts/
+│   ├── validate.mjs              # Validación del build estático
+│   └── visual-check.mjs          # QA responsive automatizado
+├── tests/                        # Tests de datos y del endpoint de contacto
+├── eslint.config.js
+├── vercel.json
+├── robots.txt
+└── sitemap.xml
 ```
 
-## Idiomas
+## Instalación
 
-El cambio español/inglés se maneja en:
-
-```text
-assets/js/i18n.js
-```
-
-Ese archivo contiene:
-
-- Textos visibles de la landing.
-- Metadatos principales (`title`, description, Open Graph y Twitter).
-- Textos del formulario.
-- Labels y atributos accesibles.
-
-La preferencia se guarda en `localStorage` con la clave:
-
-```text
-matudev-language
-```
-
-## Tema
-
-El tema claro/oscuro se maneja en:
-
-```text
-assets/js/system.js
-```
-
-La preferencia se guarda con:
-
-```text
-matudev-system-theme
-```
-
-Los colores están centralizados en `assets/css/system.css`, dentro de `:root` y `[data-theme="dark"]`.
-
-## Formulario
-
-El formulario envía un `POST` a:
-
-```text
-/api/contact
-```
-
-La función está en:
-
-```text
-api/contact.js
-```
-
-Variables necesarias para envío real con Resend:
-
-```text
-RESEND_API_KEY=re_xxxxxxxxx
-```
-
-Valores configurados por defecto en `api/contact.js`:
-
-```text
-CONTACT_FROM_EMAIL=MatuDev <contacto@matudev.com>
-CONTACT_TO_EMAIL=lopeznunezmati@gmail.com
-```
-
-Si querés cambiarlos sin tocar código, también podés cargarlos en Vercel como variables de entorno.
-
-El proyecto usa el SDK oficial de Resend, declarado en `package.json`. Si vas a probar con Node/Vercel local, primero instala dependencias:
+Requiere Node.js 20.19 o superior y Python disponible en el PATH para el servidor estático de desarrollo.
 
 ```powershell
 npm install
 ```
 
-Reemplaza `re_xxxxxxxxx` por tu API key real de Resend; no subas esa clave al repositorio.
+## Desarrollo
 
-Usar `.env.example` como referencia. Para producción, cargá al menos esta variable en Vercel como Environment Variable:
+```powershell
+npm run dev
+```
 
-- `RESEND_API_KEY`
+Abrí `http://127.0.0.1:4173`.
 
-Opcionales:
+La versión en español vive en la URL principal y sus textos se editan directamente en los archivos HTML. La versión en inglés se abre con `?lang=en` y sus traducciones son las únicas almacenadas en `assets/js/i18n.js`. Las banderas cambian entre ambas versiones y mantienen el idioma en las páginas auxiliares.
 
-- `CONTACT_FROM_EMAIL`
-- `CONTACT_TO_EMAIL`
+El servidor estático local no ejecuta `/api/contact`. En ese entorno el formulario muestra el fallback de contacto previsto. Para probar la función serverless completa se puede usar Vercel CLI con las variables de entorno configuradas.
 
-Si esas variables faltan, la función responde en modo desarrollo y el sitio muestra fallback. No se simula un envío real.
+## Calidad y build
 
-## Publicar en Vercel
+```powershell
+npm run lint
+npm test
+npm run build
+npm run qa:visual
+```
 
-El proyecto está preparado para Vercel como sitio estático con una función serverless en `/api/contact`.
+- `lint`: ejecuta ESLint y comprueba formato con Prettier.
+- `test`: valida datos de contenido y el comportamiento básico del endpoint.
+- `build`: comprueba archivos, proyectos y estados admitidos. No genera un bundle porque el despliegue sirve los archivos estáticos directamente.
+- `qa:visual`: usa Microsoft Edge instalado localmente para revisar 375, 430, 768, 1024 y 1440 px, interacción básica, imágenes y overflow horizontal. Las capturas temporales se guardan en `.artifacts/`, que no se publica.
 
-Configuración recomendada en Vercel:
+Para aplicar formato:
+
+```powershell
+npm run format
+```
+
+## Formulario y variables de entorno
+
+El formulario envía JSON mediante `POST /api/contact`. La función valida los datos, escapa el HTML, aplica honeypot y limitación básica por IP, registra resultados sin guardar el contenido del mensaje y utiliza Resend cuando existe una API key.
+
+Copiá `.env.example` a tu configuración local o cargá estas variables en Vercel:
+
+```text
+RESEND_API_KEY=re_xxxxxxxxx
+CONTACT_FROM_EMAIL=MatuDev <contacto@matudev.com>
+CONTACT_TO_EMAIL=correo@destino.com
+```
+
+- `RESEND_API_KEY` es necesaria para el envío real.
+- `CONTACT_FROM_EMAIL` y `CONTACT_TO_EMAIL` son opcionales porque existe una configuración por defecto.
+- El dominio usado en `CONTACT_FROM_EMAIL` debe estar verificado en Resend antes del despliegue.
+- Nunca subas `.env` ni claves reales al repositorio.
+
+Si `RESEND_API_KEY` no está configurada, el endpoint responde en modo desarrollo y el frontend muestra la alternativa por correo. Ese comportamiento es intencional.
+
+## Cómo agregar o editar proyectos
+
+Los proyectos viven en `assets/js/data/projects.js`. Cada objeto sigue esta forma:
+
+```js
+{
+  name: "Nombre",
+  slug: "nombre",
+  description: { es: "Descripción", en: "Description" },
+  problem: { es: "Problema", en: "Problem" },
+  technologies: ["Python", "FastAPI"],
+  github: "https://github.com/...",
+  demo: "",
+  image: "assets/img/proyecto.png",
+  alt: { es: "Texto alternativo", en: "Alt text" },
+  status: "PORTFOLIO"
+}
+```
+
+Estados admitidos: `LIVE`, `PORTFOLIO`, `BUILDING` y `EXPERIMENT`.
+
+No publiques proyectos futuros como terminados: el estado, los enlaces y la descripción deben corresponder a contenido verificable.
+
+## Contenido editable
+
+- Stack: `assets/js/data/technologies.js`.
+- Textos estáticos y traducciones: `assets/js/i18n.js` y `index.html`.
+
+## SEO
+
+La home incluye canonical, Open Graph, Twitter Cards y JSON-LD. `robots.txt` y `sitemap.xml` apuntan a `https://www.matudev.com`, que es el host canónico al que redirige el dominio publicado.
+
+La imagen social está en `assets/img/og-system.png`. La computadora optimizada del hero está en `assets/img/hero-computer.webp` y sus versiones de favicon en `assets/img/favicon-computer.png` y `assets/img/apple-touch-computer.png`.
+
+## Deployment
+
+El repositorio está preparado para Vercel:
 
 ```text
 Framework preset: None
@@ -141,16 +148,4 @@ Output directory: vacío
 Root directory: /
 ```
 
-Archivos relevantes:
-
-- `vercel.json`: headers de seguridad, cache y redirects simples.
-- `api/contact.js`: endpoint serverless del formulario.
-- `assets/`: CSS, JavaScript e imágenes.
-
-## Notas para GitHub privado
-
-- No subir `.env`, `.vercel/` ni logs.
-- `.gitignore` ya cubre archivos locales y temporales.
-- Hay una dependencia de Node para el SDK de Resend: `resend`.
-- No hay build step.
-- No hay prototipos ni assets exploratorios en la versión final.
+`vercel.json` conserva los headers de seguridad, la política de caché para assets, el `no-store` de la API y las URLs limpias sin extensión `.html`. La configuración de dominio se administra en el proyecto de Vercel, no en este repositorio.

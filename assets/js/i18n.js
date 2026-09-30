@@ -1,311 +1,348 @@
 (function () {
-  const storageKey = "matudev-language";
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const english = {
-    metaTitle: "MatuDev | Software and data for businesses",
-    metaDescription: "Internal systems, databases, reporting and integrations built to solve concrete problems for small and medium-sized businesses.",
-    ogLocale: "en_US",
-    ogTitle: "MatuDev | Software and data for businesses",
-    ogDescription: "Internal systems, databases, reporting and integrations to improve business processes.",
-    twitterTitle: "MatuDev | Software and data for businesses",
-    twitterDescription: "I build software and data solutions for concrete business needs.",
-    privacyMetaTitle: "Privacy policy | MatuDev",
-    privacyMetaDescription: "Privacy policy for the MatuDev contact form.",
-    thanksMetaTitle: "Thanks for your inquiry | MatuDev",
-    thanksMetaDescription: "Thanks for contacting MatuDev.",
-    notFoundMetaTitle: "Page not found | MatuDev",
-    notFoundMetaDescription: "The requested page does not exist on MatuDev.",
     skipLink: "Skip to content",
     navAria: "Main navigation",
     brandAria: "MatuDev, back to start",
-    preferencesAria: "Preferences",
     themeAria: "Change theme",
-    langAria: "View site in Spanish",
-    langButton: "ES",
     menuOpenAria: "Open menu",
     menuCloseAria: "Close menu",
-    navHome: "Home",
-    navServices: "Services",
     navProjects: "Projects",
-    navProcess: "Process",
+    navServices: "Services",
+    navStack: "Technologies",
     navAbout: "About",
     navContact: "Contact",
-    heroKicker: "SOFTWARE · DATABASES · REPORTING",
-    heroTitle: "Software and data for your business",
-    heroLead: "I build internal systems, database solutions and reports to replace manual processes, centralize information and solve concrete business needs.",
-    heroCta: "Tell me your problem",
-    heroSecondary: "View projects",
-    heroLogAria: "Data processing log",
-    heroLog1: "understand the process and expected result",
-    heroLog2: "model data, rules and permissions",
-    heroLog3: "build the system and its integrations",
-    heroLog4: "validate with real use cases",
-    heroLog5: "deliver, document and support",
-    servicesTitle: "Solutions for real business problems",
-    servicesLead: "The tool comes after understanding the process, the people who use it and the result you need.",
-    service1Title: "Software development",
-    service1Text: "Internal systems and custom applications to manage inventory, orders, customers, requests and other operational processes.",
-    service2Title: "Databases",
-    service2Text: "Data models, SQL queries, inconsistency fixes and optimization for organized, maintainable information.",
-    service3Title: "Reporting and BI",
-    service3Text: "Dashboards, indicators and consolidated information so different areas can analyze and decide with the same data.",
-    service4Title: "Integrations and processes",
-    service4Text: "Connections between systems, APIs, files and databases to reduce manual work and improve information flow.",
-    service5Title: "Data consulting",
-    service5Text: "When the problem is not the tool, we analyze sources, rules, reports and processes to identify which data matters and define a realistic solution.",
-    service6Title: "Automations",
-    service6Text: "When repetitive tasks consume time, we automate checks, alerts, loads and scheduled processes to reduce errors and manual work.",
-    projectsTitle: "Solutions adapted to each business",
-    projectsLead: "Four examples of websites and systems that can be customized around each business process, data and way of working.",
-    project1Aria: "View the inventory system on GitHub",
-    project1Alt: "Dashboard of an adaptable inventory control system",
-    project1Type: "INVENTORY · SOFTWARE · POSTGRESQL",
-    project1Title: "Inventory management system",
-    project1Text: "An adaptable web application that centralizes products, warehouses, stock levels and movements using each business's own rules.",
-    project2Aria: "View the request management system on GitHub",
-    project2Alt: "Dashboard of an adaptable internal request system",
-    project2Type: "INTERNAL PROCESSES · REQUESTS",
-    project2Title: "Internal request management",
-    project2Text: "A customizable website for organizing requests, assignees, priorities, statuses, comments and change history.",
-    project3Aria: "View the reporting platform on GitHub",
-    project3Alt: "Dashboard of an adaptable business reporting platform",
-    project3Type: "DATA · REPORTING · CSV IMPORT",
-    project3Title: "Business reporting platform",
-    project3Text: "An adaptable website that validates sales files, centralizes the data and enables analysis through indicators, filters and exports.",
-    project4Aria: "View the customer and order system on GitHub",
-    project4Alt: "Dashboard of an adaptable customer and order system",
-    project4Type: "CUSTOMERS · ORDERS · PAYMENTS",
-    project4Title: "Customer and order management",
-    project4Text: "A customizable system for managing customers, products, orders, historical prices, payments and business metrics.",
-    projectLink: "View project on GitHub →",
-    projectsNote: "Each solution can be adapted to a specific business. The published demonstrations use fictional data only.",
-    processTitle: "A clear process from start to finish",
-    processLead: "First we clarify the expected result. Then we define scope, timing and cost before any work begins.",
-    process1Title: "Diagnose",
-    process1Text: "We analyze the problem, current processes, available sources and the result you need.",
-    process2Title: "Design",
-    process2Text: "We define a clear, realistic solution adapted to your tools, data and way of working.",
-    process3Title: "Build",
-    process3Text: "We develop the models, processes, integrations, automations or reports required.",
-    process4Title: "Validate",
-    process4Text: "We test results, review errors and confirm that the solution answers the real problem.",
-    process5Title: "Implement",
-    process5Text: "We deliver the documented solution and explain how to use, maintain and extend it.",
-    profileAlt: "Photo of Matias Lopez",
-    aboutTitle: "Hi, I am Matias.",
-    aboutP1: "I work professionally in Business Intelligence and database administration, and I build systems focused on solving concrete operational problems.",
-    aboutP2: "My experience combines business, data and software. This allows me to understand the process before coding and deliver practical, documented and maintainable solutions. I also study Computer Engineering at Universidad de la República.",
-    profilesAria: "Profiles and contact",
-    emailLabel: "Mail",
-    faqTitle: "Before starting, you may want to know this",
-    faqIntro: "Some answers about the services, the way of working and how to begin.",
-    faq1Q: "What kind of problems can you help me solve?",
-    faq1A: "I can build or improve internal systems, databases, reports, integrations and processes that currently depend on manual work or disconnected tools.",
-    faq2Q: "Do I need to know exactly which solution I want?",
-    faq2A: "No. First we review the problem, how you currently work and what result you need. From there, we define a clear and realistic solution.",
-    faq3Q: "Can you improve something that is already built?",
-    faq3A: "Yes. I can review existing reports, databases, automations and processes to detect errors and improve how they work.",
-    faq4Q: "Do you work with one specific technology?",
-    faq4A: "Technology is chosen according to the problem and the project's needs. I work with web software, databases, files, APIs, automations and reporting tools.",
-    faq5Q: "How are cost and timing calculated?",
-    faq5A: "They depend on scope, available information, required integrations and solution complexity. Everything is defined before starting.",
-    faq6Q: "What do you need to begin?",
-    faq6A: "A brief description of the problem, some examples and the result you expect. With that we can evaluate the project and define the next steps.",
-    contactTitle: "Tell me what you need to improve.",
-    contactLead: "It can be an internal system, an inconsistent report, a slow database, a manual task or two tools you need to connect. I will reply with the next steps.",
+    heroKicker: "SOFTWARE · BACKEND · DATA.",
+    heroTitle: "Hi, I’m<br><span>Matías.</span>",
+    heroLead:
+      "I build software, automations and integrations that turn complex processes into clear, useful tools.",
+    heroPrimary: "View projects",
+    heroSecondary: "Let’s talk",
+    heroVisualAlt: "Retro computer with a code terminal",
+    quickAria: "Profile links",
+    quickTitle: "PROFILES",
+    projectsTitle: "my projects",
+    servicesTitle: "how I can help",
+    service1Title: "Backend",
+    service1Text:
+      "APIs, application logic and services connected to databases.",
+    service2Title: "Software / Web Apps",
+    service2Text: "Applications and web tools adapted to real processes.",
+    service3Title: "Data",
+    service3Text: "SQL, ETL, reporting, indicators and BI.",
+    service4Title: "Integrations",
+    service4Text: "Systems, APIs, files and automation working together.",
+    stackTitle: "technologies",
+    aboutTitle: "how I work.",
+    aboutP1: "Before choosing a technology, I try to understand the process.",
+    aboutP2:
+      "I work across backend, web applications and databases. I combine professional experience with my Computer Engineering studies in Uruguay to build clear, maintainable and useful solutions.",
+    aboutLinkedin: "LinkedIn ↗",
+    experienceAria: "Work experience",
+    experienceRole1: "Business Intelligence Analyst / DBA",
+    experienceRole2: "Data Analyst / Business Intelligence",
+    experienceRole3: "ERP Developer / DBA",
+    roleLine: "Software · Backend · Web · Data",
+    contactTitle: "tell me about your idea.",
+    contactLead:
+      "If you need to build a tool, connect systems, automate a process or work with your data, tell me about the problem. I’ll reply by email with clear next steps.",
     formName: "Name",
-    formCompany: "Company",
-    formOptional: "optional",
-    formEmail: "Email",
-    formProjectType: "Project type",
-    formSelect: "Select an option",
-    projectSoftware: "Internal system or application",
-    projectReports: "Reports or dashboards",
-    projectDatabase: "Database",
-    projectEtl: "ETL or processing",
-    projectApi: "Integration or API",
-    projectAutomation: "Automation",
-    projectConsulting: "Consulting",
-    projectUnknown: "I am not sure yet",
-    projectOther: "Other",
-    formMessage: "Problem description",
-    formPlaceholder: "Tell me what data you have, which task takes too long or which report you need to improve.",
-    formConsent: "I agree that matudev may use this data to answer my inquiry.",
-    privacyLink: "View privacy",
-    formSubmit: "Send inquiry",
+    formMessage: "Message",
+    formPlaceholder: "Tell me what you need to build, improve or connect.",
+    formPrivacyNote: "Your data is used only to reply to this message.",
+    privacyLink: "Privacy",
+    formSubmit: "Send message",
     formRequired: "Complete this field so I can understand the inquiry.",
     formEmailError: "Enter a valid email so I can reply.",
     formMinError: "Write at least {count} characters to give me context.",
-    formConsentError: "I need your consent to answer the inquiry.",
     formReview: "Review the marked fields before sending.",
-    formSending: "Sending inquiry...",
+    formSending: "Sending message...",
     formSent: "Message received. I will reply by email.",
-    formFallback: "Automatic sending is not configured or did not respond. You can email me at lopeznunezmati@gmail.com or use WhatsApp.",
-    footerText: "systemAdmin:~",
+    formFallback:
+      "Automatic sending is unavailable. You can email me at lopeznunezmati@gmail.com.",
     footerNavAria: "Secondary navigation",
-    privacy: "Privacy",
-    whatsappLabel: "WhatsApp",
-    whatsappAria: "Write on WhatsApp",
     backTopAria: "Back to top",
+    whatsappAria: "Write on WhatsApp",
+    whatsappLabel: "WhatsApp",
     backHome: "Back to home",
     writeEmail: "Write by email",
     goHome: "Go home",
-    contactMatudev: "Contact matudev",
     privacyKicker: "MATUDEV / PRIVACY",
     privacyTitle: "Policy",
-    privacyLead: "This policy explains how data sent through the contact form is used.",
-    privacyUpdated: "Last update: August 1, 2026.",
+    privacyLead:
+      "This policy explains how data sent through the contact form is used.",
+    privacyUpdated: "Last update: September 30, 2026.",
     privacyDataTitle: "Requested data",
-    privacyDataText: "The form may request name, email, optional company, project type, problem description and consent to answer the inquiry.",
+    privacyDataText: "The form requests a name, email and message.",
     privacyUseTitle: "Use of information",
-    privacyUseText: "The data is used only to answer inquiries, understand project context and prepare a technical or commercial response.",
+    privacyUseText:
+      "The data is used only to answer inquiries, understand project context and prepare a technical or commercial response.",
     privacyProcessTitle: "Form processing",
-    privacyProcessText: "The form is prepared to be sent through a Vercel serverless function. The email provider is configured through environment variables and can be replaced without exposing secrets in the repository.",
-    privacyFallbackTitle: "Contact fallback",
-    privacyFallbackText: "If automatic sending is not configured or fails, you can write directly to my <a href=\"mailto:lopeznunezmati@gmail.com\">Mail</a> or through <a href=\"https://wa.me/59898445531\" target=\"_blank\" rel=\"noopener noreferrer\">WhatsApp</a>.",
+    privacyProcessText:
+      "The form is sent through a Vercel serverless function. The email provider is configured with environment variables. The IP address may be processed temporarily to limit abusive submissions, but it is not added to the message or exposed in the repository.",
+    privacyFallbackTitle: "Contact alternatives",
+    privacyFallbackText:
+      'If automatic sending is unavailable, email me directly at <a href="mailto:lopeznunezmati@gmail.com">lopeznunezmati@gmail.com</a> or contact me via <a href="https://wa.me/59898445531" target="_blank" rel="noopener noreferrer">WhatsApp</a>.',
     privacyDeleteTitle: "Deletion",
-    privacyDeleteText: "You can request deletion of your inquiry by replying to the same email thread or sending a new request by email.",
+    privacyDeleteText:
+      "You may request deletion of your inquiry by replying to the same email thread or sending a new request.",
     thanksKicker: "INQUIRY / RECEIVED",
-    thanksTitle: "Thanks. I already have your message.",
-    thanksLead: "I will reply by email. If automatic sending was not available, you can also write directly using the buttons below.",
+    thanksTitle: "Thanks. I have your message.",
+    thanksLead:
+      "I will reply by email. If automatic sending was unavailable, you can also contact me directly using the options below.",
     notFoundKicker: "ERROR / ROUTE NOT FOUND",
     notFoundTitle: "This screen does not exist.",
-    notFoundLead: "The URL was moved or is not available. You can go back home or write to me if you were looking for project information."
+    notFoundLead:
+      "The URL was moved or is unavailable. Go back home or contact me if you were looking for project information.",
   };
 
-  const sourceCopy = {};
+  const englishMetadata = {
+    home: [
+      "MatuDev — Software Development, Data & Integrations",
+      "Software development, web applications, APIs, databases, automation and integrations with Python, JavaScript, Java and SQL.",
+    ],
+    privacy: [
+      "Privacy policy | MatuDev",
+      "Privacy policy for the MatuDev contact form.",
+    ],
+    thanks: [
+      "Thanks for your inquiry | MatuDev",
+      "Thanks for contacting MatuDev.",
+    ],
+    notFound: [
+      "Page not found | MatuDev",
+      "The requested page does not exist on MatuDev.",
+    ],
+  };
 
-  function getSavedLang() {
-    try {
-      return localStorage.getItem(storageKey);
-    } catch (error) {
-      return null;
-    }
+  const spanishContent = {
+    text: [],
+    html: [],
+    attributes: [],
+    title: "",
+    metadata: [],
+  };
+
+  const metadataSelectors = [
+    'meta[name="description"]',
+    'meta[property="og:title"]',
+    'meta[property="og:description"]',
+    'meta[name="twitter:title"]',
+    'meta[name="twitter:description"]',
+    'meta[property="og:locale"]',
+  ];
+
+  function currentPage() {
+    const path = window.location.pathname;
+    if (path.includes("privacy")) return "privacy";
+    if (path.includes("gracias")) return "thanks";
+    if (path.includes("404")) return "notFound";
+    return "home";
   }
 
-  function saveLang(lang) {
-    try {
-      localStorage.setItem(storageKey, lang);
-    } catch (error) {
-      /* Local storage can be unavailable in restricted browser modes. */
-    }
+  function isEnglish() {
+    return (
+      new window.URLSearchParams(window.location.search).get("lang") === "en"
+    );
   }
 
-  function readMeta(selector) {
-    return document.querySelector(selector)?.getAttribute("content") || "";
-  }
-
-  function writeMeta(selector, value) {
-    document.querySelector(selector)?.setAttribute("content", value);
-  }
-
-  function pagePrefix() {
-    const page = window.location.pathname.split("/").pop();
-    if (page === "privacy.html") return "privacy";
-    if (page === "gracias.html") return "thanks";
-    if (page === "404.html") return "notFound";
-    return "";
-  }
-
-  function captureSourceCopy() {
+  function captureSpanishContent() {
     document.querySelectorAll("[data-i18n]").forEach((element) => {
-      const textKey = element.dataset.i18n;
-      if (textKey && sourceCopy[textKey] === undefined) {
-        sourceCopy[textKey] = element.textContent;
-      }
+      spanishContent.text.push([element, element.textContent]);
     });
 
     document.querySelectorAll("[data-i18n-html]").forEach((element) => {
-      const textKey = element.dataset.i18nHtml;
-      if (textKey && sourceCopy[textKey] === undefined) {
-        sourceCopy[textKey] = element.innerHTML;
-      }
+      spanishContent.html.push([element, element.innerHTML]);
     });
 
     document.querySelectorAll("[data-i18n-attr]").forEach((element) => {
       element.dataset.i18nAttr.split(";").forEach((mapping) => {
-        const [attribute, textKey] = mapping.split(":").map((item) => item.trim());
-        if (attribute && textKey && sourceCopy[textKey] === undefined) {
-          sourceCopy[textKey] = element.getAttribute(attribute) || "";
+        const [attribute] = mapping.split(":");
+        if (attribute) {
+          spanishContent.attributes.push([
+            element,
+            attribute,
+            element.getAttribute(attribute),
+          ]);
         }
       });
     });
 
-    Object.assign(sourceCopy, {
-      metaTitle: document.title,
-      metaDescription: readMeta("meta[name='description']"),
-      ogLocale: readMeta("meta[property='og:locale']"),
-      ogTitle: readMeta("meta[property='og:title']"),
-      ogDescription: readMeta("meta[property='og:description']"),
-      twitterTitle: readMeta("meta[name='twitter:title']"),
-      twitterDescription: readMeta("meta[name='twitter:description']")
-    });
+    spanishContent.title = document.title;
+    spanishContent.metadata = metadataSelectors
+      .map((selector) => document.querySelector(selector))
+      .filter(Boolean)
+      .map((element) => [element, element.getAttribute("content")]);
   }
 
-  function setMeta(data) {
-    const prefix = pagePrefix();
-    const title = prefix ? data[`${prefix}MetaTitle`] : "";
-    const description = prefix ? data[`${prefix}MetaDescription`] : "";
-
-    document.title = title || data.metaTitle;
-    writeMeta("meta[name='description']", description || data.metaDescription);
-    writeMeta("meta[property='og:locale']", data.ogLocale);
-    writeMeta("meta[property='og:title']", data.ogTitle);
-    writeMeta("meta[property='og:description']", data.ogDescription);
-    writeMeta("meta[name='twitter:title']", data.twitterTitle);
-    writeMeta("meta[name='twitter:description']", data.twitterDescription);
-  }
-
-  function applyText(data) {
+  function translateToEnglish() {
     document.querySelectorAll("[data-i18n]").forEach((element) => {
-      const value = data[element.dataset.i18n];
-      if (typeof value === "string") element.textContent = value;
+      const value = english[element.dataset.i18n];
+      if (value !== undefined) element.textContent = value;
     });
 
     document.querySelectorAll("[data-i18n-html]").forEach((element) => {
-      const value = data[element.dataset.i18nHtml];
-      if (typeof value === "string") element.innerHTML = value;
+      const value = english[element.dataset.i18nHtml];
+      if (value !== undefined) element.innerHTML = value;
     });
 
     document.querySelectorAll("[data-i18n-attr]").forEach((element) => {
       element.dataset.i18nAttr.split(";").forEach((mapping) => {
-        const [attribute, textKey] = mapping.split(":").map((item) => item.trim());
-        const value = data[textKey];
-        if (attribute && typeof value === "string") element.setAttribute(attribute, value);
+        const [attribute, key] = mapping.split(":");
+        if (attribute && english[key] !== undefined)
+          element.setAttribute(attribute, english[key]);
       });
+    });
+
+    const [title, description] = englishMetadata[currentPage()];
+    document.title = title;
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute("content", description);
+    document
+      .querySelector('meta[property="og:title"]')
+      ?.setAttribute("content", title);
+    document
+      .querySelector('meta[property="og:description"]')
+      ?.setAttribute("content", description);
+    document
+      .querySelector('meta[name="twitter:title"]')
+      ?.setAttribute("content", title);
+    document
+      .querySelector('meta[name="twitter:description"]')
+      ?.setAttribute("content", description);
+    document
+      .querySelector('meta[property="og:locale"]')
+      ?.setAttribute("content", "en_US");
+  }
+
+  function restoreSpanishContent() {
+    spanishContent.text.forEach(([element, value]) => {
+      element.textContent = value;
+    });
+    spanishContent.html.forEach(([element, value]) => {
+      element.innerHTML = value;
+    });
+    spanishContent.attributes.forEach(([element, attribute, value]) => {
+      if (value === null) element.removeAttribute(attribute);
+      else element.setAttribute(attribute, value);
+    });
+
+    document.title = spanishContent.title;
+    spanishContent.metadata.forEach(([element, value]) => {
+      if (value === null) element.removeAttribute("content");
+      else element.setAttribute("content", value);
     });
   }
 
-  function applyLang(lang) {
-    const next = lang === "en" ? "en" : "es";
-    const data = next === "en" ? english : sourceCopy;
-
-    document.documentElement.lang = next === "en" ? "en" : "es-UY";
-    applyText(data);
-    setMeta(data);
-    saveLang(next);
-    document.dispatchEvent(new CustomEvent("matudev:languagechange", { detail: { lang: next } }));
+  function preserveLanguage(englishVersion) {
+    document.querySelectorAll("[data-preserve-language]").forEach((link) => {
+      const url = new window.URL(
+        link.getAttribute("href"),
+        window.location.href,
+      );
+      if (englishVersion) url.searchParams.set("lang", "en");
+      else url.searchParams.delete("lang");
+      link.href = `${url.pathname}${url.search}${url.hash}`;
+    });
   }
 
-  function runLanguageTransition() {
-    if (reduceMotion.matches) return;
+  function configureLanguageSwitch(englishVersion) {
+    const link = document.querySelector("[data-language-switch]");
+    const flag = link?.querySelector("[data-language-flag]");
+    if (!link || !flag) return;
 
-    document.documentElement.classList.add("language-switching");
-    window.setTimeout(() => {
-      document.documentElement.classList.remove("language-switching");
-    }, 300);
+    const url = new window.URL(window.location.href);
+
+    if (englishVersion) {
+      url.searchParams.delete("lang");
+      link.setAttribute("aria-label", "Versión en español");
+      flag.src = "assets/img/flag-es.svg";
+    } else {
+      url.searchParams.set("lang", "en");
+      link.setAttribute("aria-label", "English version");
+      flag.src = "assets/img/flag-us.svg";
+    }
+
+    link.href = `${url.pathname}${url.search}${url.hash}`;
+  }
+
+  function applyLanguage(englishVersion, preserveReadingPosition = false) {
+    const anchorLine = Math.min(120, window.innerHeight / 4);
+    const anchor = preserveReadingPosition
+      ? [...document.querySelectorAll("section[id]")]
+          .filter(
+            (section) => section.getBoundingClientRect().top <= anchorLine,
+          )
+          .sort(
+            (first, second) =>
+              second.getBoundingClientRect().top -
+              first.getBoundingClientRect().top,
+          )[0]
+      : null;
+    const anchorTop = anchor?.getBoundingClientRect().top;
+
+    document.documentElement.lang = englishVersion ? "en" : "es-UY";
+    if (englishVersion) translateToEnglish();
+    else restoreSpanishContent();
+
+    configureLanguageSwitch(englishVersion);
+    preserveLanguage(englishVersion);
+    document.dispatchEvent(
+      new CustomEvent("matudev:languagechange", {
+        detail: { language: englishVersion ? "en" : "es" },
+      }),
+    );
+
+    if (anchor && anchorTop !== undefined) {
+      const restorePosition = () => {
+        if (!anchor.isConnected) return;
+        const documentElement = document.documentElement;
+        const previousScrollBehavior = documentElement.style.scrollBehavior;
+        documentElement.style.scrollBehavior = "auto";
+        window.scrollTo(
+          0,
+          window.scrollY + anchor.getBoundingClientRect().top - anchorTop,
+        );
+        documentElement.style.scrollBehavior = previousScrollBehavior;
+      };
+      restorePosition();
+      window.requestAnimationFrame(restorePosition);
+    }
+  }
+
+  function enableLanguageSwitch() {
+    const link = document.querySelector("[data-language-switch]");
+    if (!link) return;
+
+    link.addEventListener("click", (event) => {
+      if (
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      )
+        return;
+
+      event.preventDefault();
+      const englishVersion = !isEnglish();
+      const url = new window.URL(window.location.href);
+      if (englishVersion) url.searchParams.set("lang", "en");
+      else url.searchParams.delete("lang");
+      window.history.pushState(
+        { matudevLanguage: englishVersion ? "en" : "es" },
+        "",
+        `${url.pathname}${url.search}${url.hash}`,
+      );
+      applyLanguage(englishVersion, true);
+    });
   }
 
   document.addEventListener("DOMContentLoaded", () => {
-    const urlLang = new URLSearchParams(window.location.search).get("lang");
-    const initial = urlLang === "en" || urlLang === "es" ? urlLang : (getSavedLang() || "es");
-
-    captureSourceCopy();
-    applyLang(initial);
-
-    document.querySelector("[data-lang-toggle]")?.addEventListener("click", () => {
-      runLanguageTransition();
-      applyLang(document.documentElement.lang.startsWith("en") ? "es" : "en");
-    });
+    captureSpanishContent();
+    enableLanguageSwitch();
+    applyLanguage(isEnglish());
   });
+
+  window.addEventListener("popstate", () => applyLanguage(isEnglish(), true));
 })();

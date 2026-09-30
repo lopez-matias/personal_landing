@@ -22,6 +22,7 @@ Thumbs.db
 .idea/
 
 # Temporary screenshots and local reports
+.artifacts/
 *screenshot*.png
 final-*.png
 concept-*.png
