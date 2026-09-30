@@ -35,6 +35,7 @@ No hay un framework de frontend ni un proceso de compilación de assets. Esta de
 │           ├── projects.js
 │           └── technologies.js
 ├── scripts/
+│   ├── build.mjs                 # Genera public/ para Vercel
 │   ├── validate.mjs              # Validación del build estático
 │   └── visual-check.mjs          # QA responsive automatizado
 ├── tests/                        # Tests de datos y del endpoint de contacto
@@ -75,7 +76,7 @@ npm run qa:visual
 
 - `lint`: ejecuta ESLint y comprueba formato con Prettier.
 - `test`: valida datos de contenido y el comportamiento básico del endpoint.
-- `build`: comprueba archivos, proyectos y estados admitidos. No genera un bundle porque el despliegue sirve los archivos estáticos directamente.
+- `build`: valida el proyecto y genera `public/` con los archivos estáticos que Vercel publica. La función `api/contact.js` se despliega por separado como función serverless.
 - `qa:visual`: usa Microsoft Edge instalado localmente para revisar 375, 430, 768, 1024 y 1440 px, interacción básica, imágenes y overflow horizontal. Las capturas temporales se guardan en `.artifacts/`, que no se publica.
 
 Para aplicar formato:

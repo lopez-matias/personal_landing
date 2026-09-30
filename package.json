@@ -12,7 +12,7 @@
     "format:check": "prettier --check .",
     "lint": "eslint . && prettier --check .",
     "test": "node --test",
-    "build": "node scripts/validate.mjs",
+    "build": "node scripts/build.mjs",
     "qa:visual": "node scripts/visual-check.mjs"
   },
   "dependencies": {

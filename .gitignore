@@ -10,6 +10,9 @@ yarn-error.log*
 # Dependencies
 node_modules/
 
+# Generated deployment output
+public/
+
 # Local environment files
 .env
 .env.*
