@@ -15,29 +15,25 @@ function renderProjects() {
 
   container.innerHTML = projects
     .map((project) => {
-      const spanish = language() === "es";
-      const action = spanish ? "Ver código" : "View code";
-      const technologiesLabel = spanish ? "Tecnologías" : "Technologies";
-      const problemLabel = spanish ? "Qué resuelve" : "What it solves";
+      const name = localize(project.name);
+      const action = localize(project.action);
       return `
-        <article class="project-window">
+        <article class="project-window" data-project-kind="${project.kind}">
           <div class="window-titlebar">
             <span class="window-dots" aria-hidden="true"><i></i><i></i></span>
-            <span>${project.slug}.app</span>
+            <span>${project.slug}</span>
             <span class="project-status">${project.status}</span>
           </div>
-          <a class="project-shot" href="${project.github}" target="_blank" rel="noopener noreferrer" aria-label="${action}: ${project.name}">
-            <img src="${project.image}" alt="${localize(project.alt)}" width="1440" height="1000" loading="lazy" decoding="async">
+          <a class="project-shot project-link-preview project-link-preview--${project.kind}" href="${project.url}" target="_blank" rel="noopener noreferrer" aria-label="${action}: ${name}">
+            <span class="project-preview-kicker">${localize(project.previewEyebrow)}</span>
+            <strong>${project.displayUrl}</strong>
+            <span class="project-preview-action">${action} ↗</span>
           </a>
           <div class="project-body">
-            <div class="project-heading"><h3>${project.name}</h3></div>
-            <p class="project-problem code-comment"><strong>${problemLabel}:</strong> ${localize(project.problem)}</p>
+            <div class="project-heading"><h3>${name}</h3></div>
             <p class="code-comment">${localize(project.description)}</p>
-            <ul class="tag-list" aria-label="${technologiesLabel}">
-              ${project.technologies.map((technology) => `<li>${technology}</li>`).join("")}
-            </ul>
             <div class="project-actions">
-              <a href="${project.github}" target="_blank" rel="noopener noreferrer">${action} ↗</a>
+              <a href="${project.url}" target="_blank" rel="noopener noreferrer">${action} ↗</a>
             </div>
           </div>
         </article>`;

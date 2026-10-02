@@ -20,33 +20,26 @@ const requiredFiles = [
 ];
 
 await Promise.all(requiredFiles.map((file) => access(file)));
-await Promise.all(projects.map((project) => access(project.image)));
-
 if (!projects.length) throw new Error("At least one project is required.");
 if (
   projects.some(
     (project) =>
-      !project.name ||
+      !project.name?.es ||
+      !project.name?.en ||
       !project.slug ||
-      !project.github ||
-      !project.image ||
+      !project.kind ||
+      !project.url ||
+      !project.displayUrl ||
       !project.description?.es ||
       !project.description?.en ||
-      !project.problem?.es ||
-      !project.problem?.en ||
-      !project.alt?.es ||
-      !project.alt?.en,
+      !project.action?.es ||
+      !project.action?.en,
   )
 ) {
-  throw new Error("Every project needs a name, slug, GitHub URL and image.");
+  throw new Error("Every project link needs complete bilingual content.");
 }
 
-const validProjectStatuses = new Set([
-  "LIVE",
-  "PORTFOLIO",
-  "BUILDING",
-  "EXPERIMENT",
-]);
+const validProjectStatuses = new Set(["LIVE", "PUBLIC"]);
 if (projects.some((project) => !validProjectStatuses.has(project.status))) {
   throw new Error("A project has an unsupported status.");
 }

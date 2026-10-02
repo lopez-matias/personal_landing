@@ -10,12 +10,17 @@ test("project slugs are unique and required fields are present", () => {
     projects.length,
   );
   projects.forEach((project) => {
-    assert.ok(project.name);
-    assert.match(project.github, /^https:\/\/github\.com\/lopez-matias\//);
+    assert.ok(project.name.es);
+    assert.ok(project.name.en);
+    assert.match(project.url, /^https:\/\//);
     assert.ok(project.description.es);
     assert.ok(project.description.en);
-    assert.ok(project.technologies.length);
+    assert.ok(project.action.es);
+    assert.ok(project.action.en);
   });
+  assert.equal(projects.length, 2);
+  assert.equal(projects[0].url, "https://cuentaclara.matudev.com");
+  assert.match(projects[1].url, /^https:\/\/github\.com\/lopez-matias/);
 });
 
 test("the technology stack is organized by working area", () => {

@@ -146,8 +146,8 @@ for (const viewport of viewports) {
     await page.locator("#inicio").scrollIntoViewIfNeeded();
   }
 
-  if ((await page.locator(".project-window").count()) !== 4)
-    throw new Error("Expected four project cards.");
+  if ((await page.locator(".project-window").count()) !== 2)
+    throw new Error("Expected two project links.");
 
   if (viewport.width <= 820) await page.click("[data-nav-toggle]");
   await page.click("[data-theme-toggle]");
@@ -240,6 +240,8 @@ for (const viewport of viewports) {
     languageFlags: document.querySelectorAll(".flag-link").length,
     technologyGroups: document.querySelectorAll(".stack-row").length,
     codeComments: document.querySelectorAll(".code-comment").length,
+    projectComments: document.querySelectorAll(".project-body > .code-comment")
+      .length,
     commentMarker: window.getComputedStyle(
       document.querySelector(".code-comment"),
       "::before",
@@ -266,11 +268,18 @@ for (const viewport of viewports) {
     throw new Error("Expected one contextual flag language control.");
   if (metrics.technologyGroups !== 6)
     throw new Error("The technology groups are incomplete.");
-  if (metrics.codeComments < 16 || !metrics.commentMarker.includes("//"))
+  if (
+    metrics.codeComments < 10 ||
+    metrics.projectComments !== 2 ||
+    !metrics.commentMarker.includes("//")
+  )
     throw new Error("Explanatory copy is not rendered as code comments.");
   if (/Courier|monospace/i.test(metrics.utilityFont))
     throw new Error("The old monospaced typography is still active.");
-  if (metrics.projectCardWidth > 321 || !metrics.projectsScrollable)
+  if (
+    metrics.projectCardWidth > 321 ||
+    (viewport.width <= 430 && !metrics.projectsScrollable)
+  )
     throw new Error(
       `Project cards are not compact/scrollable at ${viewport.width}px: width=${metrics.projectCardWidth}, scrollable=${metrics.projectsScrollable}.`,
     );
