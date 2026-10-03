@@ -5,7 +5,7 @@ export const projects = [
     kind: "production",
     status: "LIVE",
     url: "https://cuentaclara.matudev.com",
-    image: "assets/img/cuentaclara-dashboard.png",
+    image: "assets/img/cuentaclara-dashboard-v2.png",
     imageWidth: 1877,
     imageHeight: 823,
     alt: {
@@ -20,8 +20,8 @@ export const projects = [
   },
   {
     name: {
-      es: "Demás repos públicos en GitHub",
-      en: "More public repositories on GitHub",
+      es: "Repos públicos en GitHub",
+      en: "Public repositories on GitHub",
     },
     slug: "github",
     kind: "github",

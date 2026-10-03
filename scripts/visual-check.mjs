@@ -30,6 +30,14 @@ async function assertEnglishCopy(page) {
       throw new Error(`English copy did not render for ${selector}.`);
     }
   }
+
+  const projectArea = page.locator("[data-projects]");
+  if (/undefined/i.test(await projectArea.innerText())) {
+    throw new Error("A project rendered with missing data in English.");
+  }
+  if ((await projectArea.locator(".project-shot img").count()) !== 2) {
+    throw new Error("The project images did not render in English.");
+  }
 }
 
 await mkdir(".artifacts", { recursive: true });

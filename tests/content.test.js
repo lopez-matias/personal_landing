@@ -85,3 +85,23 @@ test("each page exposes one contextual language flag", () => {
     assert.match(html, /assets\/img\/flag-us\.svg/);
   });
 });
+
+test("the home page and module imports share one asset version", () => {
+  const html = readFileSync("index.html", "utf8");
+  const app = readFileSync("assets/js/app.js", "utf8");
+  const version = html.match(/app\.js\?v=([^\"]+)/)?.[1];
+
+  assert.ok(version, "The application entry point needs an asset version");
+  ["system.css", "i18n.js", "system.js"].forEach((asset) => {
+    assert.match(
+      html,
+      new RegExp(`${asset.replace(".", "\\.")}\\?v=${version}`),
+    );
+  });
+  ["projects.js", "technologies.js"].forEach((module) => {
+    assert.match(
+      app,
+      new RegExp(`${module.replace(".", "\\.")}\\?v=${version}`),
+    );
+  });
+});
