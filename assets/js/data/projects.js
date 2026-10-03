@@ -21,7 +21,7 @@ export const projects = [
   {
     name: {
       es: "Repos públicos en GitHub",
-      en: "Public repositories on GitHub",
+      en: "Public repos on GitHub",
     },
     slug: "github",
     kind: "github",
