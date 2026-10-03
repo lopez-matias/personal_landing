@@ -570,51 +570,27 @@ h3 {
   background: #d8d8d2;
 }
 
-.project-link-preview {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 0.8rem;
-  padding: 1rem;
-  color: var(--paper);
-  text-decoration: none;
+.project-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
 }
 
-.project-link-preview--production {
-  background: var(--accent);
-  color: var(--on-accent);
+.project-shot--github {
+  padding: 1.25rem;
+  background: #0b0d0c;
 }
 
-.project-link-preview--github {
-  background: var(--ink);
+.project-shot--github img {
+  object-fit: contain;
+  object-position: center;
 }
 
-.project-link-preview strong {
-  max-width: 100%;
-  overflow-wrap: anywhere;
-  font-size: 1rem;
-  line-height: 1.1;
-}
-
-.project-preview-kicker,
-.project-preview-action {
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  font-weight: 900;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.project-preview-action {
-  align-self: flex-end;
-  text-decoration: underline;
-  text-underline-offset: 0.25em;
-}
-
-.project-link-preview:hover,
-.project-link-preview:focus-visible {
-  background: var(--paper);
-  color: var(--ink);
+.project-shot:hover img,
+.project-shot:focus-visible img {
+  transform: scale(1.02);
 }
 
 .project-body {
@@ -1425,14 +1401,10 @@ textarea:focus {
   .quick-links a,
   .nav a,
   .nav button,
-  .project-link-preview {
+  .project-shot img {
     transition:
-      background-color 150ms ease,
-      color 150ms ease,
-      filter 180ms ease,
-      padding 150ms ease,
-      translate 150ms ease,
-      box-shadow 150ms ease;
+      transform 180ms ease,
+      filter 180ms ease;
   }
 
   .cursor {

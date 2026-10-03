@@ -24,10 +24,8 @@ function renderProjects() {
             <span>${project.slug}</span>
             <span class="project-status">${project.status}</span>
           </div>
-          <a class="project-shot project-link-preview project-link-preview--${project.kind}" href="${project.url}" target="_blank" rel="noopener noreferrer" aria-label="${action}: ${name}">
-            <span class="project-preview-kicker">${localize(project.previewEyebrow)}</span>
-            <strong>${project.displayUrl}</strong>
-            <span class="project-preview-action">${action} ↗</span>
+          <a class="project-shot project-shot--${project.kind}" href="${project.url}" target="_blank" rel="noopener noreferrer" aria-label="${action}: ${name}">
+            <img src="${project.image}" alt="${localize(project.alt)}" width="${project.imageWidth}" height="${project.imageHeight}" loading="lazy" decoding="async">
           </a>
           <div class="project-body">
             <div class="project-heading"><h3>${name}</h3></div>

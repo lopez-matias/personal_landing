@@ -5,8 +5,13 @@ export const projects = [
     kind: "production",
     status: "LIVE",
     url: "https://cuentaclara.matudev.com",
-    displayUrl: "cuentaclara.matudev.com",
-    previewEyebrow: { es: "PROYECTO EN PRODUCCIÓN", en: "LIVE PROJECT" },
+    image: "assets/img/cuentaclara-dashboard.png",
+    imageWidth: 1877,
+    imageHeight: 823,
+    alt: {
+      es: "Dashboard de la aplicación Cuenta Clara",
+      en: "Cuenta Clara application dashboard",
+    },
     description: {
       es: "Proyecto real publicado y disponible para usar desde su sitio web.",
       en: "A real project published and available to use on its website.",
@@ -22,8 +27,10 @@ export const projects = [
     kind: "github",
     status: "PUBLIC",
     url: "https://github.com/lopez-matias?tab=repositories",
-    displayUrl: "github.com/lopez-matias",
-    previewEyebrow: { es: "CÓDIGO PÚBLICO", en: "PUBLIC CODE" },
+    image: "assets/img/github-mark.svg",
+    imageWidth: 24,
+    imageHeight: 24,
+    alt: { es: "Logo de GitHub", en: "GitHub logo" },
     description: {
       es: "El resto de mis proyectos, experimentos y repositorios están disponibles en mi perfil.",
       en: "The rest of my projects, experiments and repositories are available on my profile.",

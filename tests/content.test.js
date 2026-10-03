@@ -13,6 +13,11 @@ test("project slugs are unique and required fields are present", () => {
     assert.ok(project.name.es);
     assert.ok(project.name.en);
     assert.match(project.url, /^https:\/\//);
+    assert.ok(project.image);
+    assert.ok(project.imageWidth > 0);
+    assert.ok(project.imageHeight > 0);
+    assert.ok(project.alt.es);
+    assert.ok(project.alt.en);
     assert.ok(project.description.es);
     assert.ok(project.description.en);
     assert.ok(project.action.es);

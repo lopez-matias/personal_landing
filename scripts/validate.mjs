@@ -29,7 +29,11 @@ if (
       !project.slug ||
       !project.kind ||
       !project.url ||
-      !project.displayUrl ||
+      !project.image ||
+      !project.imageWidth ||
+      !project.imageHeight ||
+      !project.alt?.es ||
+      !project.alt?.en ||
       !project.description?.es ||
       !project.description?.en ||
       !project.action?.es ||
@@ -38,6 +42,8 @@ if (
 ) {
   throw new Error("Every project link needs complete bilingual content.");
 }
+
+await Promise.all(projects.map((project) => access(project.image)));
 
 const validProjectStatuses = new Set(["LIVE", "PUBLIC"]);
 if (projects.some((project) => !validProjectStatuses.has(project.status))) {
