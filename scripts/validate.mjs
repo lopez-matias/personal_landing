@@ -12,6 +12,10 @@ const requiredFiles = [
   "api/contact.js",
   "assets/css/system.css",
   "assets/img/hero-computer.webp",
+  "assets/img/stack-languages.svg",
+  "assets/img/stack-backend-web.svg",
+  "assets/img/stack-databases.svg",
+  "assets/img/stack-infrastructure-tools.svg",
   "assets/img/favicon-computer.png",
   "assets/img/apple-touch-computer.png",
   "assets/img/flag-es.svg",
@@ -24,11 +28,13 @@ if (!projects.length) throw new Error("At least one project is required.");
 if (
   projects.some(
     (project) =>
-      !project.name?.es ||
-      !project.name?.en ||
+      !project.name ||
       !project.slug ||
-      !project.kind ||
-      !project.url ||
+      !project.category?.es ||
+      !project.category?.en ||
+      !project.status?.es ||
+      !project.status?.en ||
+      !project.demoUrl ||
       !project.image ||
       !project.imageWidth ||
       !project.imageHeight ||
@@ -36,19 +42,14 @@ if (
       !project.alt?.en ||
       !project.description?.es ||
       !project.description?.en ||
-      !project.action?.es ||
-      !project.action?.en,
+      !Array.isArray(project.technologies) ||
+      !project.technologies.length,
   )
 ) {
-  throw new Error("Every project link needs complete bilingual content.");
+  throw new Error("Every project needs complete bilingual content and links.");
 }
 
 await Promise.all(projects.map((project) => access(project.image)));
-
-const validProjectStatuses = new Set(["LIVE", "PUBLIC"]);
-if (projects.some((project) => !validProjectStatuses.has(project.status))) {
-  throw new Error("A project has an unsupported status.");
-}
 
 console.log(
   `Static build validation passed: ${projects.length} projects, ${requiredFiles.length} required files.`,

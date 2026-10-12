@@ -19,10 +19,10 @@ const results = [];
 async function assertEnglishCopy(page) {
   const expected = [
     ['.nav-links a[href="#proyectos"]', "Projects"],
-    ["#stack-title", "technologies"],
-    ["#about-title", "how I work."],
-    [".experience-item:nth-child(3) h3", "ERP Developer / DBA"],
-    ["#contact-title", "tell me about your idea."],
+    ["#stack-title", "technical stack."],
+    ["#experience-stack-title", "experience & stack."],
+    [".experience-entry:nth-child(3) h3", "ERP Developer / DBA"],
+    ["#contact-title", "let’s talk."],
   ];
 
   for (const [selector, text] of expected) {
@@ -35,7 +35,7 @@ async function assertEnglishCopy(page) {
   if (/undefined/i.test(await projectArea.innerText())) {
     throw new Error("A project rendered with missing data in English.");
   }
-  if ((await projectArea.locator(".project-shot img").count()) !== 2) {
+  if ((await projectArea.locator(".project-media img").count()) !== 4) {
     throw new Error("The project images did not render in English.");
   }
 }
@@ -53,9 +53,9 @@ for (const viewport of viewports) {
   const response = await page.goto("http://127.0.0.1:4173", {
     waitUntil: "networkidle",
   });
-  await page.waitForSelector("[data-projects] .project-window");
+  await page.waitForSelector("[data-projects] .project-card");
 
-  if (viewport.width <= 820) {
+  if (viewport.width <= 900) {
     await page.click("[data-nav-toggle]");
     const menuOpen = await page
       .locator("[data-nav-links]")
@@ -120,7 +120,7 @@ for (const viewport of viewports) {
       throw new Error("Spanish version did not offer the US flag.");
   }
 
-  if (viewport.width > 820) {
+  if (viewport.width > 900) {
     await page.locator("#stack").scrollIntoViewIfNeeded();
     const positionBeforeLanguageChange = await page.evaluate(() => {
       const section = document
@@ -154,27 +154,26 @@ for (const viewport of viewports) {
     await page.locator("#inicio").scrollIntoViewIfNeeded();
   }
 
-  if ((await page.locator(".project-window").count()) !== 2)
-    throw new Error("Expected two project links.");
+  if ((await page.locator(".project-card").count()) !== 4)
+    throw new Error("Expected four featured projects.");
 
-  if (viewport.width <= 820) await page.click("[data-nav-toggle]");
+  if (viewport.width <= 900) await page.click("[data-nav-toggle]");
   await page.click("[data-theme-toggle]");
   if ((await page.locator("html").getAttribute("data-theme")) !== "dark")
     throw new Error("Theme icon did not activate dark mode.");
   if ((await page.locator("[data-theme-toggle]").textContent()).includes("BW"))
     throw new Error("Theme control still exposes the old BW/WB label.");
   await page.click("[data-theme-toggle]");
-  if (viewport.width <= 820) await page.click("[data-nav-toggle]");
+  if (viewport.width <= 900) await page.click("[data-nav-toggle]");
 
   for (const image of await page.locator('img[loading="lazy"]').all()) {
     await image.scrollIntoViewIfNeeded();
   }
   await page.waitForLoadState("networkidle");
-  await page.locator("#inicio").scrollIntoViewIfNeeded();
   await page.locator(".projects-grid").evaluate((element) => {
     element.scrollLeft = 0;
   });
-
+  await page.locator("#inicio").scrollIntoViewIfNeeded();
   const metrics = await page.evaluate(() => ({
     clientWidth: document.documentElement.clientWidth,
     scrollWidth: document.documentElement.scrollWidth,
@@ -183,11 +182,11 @@ for (const viewport of viewports) {
     imagesLoaded: Array.from(document.images).every(
       (image) => image.complete && image.naturalWidth > 0,
     ),
-    quickLinksBottom: document
-      .querySelector(".quick-section")
-      ?.getBoundingClientRect().bottom,
+    failedImages: Array.from(document.images)
+      .filter((image) => !image.complete || image.naturalWidth === 0)
+      .map((image) => image.getAttribute("src")),
     aboutColumns: Array.from(
-      document.querySelector(".about-layout")?.children || [],
+      document.querySelector(".profile-stack-grid")?.children || [],
     ).map((element) => ({
       width: element.getBoundingClientRect().width,
       height: element.getBoundingClientRect().height,
@@ -205,9 +204,9 @@ for (const viewport of viewports) {
         ? Math.abs(rect.left - (window.innerWidth - rect.width) / 2)
         : null;
     })(),
-    experienceCount: document.querySelectorAll(".experience-item").length,
+    experienceCount: document.querySelectorAll(".experience-entry").length,
     experienceRoleSize: Number.parseFloat(
-      window.getComputedStyle(document.querySelector(".experience-item h3"))
+      window.getComputedStyle(document.querySelector(".experience-entry h3"))
         .fontSize,
     ),
     experienceCompanySize: Number.parseFloat(
@@ -225,31 +224,23 @@ for (const viewport of viewports) {
     heroComputerWidth: document
       .querySelector(".hero-computer")
       ?.getBoundingClientRect().width,
-    heroTitleComputerOverlap: (() => {
-      const title = document
-        .querySelector("#hero-title")
-        ?.getBoundingClientRect();
-      const computer = document
-        .querySelector(".hero-computer")
-        ?.getBoundingClientRect();
-      if (!title || !computer) return false;
-      return (
-        Math.min(title.bottom, computer.bottom) >
-        Math.max(title.top, computer.top)
-      );
-    })(),
     projectCardWidth: document
-      .querySelector(".project-window")
+      .querySelector(".project-card")
       ?.getBoundingClientRect().width,
+    projectCount: document.querySelectorAll(".project-card").length,
     projectsScrollable: (() => {
       const track = document.querySelector(".projects-grid");
       return track ? track.scrollWidth > track.clientWidth : false;
     })(),
+    demoLinkCount: document.querySelectorAll(
+      '.project-actions a[href*=".matudev.com"]',
+    ).length,
+    sourceLinkCount: document.querySelectorAll(
+      '.project-actions a[href*="github.com"]',
+    ).length,
     languageFlags: document.querySelectorAll(".flag-link").length,
-    technologyGroups: document.querySelectorAll(".stack-row").length,
+    technologyGroups: document.querySelectorAll(".stack-group").length,
     codeComments: document.querySelectorAll(".code-comment").length,
-    projectComments: document.querySelectorAll(".project-body > .code-comment")
-      .length,
     commentMarker: window.getComputedStyle(
       document.querySelector(".code-comment"),
       "::before",
@@ -265,7 +256,9 @@ for (const viewport of viewports) {
     );
   }
   if (!metrics.imagesLoaded)
-    throw new Error(`An image failed to load at ${viewport.width}px.`);
+    throw new Error(
+      `An image failed to load at ${viewport.width}px: ${metrics.failedImages.join(", ")}.`,
+    );
   if (metrics.shellCenterOffset > 1)
     throw new Error(`Main content is not centered at ${viewport.width}px.`);
   if (metrics.experienceCount !== 3)
@@ -274,40 +267,28 @@ for (const viewport of viewports) {
     throw new Error("Experience role must be larger than the company name.");
   if (metrics.languageFlags !== 1)
     throw new Error("Expected one contextual flag language control.");
-  if (metrics.technologyGroups !== 6)
-    throw new Error("The technology groups are incomplete.");
-  if (
-    metrics.codeComments < 10 ||
-    metrics.projectComments !== 2 ||
-    !metrics.commentMarker.includes("//")
-  )
+  if (metrics.technologyGroups !== 4)
+    throw new Error("The README-style technology groups are incomplete.");
+  if (metrics.codeComments < 4 || !metrics.commentMarker.includes("//"))
     throw new Error("Explanatory copy is not rendered as code comments.");
   if (/Courier|monospace/i.test(metrics.utilityFont))
     throw new Error("The old monospaced typography is still active.");
-  if (
-    metrics.projectCardWidth > 321 ||
-    (viewport.width <= 430 && !metrics.projectsScrollable)
-  )
+  if (metrics.projectCount !== 4 || metrics.demoLinkCount !== 4)
+    throw new Error("The four project demo links are incomplete.");
+  if (metrics.sourceLinkCount !== 3)
+    throw new Error("Expected source code links for the three public demos.");
+  if (viewport.width <= 900 && !metrics.projectsScrollable)
     throw new Error(
-      `Project cards are not compact/scrollable at ${viewport.width}px: width=${metrics.projectCardWidth}, scrollable=${metrics.projectsScrollable}.`,
+      `Projects are not horizontally scrollable at ${viewport.width}px.`,
     );
-  if (viewport.width > 820 && metrics.navCenterOffset > 1)
+  if (viewport.width <= 720 && metrics.projectCardWidth > metrics.clientWidth)
+    throw new Error(`A project card overflows at ${viewport.width}px.`);
+  if (viewport.width > 900 && metrics.navCenterOffset > 1)
     throw new Error("Desktop navigation sections are not truly centered.");
-  const maxComputerWidth =
-    viewport.width <= 560 ? 150 : viewport.width <= 820 ? 365 : 425;
+  const maxComputerWidth = viewport.width <= 560 ? 112 : 435;
   if (metrics.heroComputerWidth > maxComputerWidth)
-    throw new Error(`Hero computer is too large at ${viewport.width}px.`);
-  if (viewport.width <= 560 && !metrics.heroTitleComputerOverlap)
-    throw new Error(
-      "The mobile hero computer is not aligned beside the title.",
-    );
-  if (
-    viewport.width === 1440 &&
-    metrics.quickLinksBottom > viewport.height + 1
-  ) {
-    throw new Error("Hero and quick links do not fit in the desktop viewport.");
-  }
-  if (viewport.width > 820) {
+    throw new Error(`The hero computer is too wide at ${viewport.width}px.`);
+  if (viewport.width > 900) {
     for (const [name, columns] of [
       ["About", metrics.aboutColumns],
       ["Contact", metrics.contactColumns],
@@ -331,8 +312,11 @@ for (const viewport of viewports) {
     await page.locator("#proyectos").screenshot({
       path: ".artifacts/matudev-projects.png",
     });
-    await page.locator("#sobre-mi").screenshot({
+    await page.locator("#experiencia").screenshot({
       path: ".artifacts/matudev-about.png",
+    });
+    await page.locator("#experiencia").screenshot({
+      path: ".artifacts/matudev-experience.png",
     });
   }
   if (viewport.width === 375) {

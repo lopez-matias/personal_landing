@@ -8,43 +8,53 @@
     menuCloseAria: "Close menu",
     navProjects: "Projects",
     navServices: "Services",
-    navStack: "Technologies",
-    navAbout: "About",
+    navExperience: "Experience & stack",
     navContact: "Contact",
-    heroKicker: "SOFTWARE · BACKEND · DATA.",
-    heroTitle: "Hi, I’m<br><span>Matías.</span>",
+    heroKicker: "BACKEND · SOFTWARE · DATA",
+    heroTitle: "<span>Matías López</span><br>Software Developer",
     heroLead:
-      "I build software, automations and integrations that turn complex processes into clear, useful tools.",
+      "I design and build systems, web applications and data solutions that turn complex processes into clear, maintainable tools.",
     heroPrimary: "View projects",
-    heroSecondary: "Let’s talk",
+    heroSecondary: "Contact",
+    heroLocation: "Montevideo, Uruguay · Available for remote work",
     heroVisualAlt: "Retro computer with a code terminal",
-    quickAria: "Profile links",
-    quickTitle: "PROFILES",
-    projectsTitle: "my projects",
-    servicesTitle: "how I can help",
-    service1Title: "Backend",
+    projectsTitle: "featured projects.",
+    projectsLead:
+      "Functional systems that show how I approach inventory, commercial management, internal operations and personal finance.",
+    servicesTitle: "areas of expertise.",
+    service1Title: "Backend Development",
     service1Text:
-      "APIs, application logic and services connected to databases.",
-    service2Title: "Software / Web Apps",
-    service2Text: "Applications and web tools adapted to real processes.",
-    service3Title: "Data",
-    service3Text: "SQL, ETL, reporting, indicators and BI.",
-    service4Title: "Integrations",
-    service4Text: "Systems, APIs, files and automation working together.",
-    stackTitle: "technologies",
-    aboutTitle: "how I work.",
-    aboutP1: "Before choosing a technology, I try to understand the process.",
-    aboutP2:
-      "I work across backend, web applications and databases. I combine professional experience with my Computer Engineering studies in Uruguay to build clear, maintainable and useful solutions.",
-    aboutLinkedin: "LinkedIn ↗",
-    experienceAria: "Work experience",
-    experienceRole1: "Business Intelligence Analyst / DBA",
-    experienceRole2: "Data Analyst / Business Intelligence",
+      "APIs, business logic and database-connected services designed to remain clear and maintainable.",
+    service2Title: "Software & Web Applications",
+    service2Text:
+      "Applications and web tools built around real operational processes.",
+    service3Title: "Data Engineering & BI",
+    service3Text:
+      "SQL modeling, ETL processes, reporting and useful information for decision-making.",
+    service4Title: "Integrations & Automation",
+    service4Text:
+      "Systems, APIs and files connected to reduce manual work and repetitive errors.",
+    stackTitle: "technical stack.",
+    stackLead:
+      "Tools I use to build, integrate and operate software and data solutions.",
+    experienceTitle: "professional experience.",
+    experienceRole1: "BI Analyst / DBA",
+    experienceText1:
+      "Database, data warehouse and SSAS cube optimization and maintenance. ETL development on Linux, reporting, BI and internal tools.",
+    experienceRole2: "Data Analyst / BI",
+    experienceText2:
+      "Reporting, data analysis and automation development with Python, Power Automate and VBA.",
     experienceRole3: "ERP Developer / DBA",
-    roleLine: "Software · Backend · Web · Data",
-    contactTitle: "tell me about your idea.",
+    experienceText3:
+      "ERP implementation and optimization for stock, billing and inventory. Database design and optimization.",
+    experienceStackTitle: "experience & stack.",
+    experienceStackLead:
+      "Professional experience and the tools I use to build software and data solutions.",
+    aboutLinkedin: "View LinkedIn ↗",
+    roleLine: "Backend · Software · Data · Integrations",
+    contactTitle: "let’s talk.",
     contactLead:
-      "If you need to build a tool, connect systems, automate a process or work with your data, tell me about the problem. I’ll reply by email with clear next steps.",
+      "If you have a job opportunity, a project or a process that needs a technical solution, write to me with some context.",
     formName: "Name",
     formMessage: "Message",
     formPlaceholder: "Tell me what you need to build, improve or connect.",
@@ -97,8 +107,8 @@
 
   const englishMetadata = {
     home: [
-      "MatuDev — Software Development, Data & Integrations",
-      "Software development, web applications, APIs, databases, automation and integrations with Python, JavaScript, Java and SQL.",
+      "Matías López — Software Developer | MatuDev",
+      "Portfolio of Matías López, a Software Developer focused on backend, web applications, databases, data, BI and integrations.",
     ],
     privacy: [
       "Privacy policy | MatuDev",

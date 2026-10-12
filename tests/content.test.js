@@ -10,9 +10,10 @@ test("project slugs are unique and required fields are present", () => {
     projects.length,
   );
   projects.forEach((project) => {
-    assert.ok(project.name.es);
-    assert.ok(project.name.en);
-    assert.match(project.url, /^https:\/\//);
+    assert.ok(project.name);
+    assert.ok(project.category.es);
+    assert.ok(project.category.en);
+    assert.match(project.demoUrl, /^https:\/\//);
     assert.ok(project.image);
     assert.ok(project.imageWidth > 0);
     assert.ok(project.imageHeight > 0);
@@ -20,25 +21,37 @@ test("project slugs are unique and required fields are present", () => {
     assert.ok(project.alt.en);
     assert.ok(project.description.es);
     assert.ok(project.description.en);
-    assert.ok(project.action.es);
-    assert.ok(project.action.en);
+    assert.ok(project.technologies.length);
   });
-  assert.equal(projects.length, 2);
-  assert.equal(projects[0].url, "https://cuentaclara.matudev.com");
-  assert.match(projects[1].url, /^https:\/\/github\.com\/lopez-matias/);
+  assert.equal(projects.length, 4);
+  assert.deepEqual(
+    projects.map((project) => project.demoUrl),
+    [
+      "https://stockflow.matudev.com",
+      "https://nodo.matudev.com",
+      "https://taskflow.matudev.com",
+      "https://cuentaclara.matudev.com",
+    ],
+  );
+  assert.equal(projects.filter((project) => project.sourceUrl).length, 3);
 });
 
 test("the technology stack is organized by working area", () => {
   assert.deepEqual(
     technologyGroups.map((group) => group.label.en),
-    ["BACKEND", "FRONTEND", "DATA & BI", "DATABASES", "AUTOMATION", "TOOLS"],
+    ["LANGUAGES", "BACKEND & WEB", "DATABASES", "INFRASTRUCTURE & TOOLS"],
   );
+
+  technologyGroups.forEach((group) => {
+    assert.match(group.image, /^assets\/img\/stack-.+\.svg$/);
+    assert.ok(group.alt);
+  });
 });
 
 test("Spanish copy stays editable in HTML and JavaScript only stores English", () => {
   const html = readFileSync("index.html", "utf8");
   const translations = readFileSync("assets/js/i18n.js", "utf8");
-  assert.match(html, /Hola, soy/);
+  assert.match(html, /Matías López/);
   assert.doesNotMatch(translations, /\bes\s*:/);
   assert.match(translations, /const english =/);
 });
