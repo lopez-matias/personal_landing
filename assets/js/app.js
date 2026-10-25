@@ -1,5 +1,5 @@
-import { projects } from "./data/projects.js?v=20261011-4";
-import { technologyGroups } from "./data/technologies.js?v=20261011-4";
+import { projects } from "./data/projects.js?v=20261025-1";
+import { technologyGroups } from "./data/technologies.js?v=20261025-1";
 
 function language() {
   return document.documentElement.lang.startsWith("en") ? "en" : "es";

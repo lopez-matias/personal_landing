@@ -15,12 +15,8 @@ export const projects = [
       en: "StockFlow inventory system dashboard",
     },
     description: {
-      es: "Centraliza productos, ubicaciones, existencias, movimientos y transferencias en una interfaz operativa clara.",
-      en: "Centralizes products, locations, stock, movements and transfers in a clear operational interface.",
-    },
-    note: {
-      es: "Demo de portfolio con datos de prueba.",
-      en: "Portfolio demo using sample data.",
+      es: "Reduce desajustes de inventario al centralizar existencias, movimientos y transferencias entre ubicaciones en un único flujo operativo.",
+      en: "Reduces inventory discrepancies by centralizing stock, movements and transfers between locations in a single operational workflow.",
     },
     technologies: ["Python", "FastAPI", "PostgreSQL", "Docker", "JavaScript"],
     demoUrl: "https://stockflow.matudev.com",
@@ -39,12 +35,8 @@ export const projects = [
       en: "NODO commercial management dashboard",
     },
     description: {
-      es: "Organiza clientes, productos, pedidos, pagos y métricas de ventas dentro de un mismo flujo comercial.",
-      en: "Organizes customers, products, orders, payments and sales metrics within one commercial workflow.",
-    },
-    note: {
-      es: "Demo de portfolio con datos de prueba.",
-      en: "Portfolio demo using sample data.",
+      es: "Evita información comercial dispersa al reunir clientes, productos, pedidos, pagos y métricas de ventas en un mismo sistema.",
+      en: "Prevents scattered commercial information by bringing customers, products, orders, payments and sales metrics into one system.",
     },
     technologies: ["Python", "FastAPI", "PostgreSQL", "Docker", "JavaScript"],
     demoUrl: "https://nodo.matudev.com",
@@ -66,12 +58,8 @@ export const projects = [
       en: "OrangeFlow internal request dashboard",
     },
     description: {
-      es: "Ordena solicitudes, prioridades, responsables, estados e historial de cambios para equipos internos.",
-      en: "Organizes requests, priorities, owners, statuses and change history for internal teams.",
-    },
-    note: {
-      es: "Demo de portfolio con datos de prueba.",
-      en: "Portfolio demo using sample data.",
+      es: "Reemplaza el seguimiento manual de solicitudes internas por un flujo con prioridades, responsables, estados e historial de cambios.",
+      en: "Replaces manual tracking of internal requests with a workflow for priorities, owners, statuses and change history.",
     },
     technologies: ["Python", "FastAPI", "PostgreSQL", "Docker", "JavaScript"],
     demoUrl: "https://taskflow.matudev.com",
@@ -90,8 +78,8 @@ export const projects = [
       en: "CuentaClara personal finance dashboard",
     },
     description: {
-      es: "Aplicación web para registrar movimientos y entender gastos, cuentas y finanzas personales.",
-      en: "Web application for tracking transactions and understanding expenses, accounts and personal finances.",
+      es: "Da claridad sobre las finanzas personales al reunir movimientos, gastos y saldos de cuentas en una vista fácil de consultar.",
+      en: "Brings clarity to personal finances by combining transactions, expenses and account balances in an easy-to-read view.",
     },
     technologies: ["Web App", "Responsive UI", "Data"],
     demoUrl: "https://cuentaclara.matudev.com",

@@ -21,19 +21,15 @@
     projectsTitle: "featured projects.",
     projectsLead:
       "Functional systems that show how I approach inventory, commercial management, internal operations and personal finance.",
-    servicesTitle: "areas of expertise.",
-    service1Title: "Backend Development",
+    servicesTitle: "services.",
+    servicesLead:
+      "Two simple ways to work together, depending on what your system needs.",
+    service1Title: "Focused development",
     service1Text:
-      "APIs, business logic and database-connected services designed to remain clear and maintainable.",
-    service2Title: "Software & Web Applications",
+      "Development of a specific feature, integration or tool based on a defined need. Includes analysis, implementation and delivery of a working solution.",
+    service2Title: "Systems support",
     service2Text:
-      "Applications and web tools built around real operational processes.",
-    service3Title: "Data Engineering & BI",
-    service3Text:
-      "SQL modeling, ETL processes, reporting and useful information for decision-making.",
-    service4Title: "Integrations & Automation",
-    service4Text:
-      "Systems, APIs and files connected to reduce manual work and repetitive errors.",
+      "Diagnosis, fixes and improvements for existing systems. Includes maintenance, database adjustments and integrations that keep operations running.",
     stackTitle: "technical stack.",
     stackLead:
       "Tools I use to build, integrate and operate software and data solutions.",
