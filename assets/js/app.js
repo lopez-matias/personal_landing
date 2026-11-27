@@ -1,5 +1,5 @@
-import { projects } from "./data/projects.js?v=20261127-1";
-import { technologyGroups } from "./data/technologies.js?v=20261127-1";
+import { projects } from "./data/projects.js?v=20261127-2";
+import { technologyGroups } from "./data/technologies.js?v=20261127-2";
 
 function language() {
   return document.documentElement.lang.startsWith("en") ? "en" : "es";
@@ -51,14 +51,20 @@ function renderProjects() {
 function renderTechnologyGroups() {
   const container = document.querySelector("[data-technologies]");
   if (!container) return;
+  const learningLabel = language() === "en" ? "learning" : "en formación";
   container.innerHTML = technologyGroups
     .map(
       (group) => `
-      <article class="stack-group reveal">
+      <article class="skill-group reveal">
         <header><span>${group.number}</span><h3>${localize(group.label)}</h3></header>
-        <div class="stack-logo-wrap">
-          <img src="${group.image}" alt="${group.alt}" loading="lazy" decoding="async" />
-        </div>
+        <ul>
+          ${group.items
+            .map(
+              ([name, level]) =>
+                `<li class="skill skill-${level}"><i aria-hidden="true"></i>${name}${level === "learning" ? `<span class="sr-only"> (${learningLabel})</span>` : ""}</li>`,
+            )
+            .join("")}
+        </ul>
       </article>`,
     )
     .join("");

@@ -2976,3 +2976,34 @@ body::before {
     border-bottom: 0;
   }
 }
+
+/* Pixel theme alignment for secondary pages (2026-11) */
+@font-face {
+  font-family: "MatuPixel";
+  src: url("../fonts/matupixel.woff") format("woff");
+  font-display: swap;
+}
+
+:root {
+  --paper: #f4f3ef;
+  --paper-strong: #ffffff;
+  --panel: #ebe9e3;
+  --ink: #0a0a0a;
+  --muted: #474747;
+  --accent: #ff6a00;
+  --accent-soft: #ffe1cc;
+  --on-accent: #0a0a0a;
+  --display: "MatuPixel", ui-monospace, monospace;
+  --mono: "MatuPixel", ui-monospace, monospace;
+}
+
+[data-theme="dark"] {
+  --paper: #0b0b0b;
+  --paper-strong: #151515;
+  --panel: #1c1c1c;
+  --ink: #f4f3ef;
+  --muted: #b9b9b9;
+  --accent: #ff6a00;
+  --accent-soft: #3a1d08;
+  --on-accent: #0a0a0a;
+}

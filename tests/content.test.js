@@ -36,15 +36,16 @@ test("project slugs are unique and required fields are present", () => {
   assert.equal(projects.filter((project) => project.sourceUrl).length, 3);
 });
 
-test("the technology stack is organized by working area", () => {
-  assert.deepEqual(
-    technologyGroups.map((group) => group.label.en),
-    ["LANGUAGES", "BACKEND & WEB", "DATABASES", "INFRASTRUCTURE & TOOLS"],
-  );
-
+test("the skills are grouped and every item has a known level", () => {
+  assert.ok(technologyGroups.length >= 4);
   technologyGroups.forEach((group) => {
-    assert.match(group.image, /^assets\/img\/stack-.+\.svg$/);
-    assert.ok(group.alt);
+    assert.ok(group.label.es);
+    assert.ok(group.label.en);
+    assert.ok(group.items.length);
+    group.items.forEach(([name, level]) => {
+      assert.ok(name);
+      assert.ok(["daily", "learning"].includes(level), `${name}: ${level}`);
+    });
   });
 });
 
@@ -105,7 +106,7 @@ test("the home page and module imports share one asset version", () => {
   const version = html.match(/app\.js\?v=([^\"]+)/)?.[1];
 
   assert.ok(version, "The application entry point needs an asset version");
-  ["system.css", "i18n.js", "system.js"].forEach((asset) => {
+  ["pixel.css", "i18n.js", "system.js"].forEach((asset) => {
     assert.match(
       html,
       new RegExp(`${asset.replace(".", "\\.")}\\?v=${version}`),

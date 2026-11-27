@@ -18,11 +18,11 @@ const results = [];
 
 async function assertEnglishCopy(page) {
   const expected = [
-    ['.nav-links a[href="#proyectos"]', "Demos"],
-    ["#stack-title", "technical stack."],
-    ["#experience-stack-title", "experience & stack."],
+    ['.nav-links a[href="#proyectos"]', "demos"],
+    ["#stack-title", "The tools the market asks for most."],
+    ["#experience-stack-title", "4+ years inside the systems I now integrate."],
     [".experience-entry:nth-child(3) h3", "ERP Developer / DBA"],
-    ["#contact-title", "book your assessment."],
+    ["#contact-title", "Get your free assessment."],
   ];
 
   for (const [selector, text] of expected) {

@@ -24,18 +24,24 @@
     />
     <link
       rel="icon"
-      href="assets/img/favicon-computer.png"
+      href="assets/img/favicon-pixel.png"
       type="image/png"
       sizes="128x128"
     />
-    <link rel="apple-touch-icon" href="assets/img/apple-touch-computer.png" />
-    <link rel="preload" href="assets/css/system.css?v=20261127-1" as="style" />
-    <link rel="stylesheet" href="assets/css/system.css?v=20261127-1" />
-    <meta name="theme-color" content="#fbfbfa" />
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-pixel.png" />
+    <link
+      rel="preload"
+      href="assets/fonts/matupixel.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link rel="stylesheet" href="assets/css/pixel.css?v=20261127-2" />
+    <meta name="theme-color" content="#f4f3ef" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_UY" />
     <meta property="og:url" content="https://www.matudev.com/" />
-    <meta property="og:site_name" content="MatuDev" />
+    <meta property="og:site_name" content="Matías López" />
     <meta
       property="og:title"
       content="Matías López — Integraciones, automatización e IA para pymes"
@@ -46,7 +52,7 @@
     />
     <meta
       property="og:image"
-      content="https://www.matudev.com/assets/img/og-system.png"
+      content="https://www.matudev.com/assets/img/og-pixel.png"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -61,7 +67,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://www.matudev.com/assets/img/og-system.png"
+      content="https://www.matudev.com/assets/img/og-pixel.png"
     />
     <script>
       try {
@@ -73,30 +79,37 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Matías López",
+        "@type": "ProfessionalService",
+        "name": "Matías López — Integraciones, automatización e IA",
         "url": "https://www.matudev.com/",
         "email": "lopeznunezmati@gmail.com",
-        "jobTitle": "Integraciones, automatización e IA para pymes",
-        "knowsAbout": [
-          "Integración de sistemas",
-          "Automatización de procesos",
-          "Inteligencia artificial aplicada",
-          "Data Engineering"
-        ],
+        "telephone": "+59898445531",
+        "image": "https://www.matudev.com/assets/img/og-pixel.png",
+        "areaServed": ["UY", "AR", "CL"],
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Montevideo",
           "addressCountry": "UY"
         },
-        "sameAs": [
-          "https://github.com/lopez-matias",
-          "https://www.linkedin.com/in/lopez-matias/"
+        "founder": {
+          "@type": "Person",
+          "name": "Matías López",
+          "sameAs": [
+            "https://github.com/lopez-matias",
+            "https://www.linkedin.com/in/lopez-matias/"
+          ]
+        },
+        "knowsAbout": [
+          "Integración de sistemas",
+          "Automatización de procesos",
+          "Inteligencia artificial aplicada",
+          "ETL y Data Engineering",
+          "Business Intelligence"
         ]
       }
     </script>
   </head>
-  <body>
+  <body class="px">
     <a class="skip-link" href="#main" data-i18n="skipLink"
       >Saltar al contenido</a
     >
@@ -111,7 +124,12 @@
           href="#inicio"
           aria-label="Matías López, volver al inicio"
           data-i18n-attr="aria-label:brandAria"
-          ><strong>matudev_</strong></a
+          ><img
+            src="assets/img/avatar-pixel.png"
+            alt=""
+            width="28"
+            height="28"
+          /><span>MATUDEV<b class="blink">_</b></span></a
         >
         <button
           class="nav-toggle"
@@ -131,13 +149,12 @@
             <a href="#servicios" data-i18n="navServices">servicios</a
             ><a href="#como-trabajo" data-i18n="navProcess">cómo trabajo</a
             ><a href="#proyectos" data-i18n="navProjects">demos</a
-            ><a href="#experiencia" data-i18n="navExperience"
-              >experiencia</a
+            ><a href="#stack" data-i18n="navStack">skills</a
             ><a href="#contacto" data-i18n="navContact">contacto</a>
           </div>
           <div class="nav-secondary">
             <button
-              class="theme-icon-button"
+              class="icon-button"
               type="button"
               data-theme-toggle
               aria-label="Cambiar tema"
@@ -145,25 +162,22 @@
             >
               <span class="theme-icon theme-icon-sun" aria-hidden="true"
                 >☀</span
-              >
-              <span class="theme-icon theme-icon-moon" aria-hidden="true"
+              ><span class="theme-icon theme-icon-moon" aria-hidden="true"
                 >☾</span
               >
             </button>
-            <div class="language-switch">
-              <a
-                class="flag-link"
-                href="?lang=en"
-                data-language-switch
-                aria-label="English version"
-                ><img
-                  data-language-flag
-                  src="assets/img/flag-us.svg"
-                  alt=""
-                  width="27"
-                  height="18"
-              /></a>
-            </div>
+            <a
+              class="icon-button flag-link"
+              href="?lang=en"
+              data-language-switch
+              aria-label="English version"
+              ><img
+                data-language-flag
+                src="assets/img/flag-us.svg"
+                alt=""
+                width="24"
+                height="16"
+            /></a>
           </div>
         </div>
       </nav>
@@ -172,173 +186,305 @@
     <main id="main">
       <section class="hero" id="inicio" aria-labelledby="hero-title">
         <div class="shell hero-grid">
-          <div class="hero-copy reveal is-visible">
-            <p class="eyebrow" data-i18n="heroKicker">
-              INTEGRACIONES · AUTOMATIZACIÓN · IA
+          <div class="hero-copy">
+            <p class="kicker" data-i18n="heroKicker">
+              &gt; INTEGRACIONES · AUTOMATIZACIÓN · IA
             </p>
             <h1 id="hero-title" data-i18n-html="heroTitle">
-              <span>Matías López</span><br />Conecto tus sistemas.
+              Conecto tus sistemas.<br /><em>Automatizo el resto.</em>
             </h1>
-            <p class="hero-lead code-comment" data-i18n="heroLead">
-              Automatizo el trabajo repetitivo de pymes de Uruguay, Argentina y
-              Chile para que tu equipo deje de copiar y pegar datos entre
-              planillas, sistemas y WhatsApp.
+            <p class="hero-lead" data-i18n="heroLead">
+              Soy Matías López. Ayudo a pymes de Uruguay, Argentina y Chile a
+              que su equipo deje de copiar y pegar datos entre la tienda
+              online, el sistema de gestión, las planillas y WhatsApp.
             </p>
             <div class="hero-actions">
               <a
-                class="button button-dark"
+                class="btn btn-primary"
                 href="#contacto"
                 data-i18n="heroPrimary"
-                >Diagnóstico gratis</a
+                >Pedir diagnóstico gratis</a
               ><a
-                class="button button-quiet"
-                href="#servicios"
-                data-i18n="heroSecondary"
-                >Ver servicios</a
-              ><a
-                class="button button-quiet"
-                href="https://www.linkedin.com/in/lopez-matias/"
+                class="btn btn-ghost"
+                href="https://wa.me/59898445531?text=Hola%20Mat%C3%ADas%2C%20quiero%20un%20diagn%C3%B3stico%20de%2030%20minutos."
                 target="_blank"
                 rel="noopener noreferrer"
-                >LinkedIn <span aria-hidden="true">↗</span></a
-              ><a
-                class="button button-quiet"
-                href="https://github.com/lopez-matias"
-                target="_blank"
-                rel="noopener noreferrer"
-                >GitHub <span aria-hidden="true">↗</span></a
+                >WhatsApp ↗</a
               >
             </div>
-            <p class="hero-location" data-i18n="heroLocation">
-              Montevideo, Uruguay · Trabajo remoto con Uruguay, Argentina y Chile
-            </p>
+            <ul class="hero-stats">
+              <li>
+                <strong>4+</strong
+                ><span data-i18n="stat1"
+                  >años con ERP, ETL y datos en retail</span
+                >
+              </li>
+              <li>
+                <strong>30'</strong
+                ><span data-i18n="stat2">de diagnóstico sin costo</span>
+              </li>
+              <li>
+                <strong>48 h</strong
+                ><span data-i18n="stat3">para recibir tu propuesta</span>
+              </li>
+            </ul>
           </div>
-          <img
-            class="hero-computer reveal is-visible"
-            src="assets/img/hero-computer.webp"
-            width="720"
-            height="720"
-            fetchpriority="high"
-            decoding="async"
-            alt="Computadora retro con una terminal de código"
-            data-i18n-attr="alt:heroVisualAlt"
-          />
+          <div class="hero-visual" aria-hidden="true">
+            <div class="window avatar-window">
+              <div class="window-bar">
+                <span>MATIAS.PNG</span><span>■ □ ×</span>
+              </div>
+              <div class="avatar-frame">
+                <img
+                  src="assets/img/avatar-pixel.png"
+                  width="460"
+                  height="460"
+                  alt=""
+                  fetchpriority="high"
+                />
+              </div>
+            </div>
+            <div class="window terminal">
+              <div class="window-bar">
+                <span>SYNC.LOG</span><span class="live">● DEMO</span>
+              </div>
+              <pre><span class="t-line">$ matudev run --daily</span><span class="t-line"><b>[OK]</b> pedidos web → ERP ...... 128</span><span class="t-line"><b>[OK]</b> stock web + ML + local  sync</span><span class="t-line"><b>[IA]</b> facturas PDF leídas .... 42</span><span class="t-line"><b>[OK]</b> reporte enviado ....... 08:00</span><span class="t-line">$ <i class="blink">█</i></span></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ticker" aria-labelledby="ticker-title">
+        <h2 class="sr-only" id="ticker-title" data-i18n="tickerTitle">
+          Herramientas que conecto
+        </h2>
+        <div class="ticker-track">
+          <ul>
+            <li>Tiendanube</li>
+            <li>Shopify</li>
+            <li>MercadoLibre</li>
+            <li>WooCommerce</li>
+            <li>Google Sheets</li>
+            <li>Excel</li>
+            <li>WhatsApp Business API</li>
+            <li>SQL Server</li>
+            <li>PostgreSQL</li>
+            <li>Power BI</li>
+            <li>n8n</li>
+            <li>Make</li>
+            <li>Power Automate</li>
+            <li>OpenAI</li>
+            <li>Claude</li>
+            <li>REST APIs</li>
+            <li>Webhooks</li>
+          </ul>
+          <ul aria-hidden="true">
+            <li>Tiendanube</li>
+            <li>Shopify</li>
+            <li>MercadoLibre</li>
+            <li>WooCommerce</li>
+            <li>Google Sheets</li>
+            <li>Excel</li>
+            <li>WhatsApp Business API</li>
+            <li>SQL Server</li>
+            <li>PostgreSQL</li>
+            <li>Power BI</li>
+            <li>n8n</li>
+            <li>Make</li>
+            <li>Power Automate</li>
+            <li>OpenAI</li>
+            <li>Claude</li>
+            <li>REST APIs</li>
+            <li>Webhooks</li>
+          </ul>
         </div>
       </section>
 
       <section class="section" id="servicios" aria-labelledby="services-title">
         <div class="shell">
-          <header class="section-heading">
-            <div>
-              <p class="section-label">01 / SERVICES.CONFIG</p>
-              <h2 id="services-title" data-i18n="servicesTitle">
-                servicios.
-              </h2>
-              <p class="section-intro code-comment" data-i18n="servicesLead">
-                Tres formas de sacarle trabajo manual a tu equipo. Precio
-                cerrado, plazo definido y un abono opcional para mantenerlo
-                funcionando.
-              </p>
-            </div>
+          <header class="section-head">
+            <p class="label" data-i18n="label1">01 / SERVICIOS</p>
+            <h2 id="services-title" data-i18n="servicesTitle">
+              Tres formas de sacarle trabajo manual a tu equipo.
+            </h2>
+            <p class="section-lead" data-i18n="servicesLead">
+              Precio cerrado, plazo definido y un abono opcional para que siga
+              funcionando.
+            </p>
           </header>
-          <div class="services-grid services-grid-three">
-            <article>
-              <span>01</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="2" y="4" width="7" height="7" rx="1" />
-                <rect x="15" y="13" width="7" height="7" rx="1" />
-                <path d="M9 7.5h4v9h2" />
-              </svg>
+          <div class="cards">
+            <article class="card reveal">
+              <div class="card-top">
+                <span class="pixel-icon icon-link" aria-hidden="true"></span
+                ><span class="card-index">01</span>
+              </div>
               <h3 data-i18n="service1Title">Integración de sistemas</h3>
-              <p data-i18n="service1Text">
-                Hago que tus sistemas se hablen: tienda online, MercadoLibre,
-                ERP, facturación, planillas y APIs de proveedores, con stock,
-                precios y pedidos sincronizados.
+              <p class="card-problem" data-i18n="service1Problem">
+                Tu stock, tus precios y tus pedidos viven en lugares que no se
+                hablan.
               </p>
-              <p class="service-price" data-i18n="service1Price">
-                desde USD 800 · 2–4 semanas
+              <ul class="card-list">
+                <li data-i18n="service1Item1">
+                  Tienda online y MercadoLibre ↔ sistema de gestión
+                </li>
+                <li data-i18n="service1Item2">
+                  Stock y precios sincronizados entre sucursales
+                </li>
+                <li data-i18n="service1Item3">
+                  APIs de proveedores y facturación electrónica
+                </li>
+              </ul>
+              <p class="card-price" data-i18n="service1Price">
+                DESDE USD 800 · 2–4 SEMANAS
               </p>
             </article>
-            <article>
-              <span>02</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="8" />
-                <path d="M12 7v5l3 2" />
-              </svg>
+            <article class="card card-accent reveal">
+              <div class="card-top">
+                <span class="pixel-icon icon-clock" aria-hidden="true"></span
+                ><span class="card-index">02</span>
+              </div>
               <h3 data-i18n="service2Title">Automatización de procesos</h3>
-              <p data-i18n="service2Text">
-                Reportes que llegan solos, conciliación de ventas y cobros,
-                alertas de stock o de procesos caídos y carga automática de
-                pedidos y planillas.
+              <p class="card-problem" data-i18n="service2Problem">
+                Alguien de tu equipo repite las mismas tareas todos los días.
               </p>
-              <p class="service-price" data-i18n="service2Price">
-                desde USD 350 · 1–2 semanas
+              <ul class="card-list">
+                <li data-i18n="service2Item1">
+                  Reportes que llegan solos por mail o WhatsApp
+                </li>
+                <li data-i18n="service2Item2">
+                  Conciliación de ventas, cobros y extractos
+                </li>
+                <li data-i18n="service2Item3">
+                  Alertas de stock bajo o de procesos caídos
+                </li>
+              </ul>
+              <p class="card-price" data-i18n="service2Price">
+                DESDE USD 350 · 1–2 SEMANAS
               </p>
             </article>
-            <article>
-              <span>03</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="4" y="5" width="16" height="12" rx="1" />
-                <path d="M8 21h8M9 10h.01M15 10h.01M9 13.5h6" />
-              </svg>
+            <article class="card reveal">
+              <div class="card-top">
+                <span class="pixel-icon icon-bot" aria-hidden="true"></span
+                ><span class="card-index">03</span>
+              </div>
               <h3 data-i18n="service3Title">IA aplicada</h3>
-              <p data-i18n="service3Text">
-                Asistentes que responden con tu catálogo y precios reales,
-                lectura de facturas y remitos en PDF, y clasificación de mails
-                o reclamos. Siempre con una persona que revisa.
+              <p class="card-problem" data-i18n="service3Problem">
+                Hay documentos y mensajes que hoy tiene que leer una persona.
               </p>
-              <p class="service-price" data-i18n="service3Price">
-                desde USD 900 · 2–4 semanas
+              <ul class="card-list">
+                <li data-i18n="service3Item1">
+                  Asistente que responde con tu catálogo y precios reales
+                </li>
+                <li data-i18n="service3Item2">
+                  Lectura de facturas y remitos en PDF
+                </li>
+                <li data-i18n="service3Item3">
+                  Clasificación de mails, reclamos y consultas
+                </li>
+              </ul>
+              <p class="card-price" data-i18n="service3Price">
+                DESDE USD 900 · 2–4 SEMANAS
               </p>
             </article>
           </div>
         </div>
       </section>
 
+      <section class="section section-alt" aria-labelledby="change-title">
+        <div class="shell">
+          <header class="section-head">
+            <p class="label" data-i18n="label2">02 / ANTES → DESPUÉS</p>
+            <h2 id="change-title" data-i18n="changeTitle">
+              Lo que cambia en tu día a día.
+            </h2>
+          </header>
+          <div class="compare reveal">
+            <div class="compare-row compare-head">
+              <span data-i18n="changeBefore">ANTES</span
+              ><span data-i18n="changeAfter">DESPUÉS</span>
+            </div>
+            <div class="compare-row">
+              <p data-i18n="change1Before">
+                Se cargan a mano en el sistema los pedidos de la web, uno por
+                uno.
+              </p>
+              <p data-i18n="change1After">
+                Los pedidos entran solos y el stock se descuenta en todos los
+                canales.
+              </p>
+            </div>
+            <div class="compare-row">
+              <p data-i18n="change2Before">
+                Alguien arma el reporte de ventas cada lunes copiando de tres
+                planillas.
+              </p>
+              <p data-i18n="change2After">
+                El reporte llega a tu mail a las 8:00, con las mismas cifras
+                para todos.
+              </p>
+            </div>
+            <div class="compare-row">
+              <p data-i18n="change3Before">
+                Se responde por WhatsApp «¿tenés stock?» decenas de veces por
+                día.
+              </p>
+              <p data-i18n="change3After">
+                Un asistente responde con el stock real y te pasa solo las
+                consultas que cierran ventas.
+              </p>
+            </div>
+            <div class="compare-row">
+              <p data-i18n="change4Before">
+                Las facturas de proveedores en PDF se tipean en el sistema.
+              </p>
+              <p data-i18n="change4After">
+                La IA extrae los datos, una persona los revisa y se cargan con
+                un clic.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section
-        class="section section-gray"
+        class="section"
         id="como-trabajo"
         aria-labelledby="process-title"
       >
         <div class="shell">
-          <header class="section-heading">
-            <div>
-              <p class="section-label">02 / PROCESS.FLOW</p>
-              <h2 id="process-title" data-i18n="processTitle">
-                cómo trabajo.
-              </h2>
-              <p class="section-intro code-comment" data-i18n="processLead">
-                Empezamos por un proceso concreto, no por la tecnología.
-              </p>
-            </div>
+          <header class="section-head">
+            <p class="label" data-i18n="label3">03 / CÓMO TRABAJO</p>
+            <h2 id="process-title" data-i18n="processTitle">
+              Empezamos por un proceso, no por la tecnología.
+            </h2>
           </header>
-          <ol class="process-grid">
-            <li>
-              <span>01</span>
+          <ol class="steps">
+            <li class="reveal">
+              <span class="step-n">01</span>
               <h3 data-i18n="process1Title">Diagnóstico gratis</h3>
               <p data-i18n="process1Text">
                 30 minutos por videollamada. Recorremos un proceso y vemos qué
                 conviene automatizar primero.
               </p>
             </li>
-            <li>
-              <span>02</span>
+            <li class="reveal">
+              <span class="step-n">02</span>
               <h3 data-i18n="process2Title">Propuesta en 48 h</h3>
               <p data-i18n="process2Text">
                 Una página con la solución, el plazo, el precio cerrado y las
                 horas que vas a ahorrar por mes.
               </p>
             </li>
-            <li>
-              <span>03</span>
+            <li class="reveal">
+              <span class="step-n">03</span>
               <h3 data-i18n="process3Title">Implementación</h3>
               <p data-i18n="process3Text">
-                Construyo, pruebo con tus datos y lo dejo andando. 50% al
+                Construyo, pruebo con tus datos reales y lo dejo andando. 50% al
                 inicio y 50% en la entrega.
               </p>
             </li>
-            <li>
-              <span>04</span>
+            <li class="reveal">
+              <span class="step-n">04</span>
               <h3 data-i18n="process4Title">Abono mensual</h3>
               <p data-i18n="process4Text">
                 Opcional: monitoreo, correcciones y mejoras para que siga
@@ -346,31 +492,37 @@
               </p>
             </li>
           </ol>
-          <div class="plans-grid">
-            <article>
+          <div class="plans">
+            <article class="plan reveal">
               <p class="plan-name" data-i18n="plan1Name">BÁSICO</p>
-              <p class="plan-price" data-i18n="plan1Price">USD 150/mes</p>
+              <p class="plan-price">
+                USD 150<small data-i18n="perMonth">/mes</small>
+              </p>
               <p data-i18n="plan1Text">
                 Monitoreo, corrección de fallas y hasta 2 h de ajustes.
               </p>
             </article>
-            <article class="plan-featured">
+            <article class="plan plan-featured reveal">
               <p class="plan-name" data-i18n="plan2Name">PRO</p>
-              <p class="plan-price" data-i18n="plan2Price">USD 350/mes</p>
+              <p class="plan-price">
+                USD 350<small data-i18n="perMonth">/mes</small>
+              </p>
               <p data-i18n="plan2Text">
                 Todo lo del Básico, 6 h de mejoras y respuesta en 24 h hábiles.
               </p>
             </article>
-            <article>
+            <article class="plan reveal">
               <p class="plan-name" data-i18n="plan3Name">SOCIO TECH</p>
-              <p class="plan-price" data-i18n="plan3Price">USD 700/mes</p>
+              <p class="plan-price">
+                USD 700<small data-i18n="perMonth">/mes</small>
+              </p>
               <p data-i18n="plan3Text">
                 15 h por mes, una automatización nueva por mes y una reunión
                 mensual.
               </p>
             </article>
           </div>
-          <p class="plans-note code-comment" data-i18n="plansNote">
+          <p class="note" data-i18n="plansNote">
             Precios en USD, sin impuestos. Cada propuesta se ajusta al alcance
             real de tu proceso.
           </p>
@@ -378,164 +530,195 @@
       </section>
 
       <section
-        class="section"
+        class="section section-alt"
         id="proyectos"
         aria-labelledby="projects-title"
       >
         <div class="shell">
-          <header class="section-heading">
-            <div>
-              <p class="section-label">03 / DEMOS.DIR</p>
-              <h2 id="projects-title" data-i18n="projectsTitle">
-                demos en vivo.
-              </h2>
-              <p class="section-intro code-comment" data-i18n="projectsLead">
-                Sistemas que construí y podés probar ahora, con datos de
-                ejemplo. Sirven como base para adaptarlos a tu negocio.
-              </p>
-            </div>
+          <header class="section-head">
+            <p class="label">04 / DEMOS</p>
+            <h2 id="projects-title" data-i18n="projectsTitle">
+              Sistemas que podés probar ahora.
+            </h2>
+            <p class="section-lead" data-i18n="projectsLead">
+              Construidos por mí, con datos de ejemplo. Sirven como base para
+              adaptarlos a tu negocio.
+            </p>
           </header>
           <div class="projects-grid" data-projects></div>
         </div>
       </section>
 
+      <section class="section" id="stack" aria-labelledby="stack-title">
+        <div class="shell">
+          <header class="section-head">
+            <p class="label">05 / SKILLS</p>
+            <h2 id="stack-title" data-i18n="stackTitle">
+              Las herramientas que más pide el mercado.
+            </h2>
+            <p class="section-lead" data-i18n="stackLead">
+              Elijo según el problema y el presupuesto: low-code cuando
+              alcanza, código cuando hace falta.
+            </p>
+          </header>
+          <p class="legend">
+            <span
+              ><i class="dot dot-full"></i
+              ><b data-i18n="legendDaily">En producción</b></span
+            ><span
+              ><i class="dot dot-empty"></i
+              ><b data-i18n="legendLearning">En formación</b></span
+            >
+          </p>
+          <div class="skills" data-technologies></div>
+        </div>
+      </section>
+
       <section
-        class="section profile-stack-section"
+        class="section section-alt"
         id="experiencia"
         aria-labelledby="experience-stack-title"
       >
-        <div class="shell">
-          <header class="section-heading profile-heading">
-            <div>
-              <p class="section-label">04 / EXPERIENCE_AND_STACK</p>
-              <h2 id="experience-stack-title" data-i18n="experienceStackTitle">
-                experiencia & stack.
-              </h2>
-              <p
-                class="section-intro code-comment"
-                data-i18n="experienceStackLead"
-              >
-                Más de 4 años trabajando con datos, ERP e integraciones en
-                retail y distribución, y las herramientas que uso.
-              </p>
-            </div>
+        <div class="shell split">
+          <header class="section-head">
+            <p class="label" data-i18n="label6">06 / EXPERIENCIA</p>
+            <h2 id="experience-stack-title" data-i18n="experienceStackTitle">
+              Más de 4 años dentro de los sistemas que ahora integro.
+            </h2>
+            <p class="section-lead" data-i18n="experienceStackLead">
+              ERP, data warehouses, ETL y reportes en retail y distribución.
+              Conozco el problema desde adentro.
+            </p>
+            <a
+              class="btn btn-ghost"
+              href="https://www.linkedin.com/in/lopez-matias/"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-i18n="aboutLinkedin"
+              >Ver LinkedIn ↗</a
+            >
           </header>
-          <div class="profile-stack-grid">
-            <article
-              class="experience-panel"
-              aria-labelledby="experience-title"
-            >
-              <div class="experience-panel-bar">
-                <span>EXPERIENCE.LOG</span>
-                <a
-                  href="https://www.linkedin.com/in/lopez-matias/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-i18n="aboutLinkedin"
-                  >Ver LinkedIn ↗</a
-                >
-              </div>
-              <div class="experience-panel-heading">
-                <p class="section-label">CAREER</p>
-                <h3 id="experience-title" data-i18n="experienceTitle">
-                  experiencia profesional.
-                </h3>
-              </div>
-              <div class="experience-compact-list">
-                <article class="experience-entry experience-entry-compact">
-                  <div class="experience-marker"><span>01</span></div>
-                  <div class="experience-role">
-                    <p class="experience-company">Tienda Inglesa</p>
-                    <h3 data-i18n="experienceRole1">BI Analyst / DBA</h3>
-                    <p data-i18n="experienceText1">
-                      Optimización y mantenimiento de bases de datos, data
-                      warehouses y cubos SSAS. Desarrollo de ETL en Linux,
-                      reporting, BI y herramientas internas.
-                    </p>
-                  </div>
-                </article>
-                <article class="experience-entry experience-entry-compact">
-                  <div class="experience-marker"><span>02</span></div>
-                  <div class="experience-role">
-                    <p class="experience-company">Berkes</p>
-                    <h3 data-i18n="experienceRole2">Data Analyst / BI</h3>
-                    <p data-i18n="experienceText2">
-                      Desarrollo de reportes, análisis de datos y
-                      automatizaciones con Python, Power Automate y VBA.
-                    </p>
-                  </div>
-                </article>
-                <article class="experience-entry experience-entry-compact">
-                  <div class="experience-marker"><span>03</span></div>
-                  <div class="experience-role">
-                    <p class="experience-company">Despegado</p>
-                    <h3 data-i18n="experienceRole3">ERP Developer / DBA</h3>
-                    <p data-i18n="experienceText3">
-                      Implementación y optimización de ERP para stock,
-                      facturación e inventario. Diseño y optimización de bases
-                      de datos.
-                    </p>
-                  </div>
-                </article>
-              </div>
+          <div class="timeline">
+            <article class="experience-entry reveal">
+              <p class="exp-company">TIENDA INGLESA · 2026 —</p>
+              <h3 data-i18n="experienceRole1">BI Analyst / DBA</h3>
+              <p data-i18n="experienceText1">
+                Bases de datos, data warehouse y cubos SSAS. ETL en Linux,
+                automatización de alertas y reportes para el negocio.
+              </p>
             </article>
-            <aside
-              class="technology-panel"
-              id="stack"
-              aria-labelledby="stack-title"
-            >
-              <div class="technology-panel-bar">
-                <span>STACK.INI</span><span>ACTIVE</span>
-              </div>
-              <div class="technology-panel-heading">
-                <p class="section-label">TECHNOLOGIES</p>
-                <h3 id="stack-title" data-i18n="stackTitle">stack técnico.</h3>
-                <p data-i18n="stackLead">
-                  Herramientas que utilizo para construir, integrar y operar
-                  soluciones de software y datos.
-                </p>
-              </div>
-              <div class="stack-list" data-technologies></div>
-            </aside>
+            <article class="experience-entry reveal">
+              <p class="exp-company">BERKES · 2024 — 2026</p>
+              <h3 data-i18n="experienceRole2">Data Analyst / BI</h3>
+              <p data-i18n="experienceText2">
+                Reportes, análisis de datos y automatizaciones con Python, Power
+                Automate y VBA.
+              </p>
+            </article>
+            <article class="experience-entry reveal">
+              <p class="exp-company">DESPEGADO · 2022 — 2024</p>
+              <h3 data-i18n="experienceRole3">ERP Developer / DBA</h3>
+              <p data-i18n="experienceText3">
+                Implementación y optimización de ERP para stock, facturación e
+                inventario en varias sucursales.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="preguntas" aria-labelledby="faq-title">
+        <div class="shell narrow">
+          <header class="section-head">
+            <p class="label" data-i18n="label7">07 / PREGUNTAS</p>
+            <h2 id="faq-title" data-i18n="faqTitle">Preguntas frecuentes.</h2>
+          </header>
+          <div class="faq">
+            <details>
+              <summary data-i18n="faq1Q">
+                ¿Tengo que cambiar mis sistemas?
+              </summary>
+              <p data-i18n="faq1A">
+                No. Trabajo con lo que ya usás: tu sistema de gestión, tu tienda
+                online, tus planillas. La idea es conectarlos, no reemplazarlos.
+              </p>
+            </details>
+            <details>
+              <summary data-i18n="faq2Q">
+                ¿Trabajás con empresas de Argentina y Chile?
+              </summary>
+              <p data-i18n="faq2A">
+                Sí. Trabajo de forma remota con Uruguay, Argentina y Chile, en
+                tu horario, y cotizo en dólares.
+              </p>
+            </details>
+            <details>
+              <summary data-i18n="faq3Q">¿Qué pasa con mis datos?</summary>
+              <p data-i18n="faq3A">
+                Firmamos confidencialidad, uso accesos con los permisos mínimos
+                y, en los proyectos con IA, definimos por escrito qué datos se
+                procesan. Si hace falta, uso modelos que corren en tu propio
+                servidor.
+              </p>
+            </details>
+            <details>
+              <summary data-i18n="faq4Q">¿Y si algo deja de funcionar?</summary>
+              <p data-i18n="faq4A">
+                Cada automatización tiene registros y alertas. Con el abono
+                mensual me entero antes que vos y lo corrijo; sin abono, tenés
+                30 días de garantía sobre lo entregado.
+              </p>
+            </details>
+            <details>
+              <summary data-i18n="faq5Q">¿Cuánto tarda un proyecto?</summary>
+              <p data-i18n="faq5A">
+                Una automatización simple, de 1 a 2 semanas. Una integración
+                entre varios sistemas o un proyecto con IA, de 2 a 4 semanas.
+              </p>
+            </details>
           </div>
         </div>
       </section>
 
       <section
-        class="section contact-section"
+        class="section contact"
         id="contacto"
         aria-labelledby="contact-title"
       >
-        <div class="shell contact-layout">
+        <div class="shell contact-grid">
           <div class="contact-copy">
-            <p class="section-label">05 / CONTACT.API</p>
+            <p class="label" data-i18n="label8">08 / CONTACTO</p>
             <h2 id="contact-title" data-i18n="contactTitle">
-              pedí tu diagnóstico.
+              Pedí tu diagnóstico gratis.
             </h2>
-            <p class="code-comment" data-i18n="contactLead">
+            <p class="section-lead" data-i18n="contactLead">
               Contame qué proceso te lleva más tiempo y qué sistemas usás. Te
-              respondo en menos de 24 h hábiles para coordinar 30 minutos sin
-              costo.
+              respondo en menos de 24 h hábiles.
             </p>
             <address class="contact-links">
-              <a href="mailto:lopeznunezmati@gmail.com"
-                ><span>Email</span
-                ><strong>lopeznunezmati@gmail.com ↗</strong></a
-              ><a
-                href="https://github.com/lopez-matias"
+              <a
+                href="https://wa.me/59898445531?text=Hola%20Mat%C3%ADas%2C%20quiero%20un%20diagn%C3%B3stico%20de%2030%20minutos."
                 target="_blank"
                 rel="noopener noreferrer"
-                ><span>GitHub</span><strong>lopez-matias ↗</strong></a
+                ><span>WHATSAPP</span><strong>+598 98 445 531 ↗</strong></a
+              ><a href="mailto:lopeznunezmati@gmail.com"
+                ><span>EMAIL</span
+                ><strong>lopeznunezmati@gmail.com ↗</strong></a
               ><a
                 href="https://www.linkedin.com/in/lopez-matias/"
                 target="_blank"
                 rel="noopener noreferrer"
-                ><span>LinkedIn</span><strong>lopez-matias ↗</strong></a
+                ><span>LINKEDIN</span><strong>lopez-matias ↗</strong></a
+              ><a
+                href="https://github.com/lopez-matias"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><span>GITHUB</span><strong>lopez-matias ↗</strong></a
               >
             </address>
           </div>
           <form
-            class="contact-form"
+            class="contact-form window"
             data-contact-form
             novalidate
             data-required="Completá este dato para que pueda entender la consulta."
@@ -547,83 +730,89 @@
             data-fallback="El envío automático no está disponible. Podés escribirme a lopeznunezmati@gmail.com."
             data-i18n-attr="data-required:formRequired;data-email-error:formEmailError;data-min-error:formMinError;data-review:formReview;data-sending:formSending;data-sent:formSent;data-fallback:formFallback"
           >
-            <div class="honeypot" aria-hidden="true">
-              <label for="website">Website</label
-              ><input
-                id="website"
-                name="website"
-                type="text"
-                tabindex="-1"
-                autocomplete="off"
-              />
+            <div class="window-bar">
+              <span>NUEVO_MENSAJE.TXT</span><span>■ □ ×</span>
             </div>
-            <div class="form-row">
-              <div class="field">
-                <label for="name" data-i18n="formName">Nombre</label
+            <div class="form-body">
+              <div class="honeypot" aria-hidden="true">
+                <label for="website">Website</label
                 ><input
-                  id="name"
-                  name="name"
+                  id="website"
+                  name="website"
                   type="text"
-                  autocomplete="name"
-                  required
-                  maxlength="160"
-                  aria-describedby="name-error"
+                  tabindex="-1"
+                  autocomplete="off"
                 />
-                <p class="field-error" id="name-error"></p>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="name" data-i18n="formName">Nombre</label
+                  ><input
+                    id="name"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    required
+                    maxlength="160"
+                    aria-describedby="name-error"
+                  />
+                  <p class="field-error" id="name-error"></p>
+                </div>
+                <div class="field">
+                  <label for="email">Email</label
+                  ><input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                    maxlength="220"
+                    aria-describedby="email-error"
+                  />
+                  <p class="field-error" id="email-error"></p>
+                </div>
               </div>
               <div class="field">
-                <label for="email">Email</label
-                ><input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autocomplete="email"
+                <label for="message" data-i18n="formMessage">Mensaje</label
+                ><textarea
+                  id="message"
+                  name="message"
                   required
-                  maxlength="220"
-                  aria-describedby="email-error"
-                />
-                <p class="field-error" id="email-error"></p>
+                  minlength="20"
+                  maxlength="4000"
+                  aria-describedby="message-error"
+                  placeholder="Ej.: cargamos a mano los pedidos de la tienda online en el sistema de gestión, unas 10 h por semana."
+                  data-i18n-attr="placeholder:formPlaceholder"
+                ></textarea>
+                <p class="field-error" id="message-error"></p>
               </div>
-            </div>
-            <div class="field">
-              <label for="message" data-i18n="formMessage">Mensaje</label
-              ><textarea
-                id="message"
-                name="message"
-                required
-                minlength="20"
-                maxlength="4000"
-                aria-describedby="message-error"
-                placeholder="Ej.: cargamos a mano los pedidos de la tienda online en el sistema de gestión, unas 10 h por semana."
-                data-i18n-attr="placeholder:formPlaceholder"
-              ></textarea>
-              <p class="field-error" id="message-error"></p>
-            </div>
-            <p class="form-privacy">
-              <span data-i18n="formPrivacyNote"
-                >Tus datos se usan únicamente para responder este mensaje.</span
+              <p class="form-privacy">
+                <span data-i18n="formPrivacyNote"
+                  >Tus datos se usan únicamente para responder este
+                  mensaje.</span
+                >
+                <a
+                  href="privacy.html"
+                  data-preserve-language
+                  data-i18n="privacyLink"
+                  >Privacidad</a
+                >.
+              </p>
+              <button
+                class="btn btn-primary"
+                type="submit"
+                data-submit
+                data-i18n="formSubmit"
               >
-              <a
-                href="privacy.html"
-                data-preserve-language
-                data-i18n="privacyLink"
-                >Privacidad</a
-              >.
-            </p>
-            <button
-              class="button button-dark submit-button"
-              type="submit"
-              data-submit
-              data-i18n="formSubmit"
-            >
-              Enviar mensaje
-            </button>
-            <p
-              class="form-status"
-              data-form-status
-              role="status"
-              aria-live="polite"
-            ></p>
+                Enviar mensaje
+              </button>
+              <p
+                class="form-status"
+                data-form-status
+                role="status"
+                aria-live="polite"
+              ></p>
+            </div>
           </form>
         </div>
       </section>
@@ -631,35 +820,17 @@
 
     <footer class="footer">
       <div class="shell footer-grid">
-        <div>
-          <p class="footer-prompt">
-            @matudev:~$<span class="cursor" aria-hidden="true"></span>
-          </p>
-          <p data-i18n="roleLine">Integraciones · Automatización · IA</p>
-          <p>Montevideo, Uruguay</p>
-        </div>
-        <nav
-          aria-label="Navegación secundaria"
-          data-i18n-attr="aria-label:footerNavAria"
-        >
-          <a
-            href="https://github.com/lopez-matias"
-            target="_blank"
-            rel="noopener noreferrer"
-            >GitHub ↗</a
-          ><a
-            href="https://www.linkedin.com/in/lopez-matias/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >LinkedIn ↗</a
-          ><a href="mailto:lopeznunezmati@gmail.com">Email ↗</a>
-        </nav>
+        <p class="footer-prompt">
+          @matudev:~$ <span class="blink" aria-hidden="true">█</span>
+        </p>
+        <p data-i18n="roleLine">Integraciones · Automatización · IA</p>
+        <p>Montevideo, Uruguay · UY · AR · CL</p>
         <small>© 2026 Matías López</small>
       </div>
     </footer>
 
-    <script src="assets/js/i18n.js?v=20261127-1" defer></script>
-    <script type="module" src="assets/js/app.js?v=20261127-1"></script>
-    <script src="assets/js/system.js?v=20261127-1" defer></script>
+    <script src="assets/js/i18n.js?v=20261127-2" defer></script>
+    <script type="module" src="assets/js/app.js?v=20261127-2"></script>
+    <script src="assets/js/system.js?v=20261127-2" defer></script>
   </body>
 </html>
