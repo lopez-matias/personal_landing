@@ -1,5 +1,5 @@
-import { projects } from "./data/projects.js?v=20261025-1";
-import { technologyGroups } from "./data/technologies.js?v=20261025-1";
+import { projects } from "./data/projects.js?v=20261127-1";
+import { technologyGroups } from "./data/technologies.js?v=20261127-1";
 
 function language() {
   return document.documentElement.lang.startsWith("en") ? "en" : "es";
@@ -28,7 +28,6 @@ function renderProjects() {
         <article class="project-card reveal" data-project-kind="${project.sourceUrl ? "demo" : "production"}">
           <a class="project-media" href="${project.demoUrl}" target="_blank" rel="noopener noreferrer" aria-label="${labels.demo}: ${project.name}">
             <img src="${project.image}" alt="${localize(project.alt)}" width="${project.imageWidth}" height="${project.imageHeight}" ${index === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">
-            <span class="project-index" aria-hidden="true">0${index + 1}</span>
           </a>
           <div class="project-content">
             <div class="project-meta"><span>${localize(project.category)}</span><span class="project-status">${localize(project.status)}</span></div>
@@ -55,7 +54,7 @@ function renderTechnologyGroups() {
     .map(
       (group) => `
       <article class="stack-group reveal">
-        <header><span>${group.number}</span><h3>${localize(group.label)}</h3></header>
+        <h4>${localize(group.label)}</h4>
         <div class="stack-logo-wrap">
           <img src="${group.image}" alt="${group.alt}" loading="lazy" decoding="async" />
         </div>

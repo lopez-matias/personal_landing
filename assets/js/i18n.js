@@ -6,54 +6,78 @@
     themeAria: "Change theme",
     menuOpenAria: "Open menu",
     menuCloseAria: "Close menu",
-    navProjects: "Projects",
     navServices: "Services",
-    navExperience: "Experience & stack",
-    navContact: "Contact",
-    heroKicker: "BACKEND · SOFTWARE · DATA",
-    heroTitle: "<span>Matías López</span><br>Software Developer",
+    navProcess: "How I work",
+    navProjects: "Projects",
+    navExperience: "Experience",
+    navContact: "Book a call",
+    heroTitle: "Less manual work for your small business.",
     heroLead:
-      "I design and build systems, web applications and data solutions that turn complex processes into clear, maintainable tools.",
-    heroPrimary: "View projects",
-    heroSecondary: "Contact",
-    heroLocation: "Montevideo, Uruguay · Available for remote work",
-    heroVisualAlt: "Retro computer with a code terminal",
-    projectsTitle: "featured projects.",
-    projectsLead:
-      "Functional systems that show how I approach inventory, commercial management, internal operations and personal finance.",
-    servicesTitle: "services.",
+      "I automate repetitive tasks, connect the systems that don't talk to each other yet and add AI where it really saves hours. I work remotely with small and mid-sized companies in Uruguay, Argentina and Chile.",
+    heroPrimary: "Book a 30-minute call",
+    heroSecondary: "Message me on WhatsApp",
+    heroLocation: "Montevideo, Uruguay. The first call is free.",
+    heroBubble: "Which task do you repeat every day?",
+    heroVisualAlt: "Pixel-art portrait of Matías López",
+    heroCaption: "Matías López, developer",
+    servicesTitle: "What I can solve",
     servicesLead:
-      "Two simple ways to work together, depending on what your system needs.",
-    service1Title: "Focused development",
+      "Three problems I often see in small companies, and how I tackle them.",
+    service1Title: "Process automation",
+    service1Problem:
+      "Someone spends hours copying data into spreadsheets, building reports or sending the same emails.",
     service1Text:
-      "Development of a specific feature, integration or tool based on a defined need. Includes analysis, implementation and delivery of a working solution.",
-    service2Title: "Systems support",
+      "I build workflows that do that work on their own and alert you when something fails. You review the result, not the process.",
+    service2Title: "Systems integration",
+    service2Problem:
+      "Online stock doesn't match the store, and orders get entered twice.",
     service2Text:
-      "Diagnosis, fixes and improvements for existing systems. Includes maintenance, database adjustments and integrations that keep operations running.",
-    stackTitle: "technical stack.",
-    stackLead:
-      "Tools I use to build, integrate and operate software and data solutions.",
-    experienceTitle: "professional experience.",
+      "I connect your ERP, online store, CRM and invoicing so they share the same data, with no manual entry in between.",
+    service3Title: "Applied artificial intelligence",
+    service3Problem:
+      "The same customer questions, receipts read one by one, unsorted inboxes.",
+    service3Text:
+      "I implement assistants and document readers connected to your data. They can run in the cloud or on your own server when information can't leave the company.",
+    processTitle: "How I work",
+    processLead:
+      "Before a single line of code, you know what you'll get, when, and how much it costs.",
+    step1Title: "30-minute call",
+    step1Text:
+      "Tell me which process takes the most time today. Free and with no commitment.",
+    step2Title: "Fixed proposal",
+    step2Text: "You get scope, timeline and a fixed price before we start.",
+    step3Title: "Delivery in stages",
+    step3Text:
+      "Short iterations, so you see something working from the first week.",
+    step4Title: "Monthly support, if you need it",
+    step4Text:
+      "Maintenance, adjustments and new automations for a fixed monthly fee.",
+    projectsTitle: "Projects",
+    projectsLead:
+      "Systems I built for inventory, sales management, internal operations and finance. All of them have a live demo.",
+    experienceStackTitle: "Experience",
+    experienceStackLead:
+      "What I apply with clients is what I do every day at real companies: databases, ERP, ETL and integrations.",
+    experienceDate1: "2026 – present",
     experienceRole1: "BI Analyst / DBA",
     experienceText1:
-      "Database, data warehouse and SSAS cube optimization and maintenance. ETL development on Linux, reporting, BI and internal tools.",
-    experienceRole2: "Data Analyst / BI",
+      "Database, data warehouse and SSAS cube maintenance and optimization. ETL on Linux, API integrations, reporting and internal tools.",
+    experienceRole2: "Data / BI Analyst",
     experienceText2:
-      "Reporting, data analysis and automation development with Python, Power Automate and VBA.",
+      "Reporting, data analysis and automation with Python, Power Automate and VBA.",
     experienceRole3: "ERP Developer / DBA",
     experienceText3:
-      "ERP implementation and optimization for stock, billing and inventory. Database design and optimization.",
-    experienceStackTitle: "experience & stack.",
-    experienceStackLead:
-      "Professional experience and the tools I use to build software and data solutions.",
-    aboutLinkedin: "View LinkedIn ↗",
-    roleLine: "Backend · Software · Data · Integrations",
-    contactTitle: "let’s talk.",
+      "ERP implementation and optimization for stock, invoicing and inventory. Database design.",
+    stackTitle: "Tools",
+    aboutLinkedin: "See full profile on LinkedIn ↗",
+    roleLine: "Automation, integrations and AI for small businesses",
+    contactTitle: "Tell me what you want to automate",
     contactLead:
-      "If you have a job opportunity, a project or a process that needs a technical solution, write to me with some context.",
-    formName: "Name",
-    formMessage: "Message",
-    formPlaceholder: "Tell me what you need to build, improve or connect.",
+      "Two or three lines are enough: what you do by hand today and which systems you use. I'll reply to set up the call.",
+    formName: "Name and company",
+    formMessage: "Which process would you like to improve?",
+    formPlaceholder:
+      "E.g.: we manually enter web orders into the invoicing system.",
     formPrivacyNote: "Your data is used only to reply to this message.",
     privacyLink: "Privacy",
     formSubmit: "Send message",
@@ -103,8 +127,8 @@
 
   const englishMetadata = {
     home: [
-      "Matías López — Software Developer | MatuDev",
-      "Portfolio of Matías López, a Software Developer focused on backend, web applications, databases, data, BI and integrations.",
+      "Matías López — Automation, integrations and AI for small businesses | MatuDev",
+      "Matías López, freelance developer in Montevideo. I automate processes, integrate systems and implement AI for small businesses in Uruguay, Argentina and Chile.",
     ],
     privacy: [
       "Privacy policy | MatuDev",

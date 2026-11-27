@@ -39,7 +39,7 @@ test("project slugs are unique and required fields are present", () => {
 test("the technology stack is organized by working area", () => {
   assert.deepEqual(
     technologyGroups.map((group) => group.label.en),
-    ["LANGUAGES", "BACKEND & WEB", "DATABASES", "INFRASTRUCTURE & TOOLS"],
+    ["Languages", "Backend & web", "Databases", "Infrastructure & tools"],
   );
 
   technologyGroups.forEach((group) => {
