@@ -1574,3 +1574,48 @@ a {
 [data-theme="dark"] .contact {
   background-color: #000;
 }
+
+/* Commercial tools cards & single featured project (2026-11-27b) */
+.skill-lead {
+  margin: 0;
+  padding: 0.9rem 1rem 0;
+  font-weight: 700;
+}
+
+.skill {
+  font-family: var(--sans);
+  font-size: 0.98rem;
+}
+
+.skill i {
+  background: var(--accent);
+}
+
+.projects-grid:has(> .project-card:only-child) {
+  grid-template-columns: 1fr;
+}
+
+.project-card:only-child {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+}
+
+.project-card:only-child .project-media {
+  aspect-ratio: auto;
+  min-height: 340px;
+  border-bottom: 0;
+  border-right: 3px solid var(--line);
+}
+
+@media (max-width: 900px) {
+  .project-card:only-child {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card:only-child .project-media {
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    border-right: 0;
+    border-bottom: 3px solid var(--line);
+  }
+}

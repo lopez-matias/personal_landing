@@ -23,29 +23,22 @@ test("project slugs are unique and required fields are present", () => {
     assert.ok(project.description.en);
     assert.ok(project.technologies.length);
   });
-  assert.equal(projects.length, 4);
+  assert.equal(projects.length, 1);
   assert.deepEqual(
     projects.map((project) => project.demoUrl),
-    [
-      "https://stockflow.matudev.com",
-      "https://nodo.matudev.com",
-      "https://taskflow.matudev.com",
-      "https://cuentaclara.matudev.com",
-    ],
+    ["https://cuentaclara.matudev.com"],
   );
-  assert.equal(projects.filter((project) => project.sourceUrl).length, 3);
 });
 
-test("the skills are grouped and every item has a known level", () => {
-  assert.ok(technologyGroups.length >= 4);
+test("the tools are grouped in three commercial cards", () => {
+  assert.equal(technologyGroups.length, 3);
   technologyGroups.forEach((group) => {
-    assert.ok(group.label.es);
-    assert.ok(group.label.en);
+    assert.ok(group.label.es && group.label.en);
+    assert.ok(group.lead.es && group.lead.en);
     assert.ok(group.items.length);
-    group.items.forEach(([name, level]) => {
-      assert.ok(name);
-      assert.ok(["daily", "learning"].includes(level), `${name}: ${level}`);
-    });
+    group.items.forEach((item) =>
+      assert.ok(typeof item === "string" || (item.es && item.en)),
+    );
   });
 });
 
