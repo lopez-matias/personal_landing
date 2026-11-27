@@ -1,5 +1,5 @@
-import { projects } from "./data/projects.js?v=20261127-1";
-import { technologyGroups } from "./data/technologies.js?v=20261127-1";
+import { projects } from "./data/projects.js?v=20261127-2";
+import { tools } from "./data/technologies.js?v=20261127-2";
 
 function language() {
   return document.documentElement.lang.startsWith("en") ? "en" : "es";
@@ -34,7 +34,7 @@ function renderProjects() {
             <h3>${project.name}</h3>
             <p>${localize(project.description)}</p>
             <ul class="project-tech" aria-label="${language() === "en" ? "Technologies" : "Tecnologías"}">
-              ${project.technologies.map((technology) => `<li>${technology}</li>`).join("")}
+              ${project.technologies.map((technology) => `<li>${localize(technology)}</li>`).join("")}
             </ul>
             ${project.note ? `<p class="project-note"><span aria-hidden="true">//</span> ${localize(project.note)}</p>` : ""}
             <div class="project-actions">
@@ -47,20 +47,10 @@ function renderProjects() {
     .join("");
 }
 
-function renderTechnologyGroups() {
+function renderTools() {
   const container = document.querySelector("[data-technologies]");
   if (!container) return;
-  container.innerHTML = technologyGroups
-    .map(
-      (group) => `
-      <article class="stack-group reveal">
-        <h4>${localize(group.label)}</h4>
-        <div class="stack-logo-wrap">
-          <img src="${group.image}" alt="${group.alt}" loading="lazy" decoding="async" />
-        </div>
-      </article>`,
-    )
-    .join("");
+  container.innerHTML = tools.map((tool) => `<li>${tool}</li>`).join("");
 }
 
 function initReveal() {
@@ -89,7 +79,7 @@ function initReveal() {
 
 function renderAll() {
   renderProjects();
-  renderTechnologyGroups();
+  renderTools();
   initReveal();
 }
 

@@ -1,71 +1,5 @@
 export const projects = [
   {
-    name: "StockFlow",
-    slug: "stockflow",
-    category: {
-      es: "Gestión de inventario",
-      en: "Inventory management",
-    },
-    status: { es: "Demo", en: "Demo" },
-    image: "assets/img/stockflow-dashboard.png",
-    imageWidth: 1440,
-    imageHeight: 1000,
-    alt: {
-      es: "Panel principal del sistema de inventario StockFlow",
-      en: "StockFlow inventory system dashboard",
-    },
-    description: {
-      es: "Reduce desajustes de inventario al centralizar existencias, movimientos y transferencias entre ubicaciones en un único flujo operativo.",
-      en: "Reduces inventory discrepancies by centralizing stock, movements and transfers between locations in a single operational workflow.",
-    },
-    technologies: ["Python", "FastAPI", "PostgreSQL", "Docker", "JavaScript"],
-    demoUrl: "https://stockflow.matudev.com",
-    sourceUrl: "https://github.com/lopez-matias/inventory_system",
-  },
-  {
-    name: "NODO",
-    slug: "nodo",
-    category: { es: "Gestión comercial", en: "Commercial management" },
-    status: { es: "Demo", en: "Demo" },
-    image: "assets/img/nodo-dashboard.png",
-    imageWidth: 1440,
-    imageHeight: 1000,
-    alt: {
-      es: "Panel general del sistema de gestión comercial NODO",
-      en: "NODO commercial management dashboard",
-    },
-    description: {
-      es: "Evita información comercial dispersa al reunir clientes, productos, pedidos, pagos y métricas de ventas en un mismo sistema.",
-      en: "Prevents scattered commercial information by bringing customers, products, orders, payments and sales metrics into one system.",
-    },
-    technologies: ["Python", "FastAPI", "PostgreSQL", "Docker", "JavaScript"],
-    demoUrl: "https://nodo.matudev.com",
-    sourceUrl: "https://github.com/lopez-matias/order_management",
-  },
-  {
-    name: "OrangeFlow",
-    slug: "orangeflow",
-    category: {
-      es: "Solicitudes internas",
-      en: "Internal requests",
-    },
-    status: { es: "Demo", en: "Demo" },
-    image: "assets/img/orangeflow-dashboard.png",
-    imageWidth: 1440,
-    imageHeight: 1200,
-    alt: {
-      es: "Panel de solicitudes internas de OrangeFlow",
-      en: "OrangeFlow internal request dashboard",
-    },
-    description: {
-      es: "Reemplaza el seguimiento manual de solicitudes internas por un flujo con prioridades, responsables, estados e historial de cambios.",
-      en: "Replaces manual tracking of internal requests with a workflow for priorities, owners, statuses and change history.",
-    },
-    technologies: ["Python", "FastAPI", "PostgreSQL", "Docker", "JavaScript"],
-    demoUrl: "https://taskflow.matudev.com",
-    sourceUrl: "https://github.com/lopez-matias/taskflow-admin",
-  },
-  {
     name: "CuentaClara",
     slug: "cuentaclara",
     category: { es: "Finanzas personales", en: "Personal finance" },
@@ -78,10 +12,14 @@ export const projects = [
       en: "CuentaClara personal finance dashboard",
     },
     description: {
-      es: "Da claridad sobre las finanzas personales al reunir movimientos, gastos y saldos de cuentas en una vista fácil de consultar.",
-      en: "Brings clarity to personal finances by combining transactions, expenses and account balances in an easy-to-read view.",
+      es: "Una app para ordenar ingresos, gastos y saldos en un solo lugar. Diseñada, desarrollada y publicada de punta a punta, y en uso real.",
+      en: "An app to organize income, expenses and balances in one place. Designed, built and shipped end to end, and in real use.",
     },
-    technologies: ["Web App", "Responsive UI", "Data"],
+    technologies: [
+      { es: "App web", en: "Web app" },
+      { es: "Base de datos", en: "Database" },
+      { es: "Funciona en el celular", en: "Mobile friendly" },
+    ],
     demoUrl: "https://cuentaclara.matudev.com",
   },
 ];

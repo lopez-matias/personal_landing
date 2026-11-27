@@ -7,69 +7,86 @@
     menuOpenAria: "Open menu",
     menuCloseAria: "Close menu",
     navServices: "Services",
-    navProcess: "How I work",
-    navProjects: "Projects",
+    navPlans: "Plans",
+    navProjects: "Project",
     navExperience: "Experience",
     navContact: "Book a call",
-    heroTitle: "Less manual work for your small business.",
+    heroTitle: "Stop doing by hand what a computer can do on its own.",
     heroLead:
-      "I automate repetitive tasks, connect the systems that don't talk to each other yet and add AI where it really saves hours. I work remotely with small and mid-sized companies in Uruguay, Argentina and Chile.",
-    heroPrimary: "Book a 30-minute call",
-    heroSecondary: "Message me on WhatsApp",
-    heroLocation: "Montevideo, Uruguay. The first call is free.",
+      "I automate tasks, connect your systems and add artificial intelligence so your business grows without more manual work.",
+    heroPrimary: "Book a free call",
+    heroSecondary: "See plans",
+    heroLocation:
+      "From Montevideo, for small businesses in Uruguay, Argentina and Chile.",
     heroBubble: "Which task do you repeat every day?",
     heroVisualAlt: "Pixel-art portrait of Matías López",
     heroCaption: "Matías López, developer",
     servicesTitle: "What I can solve",
-    servicesLead:
-      "Three problems I often see in small companies, and how I tackle them.",
-    service1Title: "Process automation",
-    service1Problem:
-      "Someone spends hours copying data into spreadsheets, building reports or sending the same emails.",
+    service1Title: "Automation",
     service1Text:
-      "I build workflows that do that work on their own and alert you when something fails. You review the result, not the process.",
+      "Reports, data entry and emails that a person handles today run on their own.",
     service2Title: "Systems integration",
-    service2Problem:
-      "Online stock doesn't match the store, and orders get entered twice.",
     service2Text:
-      "I connect your ERP, online store, CRM and invoicing so they share the same data, with no manual entry in between.",
-    service3Title: "Applied artificial intelligence",
-    service3Problem:
-      "The same customer questions, receipts read one by one, unsorted inboxes.",
+      "Your online store, stock and invoicing share the same data, with nothing entered twice.",
+    service3Title: "Artificial intelligence",
     service3Text:
-      "I implement assistants and document readers connected to your data. They can run in the cloud or on your own server when information can't leave the company.",
+      "Assistants that answer your customers and read documents for you.",
+    plansTitle: "Plans",
+    plansLead:
+      "To give you an idea before we talk. The final price is set after the call, with scope and timeline in writing.",
+    plan1Title: "Assessment",
+    plan1Price: "Free",
+    plan1Text:
+      "A 30-minute call. We pick one process and I tell you whether it's worth automating and what it would cost.",
+    plan1Time: "30 minutes",
+    plan2Title: "Express automation",
+    plan2Price: "from US$ 350",
+    plan2Text:
+      "One automated process: a report that arrives on its own, order entry, or alerts when something fails.",
+    plan2Time: "1 to 2 weeks",
+    plan3Title: "Management dashboard",
+    plan3Price: "from US$ 500",
+    plan3Text:
+      "Sales, stock and cash in a Power BI dashboard that updates itself every day.",
+    plan3Time: "2 to 3 weeks",
+    plan4Title: "Integration",
+    plan4Price: "from US$ 800",
+    plan4Text:
+      "We connect two systems: online store with stock, sales with invoicing, or spreadsheets with your management system.",
+    plan4Time: "2 to 4 weeks",
+    plan5Title: "AI assistant",
+    plan5Price: "from US$ 900",
+    plan5Text:
+      "Answers customer questions on WhatsApp or your website, using your real product and price information.",
+    plan5Time: "2 to 4 weeks",
+    plan6Title: "Monthly support",
+    plan6Price: "from US$ 150/month",
+    plan6Text:
+      "Maintenance, adjustments and new improvements with hours included every month. No minimum term.",
+    plan6Time: "Month to month",
+    plansNote:
+      "Prices in US dollars, taxes not included. You can pay in Uruguayan, Argentine or Chilean pesos.",
     processTitle: "How I work",
-    processLead:
-      "Before a single line of code, you know what you'll get, when, and how much it costs.",
-    step1Title: "30-minute call",
-    step1Text:
-      "Tell me which process takes the most time today. Free and with no commitment.",
-    step2Title: "Fixed proposal",
-    step2Text: "You get scope, timeline and a fixed price before we start.",
-    step3Title: "Delivery in stages",
-    step3Text:
-      "Short iterations, so you see something working from the first week.",
-    step4Title: "Monthly support, if you need it",
-    step4Text:
-      "Maintenance, adjustments and new automations for a fixed monthly fee.",
-    projectsTitle: "Projects",
-    projectsLead:
-      "Systems I built for inventory, sales management, internal operations and finance. All of them have a live demo.",
+    step1Title: "Call",
+    step1Text: "Tell me what takes you the most time today.",
+    step2Title: "Proposal",
+    step2Text: "Scope, timeline and a fixed price.",
+    step3Title: "Delivery",
+    step3Text: "Progress you can see every week.",
+    step4Title: "Support",
+    step4Text: "If you need it, month to month.",
+    projectsTitle: "Project",
     experienceStackTitle: "Experience",
     experienceStackLead:
-      "What I apply with clients is what I do every day at real companies: databases, ERP, ETL and integrations.",
+      "4+ years working with data, management systems and integrations at real companies.",
     experienceDate1: "2026 – present",
-    experienceRole1: "BI Analyst / DBA",
-    experienceText1:
-      "Database, data warehouse and SSAS cube maintenance and optimization. ETL on Linux, API integrations, reporting and internal tools.",
-    experienceRole2: "Data / BI Analyst",
-    experienceText2:
-      "Reporting, data analysis and automation with Python, Power Automate and VBA.",
-    experienceRole3: "ERP Developer / DBA",
-    experienceText3:
-      "ERP implementation and optimization for stock, invoicing and inventory. Database design.",
-    stackTitle: "Tools",
-    aboutLinkedin: "See full profile on LinkedIn ↗",
+    experienceRole1: "Retail · Supermarkets",
+    experienceText1: "Databases, reports and integrations.",
+    experienceRole2: "Industry",
+    experienceText2: "Reporting and automation of administrative tasks.",
+    experienceRole3: "Retail and business management",
+    experienceText3: "Stock and invoicing systems.",
+    stackTitle: "Tools I work with",
     roleLine: "Automation, integrations and AI for small businesses",
     contactTitle: "Tell me what you want to automate",
     contactLead:
@@ -374,5 +391,13 @@
     applyLanguage(isEnglish());
   });
 
-  window.addEventListener("popstate", () => applyLanguage(isEnglish(), true));
+  // Clicking an in-page link (#planes) also fires popstate. Only re-apply the
+  // language when it actually changed; otherwise the reading-position restore
+  // would undo the anchor jump and the menu would look like it does nothing.
+  window.addEventListener("popstate", () => {
+    const englishVersion = isEnglish();
+    if (englishVersion === document.documentElement.lang.startsWith("en"))
+      return;
+    applyLanguage(englishVersion, true);
+  });
 })();

@@ -26,16 +26,17 @@ El código de **[matudev.com](https://www.matudev.com/)**, mi sitio como desarro
 ## Diseño
 
 ```text
-█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
-█  paper #EDEDEA   ink #000000   orange #FF5F00   █
-█  títulos: Pixelify Sans · texto: Atkinson       █
-█  unidad de pixel: 4px (bordes, sombras, notch)  █
-█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
+█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+█  paper #EDEDEA   ink #000000   orange #FF5F00  █
+█  texto: Bricolage Grotesque · marca: Pixelify  █
+█  bordes de 2px, sombras duras, retrato 72x72   █
+█▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
 ```
 
 - Estética pixel-art en blanco, negro y un solo naranja, usado como relleno y nunca como color de texto.
-- El retrato es un PNG de 72×72 px escalado con `image-rendering: pixelated`. El mismo archivo se usa para el avatar, el favicon y la imagen para compartir.
-- Botones con contorno "dentado" hecho con `box-shadow` y sombras duras sin blur.
+- El retrato es un PNG de 72×72 px escalado con `image-rendering: pixelated`. El favicon es la misma cara en naranja sobre negro (`favicon.svg`).
+- Bordes finos y sombras duras sin blur; el pixel queda para la marca, el retrato y los detalles.
+- Seis planes con precio de referencia para que el visitante tenga una idea antes de llamar.
 - Tema claro y oscuro, versión en español e inglés (`?lang=en`) y `prefers-reduced-motion` respetado.
 
 ## Stack
@@ -84,7 +85,7 @@ personal_landing/
 ├── api/contact.js        # endpoint serverless del formulario
 ├── assets/
 │   ├── css/system.css    # sistema visual pixel-art
-│   ├── fonts/            # Pixelify Sans + Atkinson Hyperlegible (OFL)
+│   ├── fonts/            # Bricolage Grotesque + Pixelify Sans (OFL)
 │   ├── img/              # retrato pixel, capturas de proyectos, íconos
 │   └── js/               # i18n, render de proyectos, tema y formulario
 ├── scripts/              # build, validación y QA visual

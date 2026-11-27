@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { projects } from "../assets/js/data/projects.js";
-import { technologyGroups } from "../assets/js/data/technologies.js";
+import { tools } from "../assets/js/data/technologies.js";
 
 test("project slugs are unique and required fields are present", () => {
   assert.equal(
@@ -23,29 +23,13 @@ test("project slugs are unique and required fields are present", () => {
     assert.ok(project.description.en);
     assert.ok(project.technologies.length);
   });
-  assert.equal(projects.length, 4);
-  assert.deepEqual(
-    projects.map((project) => project.demoUrl),
-    [
-      "https://stockflow.matudev.com",
-      "https://nodo.matudev.com",
-      "https://taskflow.matudev.com",
-      "https://cuentaclara.matudev.com",
-    ],
-  );
-  assert.equal(projects.filter((project) => project.sourceUrl).length, 3);
+  assert.equal(projects.length, 1);
+  assert.equal(projects[0].demoUrl, "https://cuentaclara.matudev.com");
 });
 
-test("the technology stack is organized by working area", () => {
-  assert.deepEqual(
-    technologyGroups.map((group) => group.label.en),
-    ["Languages", "Backend & web", "Databases", "Infrastructure & tools"],
-  );
-
-  technologyGroups.forEach((group) => {
-    assert.match(group.image, /^assets\/img\/stack-.+\.svg$/);
-    assert.ok(group.alt);
-  });
+test("the tool list stays short and non-technical", () => {
+  assert.ok(tools.length >= 6 && tools.length <= 16);
+  assert.equal(new Set(tools).size, tools.length);
 });
 
 test("Spanish copy stays editable in HTML and JavaScript only stores English", () => {
