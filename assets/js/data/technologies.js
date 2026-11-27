@@ -1,29 +1,51 @@
 export const technologyGroups = [
   {
     number: "01",
-    label: { es: "LENGUAJES", en: "LANGUAGES" },
-    image: "assets/img/stack-languages.svg",
-    alt: "Python, Java, JavaScript",
+    label: { es: "VENTAS Y CLIENTES", en: "SALES & CUSTOMERS" },
+    lead: {
+      es: "Donde vendés y atendés a tus clientes.",
+      en: "Where you sell and serve your customers.",
+    },
+    items: [
+      "WhatsApp Business",
+      "Mercado Libre",
+      "Shopify",
+      "Tiendanube",
+      "HubSpot",
+      "Salesforce",
+    ],
   },
   {
     number: "02",
-    label: { es: "BACKEND & WEB", en: "BACKEND & WEB" },
-    image: "assets/img/stack-backend-web.svg",
-    alt: "FastAPI, Spring, React, HTML, CSS",
+    label: { es: "GESTIÓN Y DATOS", en: "OPERATIONS & DATA" },
+    lead: {
+      es: "Donde están tu stock, tu facturación y tus números.",
+      en: "Where your stock, invoicing and numbers live.",
+    },
+    items: [
+      { es: "ERP y sistemas de gestión", en: "ERP and management systems" },
+      "Odoo",
+      "Excel",
+      "Google Sheets",
+      "Power BI",
+      { es: "Bases de datos SQL", en: "SQL databases" },
+    ],
   },
   {
     number: "03",
-    label: { es: "BASES DE DATOS", en: "DATABASES" },
-    image: "assets/img/stack-databases.svg",
-    alt: "PostgreSQL, MySQL, SQLite",
-  },
-  {
-    number: "04",
-    label: {
-      es: "INFRAESTRUCTURA & HERRAMIENTAS",
-      en: "INFRASTRUCTURE & TOOLS",
+    label: { es: "AUTOMATIZACIÓN E IA", en: "AUTOMATION & AI" },
+    lead: {
+      es: "Lo que hace el trabajo repetitivo por tu equipo.",
+      en: "What does the repetitive work for your team.",
     },
-    image: "assets/img/stack-infrastructure-tools.svg",
-    alt: "Docker, Linux, Windows, Git, GitHub, GitHub Actions, VS Code",
+    items: [
+      "n8n",
+      "Make",
+      "Zapier",
+      "Power Automate",
+      "ChatGPT / OpenAI",
+      "Claude",
+      { es: "IA privada en tu servidor", en: "Private AI on your server" },
+    ],
   },
 ];

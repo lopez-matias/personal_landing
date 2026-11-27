@@ -18,11 +18,11 @@ const results = [];
 
 async function assertEnglishCopy(page) {
   const expected = [
-    ['.nav-links a[href="#proyectos"]', "Projects"],
-    ["#stack-title", "technical stack."],
-    ["#experience-stack-title", "experience & stack."],
-    [".experience-entry:nth-child(3) h3", "ERP Developer / DBA"],
-    ["#contact-title", "let’s talk."],
+    ['.nav-links a[href="#proyectos"]', "project"],
+    ["#stack-title", "I work with what your company already uses."],
+    ["#experience-stack-title", "4+ years inside the systems I now integrate."],
+    [".experience-entry:nth-child(3) h3", "Management systems (ERP)"],
+    ["#contact-title", "Get your free assessment."],
   ];
 
   for (const [selector, text] of expected) {
@@ -35,7 +35,7 @@ async function assertEnglishCopy(page) {
   if (/undefined/i.test(await projectArea.innerText())) {
     throw new Error("A project rendered with missing data in English.");
   }
-  if ((await projectArea.locator(".project-media img").count()) !== 4) {
+  if ((await projectArea.locator(".project-media img").count()) !== 1) {
     throw new Error("The project images did not render in English.");
   }
 }
@@ -81,7 +81,7 @@ for (const viewport of viewports) {
     if (
       (await page.locator('.nav-links a[href="#proyectos"]').textContent())
         ?.trim()
-        .toLocaleLowerCase("es") !== "proyectos"
+        .toLocaleLowerCase("es") !== "proyecto"
     )
       throw new Error("Spanish navigation copy did not render.");
     if (
@@ -109,7 +109,7 @@ for (const viewport of viewports) {
     if (
       (await page.locator('.nav-links a[href="#proyectos"]').textContent())
         ?.trim()
-        .toLocaleLowerCase("es") !== "proyectos"
+        .toLocaleLowerCase("es") !== "proyecto"
     )
       throw new Error("Spanish navigation copy did not render.");
     if (
@@ -154,7 +154,7 @@ for (const viewport of viewports) {
     await page.locator("#inicio").scrollIntoViewIfNeeded();
   }
 
-  if ((await page.locator(".project-card").count()) !== 4)
+  if ((await page.locator(".project-card").count()) !== 1)
     throw new Error("Expected four featured projects.");
 
   if (viewport.width <= 900) await page.click("[data-nav-toggle]");
@@ -267,13 +267,13 @@ for (const viewport of viewports) {
     throw new Error("Experience role must be larger than the company name.");
   if (metrics.languageFlags !== 1)
     throw new Error("Expected one contextual flag language control.");
-  if (metrics.technologyGroups !== 4)
+  if (metrics.technologyGroups !== 3)
     throw new Error("The README-style technology groups are incomplete.");
   if (metrics.codeComments < 4 || !metrics.commentMarker.includes("//"))
     throw new Error("Explanatory copy is not rendered as code comments.");
   if (/Courier|monospace/i.test(metrics.utilityFont))
     throw new Error("The old monospaced typography is still active.");
-  if (metrics.projectCount !== 4 || metrics.demoLinkCount !== 4)
+  if (metrics.projectCount !== 1 || metrics.demoLinkCount !== 1)
     throw new Error("The four project demo links are incomplete.");
   if (metrics.sourceLinkCount !== 3)
     throw new Error("Expected source code links for the three public demos.");

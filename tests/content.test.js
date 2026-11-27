@@ -23,28 +23,22 @@ test("project slugs are unique and required fields are present", () => {
     assert.ok(project.description.en);
     assert.ok(project.technologies.length);
   });
-  assert.equal(projects.length, 4);
+  assert.equal(projects.length, 1);
   assert.deepEqual(
     projects.map((project) => project.demoUrl),
-    [
-      "https://stockflow.matudev.com",
-      "https://nodo.matudev.com",
-      "https://taskflow.matudev.com",
-      "https://cuentaclara.matudev.com",
-    ],
+    ["https://cuentaclara.matudev.com"],
   );
-  assert.equal(projects.filter((project) => project.sourceUrl).length, 3);
 });
 
-test("the technology stack is organized by working area", () => {
-  assert.deepEqual(
-    technologyGroups.map((group) => group.label.en),
-    ["LANGUAGES", "BACKEND & WEB", "DATABASES", "INFRASTRUCTURE & TOOLS"],
-  );
-
+test("the tools are grouped in three commercial cards", () => {
+  assert.equal(technologyGroups.length, 3);
   technologyGroups.forEach((group) => {
-    assert.match(group.image, /^assets\/img\/stack-.+\.svg$/);
-    assert.ok(group.alt);
+    assert.ok(group.label.es && group.label.en);
+    assert.ok(group.lead.es && group.lead.en);
+    assert.ok(group.items.length);
+    group.items.forEach((item) =>
+      assert.ok(typeof item === "string" || (item.es && item.en)),
+    );
   });
 });
 
@@ -105,7 +99,7 @@ test("the home page and module imports share one asset version", () => {
   const version = html.match(/app\.js\?v=([^\"]+)/)?.[1];
 
   assert.ok(version, "The application entry point needs an asset version");
-  ["system.css", "i18n.js", "system.js"].forEach((asset) => {
+  ["pixel.css", "i18n.js", "system.js"].forEach((asset) => {
     assert.match(
       html,
       new RegExp(`${asset.replace(".", "\\.")}\\?v=${version}`),

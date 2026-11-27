@@ -1,5 +1,5 @@
-import { projects } from "./data/projects.js?v=20261025-1";
-import { technologyGroups } from "./data/technologies.js?v=20261025-1";
+import { projects } from "./data/projects.js?v=20261127-3";
+import { technologyGroups } from "./data/technologies.js?v=20261127-3";
 
 function language() {
   return document.documentElement.lang.startsWith("en") ? "en" : "es";
@@ -54,11 +54,12 @@ function renderTechnologyGroups() {
   container.innerHTML = technologyGroups
     .map(
       (group) => `
-      <article class="stack-group reveal">
+      <article class="skill-group reveal">
         <header><span>${group.number}</span><h3>${localize(group.label)}</h3></header>
-        <div class="stack-logo-wrap">
-          <img src="${group.image}" alt="${group.alt}" loading="lazy" decoding="async" />
-        </div>
+        <p class="skill-lead">${localize(group.lead)}</p>
+        <ul>
+          ${group.items.map((item) => `<li class="skill"><i aria-hidden="true"></i>${localize(item)}</li>`).join("")}
+        </ul>
       </article>`,
     )
     .join("");
