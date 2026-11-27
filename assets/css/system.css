@@ -2810,3 +2810,169 @@ body::before {
     justify-content: flex-start;
   }
 }
+
+/* Services, process and monthly plans (2026-11) */
+.services-grid.services-grid-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.services-grid.services-grid-three article:nth-child(2) {
+  border-right: 1px solid var(--line);
+}
+
+.services-grid.services-grid-three article:last-child {
+  border-right: 0;
+}
+
+.service-price {
+  margin: 1.25rem 0 0 !important;
+  color: var(--accent) !important;
+  font-family: var(--mono);
+  font-size: 0.78rem !important;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.services-grid article:hover .service-price {
+  color: var(--on-accent) !important;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  list-style: none;
+}
+
+.process-grid li {
+  padding: 1.5rem;
+  border-right: 1px solid var(--line);
+  background: var(--paper-strong);
+}
+
+.process-grid li:last-child {
+  border-right: 0;
+}
+
+.process-grid span,
+.plan-name {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.process-grid h3 {
+  margin: 1.25rem 0 0.6rem;
+  font-family: var(--display);
+  font-size: 1.15rem;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.process-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.35rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.plans-grid article {
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  background: var(--paper-strong);
+}
+
+.plans-grid article.plan-featured {
+  border: 2px solid var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.plans-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.plans-grid .plan-name {
+  margin: 0;
+  color: var(--accent);
+  font-size: 0.7rem;
+}
+
+.plans-grid .plan-price {
+  margin: 0.75rem 0 0.6rem;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.plans-note {
+  margin: 1.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 1080px) {
+  .process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .process-grid li:nth-child(2) {
+    border-right: 0;
+  }
+
+  .process-grid li:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 900px) {
+  .services-grid.services-grid-three,
+  .plans-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid.services-grid-three article,
+  .services-grid.services-grid-three article:nth-child(2) {
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .services-grid.services-grid-three article:last-child {
+    border-bottom: 0;
+  }
+
+  .services-grid.services-grid-three svg {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid li,
+  .process-grid li:nth-child(2) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .process-grid li:last-child {
+    border-bottom: 0;
+  }
+}

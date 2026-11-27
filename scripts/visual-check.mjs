@@ -18,11 +18,11 @@ const results = [];
 
 async function assertEnglishCopy(page) {
   const expected = [
-    ['.nav-links a[href="#proyectos"]', "Projects"],
+    ['.nav-links a[href="#proyectos"]', "Demos"],
     ["#stack-title", "technical stack."],
     ["#experience-stack-title", "experience & stack."],
     [".experience-entry:nth-child(3) h3", "ERP Developer / DBA"],
-    ["#contact-title", "let’s talk."],
+    ["#contact-title", "book your assessment."],
   ];
 
   for (const [selector, text] of expected) {
@@ -81,7 +81,7 @@ for (const viewport of viewports) {
     if (
       (await page.locator('.nav-links a[href="#proyectos"]').textContent())
         ?.trim()
-        .toLocaleLowerCase("es") !== "proyectos"
+        .toLocaleLowerCase("es") !== "demos"
     )
       throw new Error("Spanish navigation copy did not render.");
     if (
@@ -109,7 +109,7 @@ for (const viewport of viewports) {
     if (
       (await page.locator('.nav-links a[href="#proyectos"]').textContent())
         ?.trim()
-        .toLocaleLowerCase("es") !== "proyectos"
+        .toLocaleLowerCase("es") !== "demos"
     )
       throw new Error("Spanish navigation copy did not render.");
     if (

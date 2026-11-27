@@ -2,34 +2,69 @@
   const english = {
     skipLink: "Skip to content",
     navAria: "Main navigation",
-    brandAria: "MatuDev, back to start",
+    brandAria: "Matías López, back to start",
     themeAria: "Change theme",
     menuOpenAria: "Open menu",
     menuCloseAria: "Close menu",
-    navProjects: "Projects",
+    navProjects: "Demos",
     navServices: "Services",
-    navExperience: "Experience & stack",
+    navProcess: "How I work",
+    navExperience: "Experience",
     navContact: "Contact",
-    heroKicker: "BACKEND · SOFTWARE · DATA",
-    heroTitle: "<span>Matías López</span><br>Software Developer",
+    heroKicker: "INTEGRATIONS · AUTOMATION · AI",
+    heroTitle: "<span>Matías López</span><br>I connect your systems.",
     heroLead:
-      "I design and build systems, web applications and data solutions that turn complex processes into clear, maintainable tools.",
-    heroPrimary: "View projects",
-    heroSecondary: "Contact",
-    heroLocation: "Montevideo, Uruguay · Available for remote work",
+      "I automate repetitive work for small and mid-sized businesses in Uruguay, Argentina and Chile, so your team stops copying data between spreadsheets, systems and WhatsApp.",
+    heroPrimary: "Free assessment",
+    heroSecondary: "View services",
+    heroLocation:
+      "Montevideo, Uruguay · Remote work with Uruguay, Argentina and Chile",
     heroVisualAlt: "Retro computer with a code terminal",
-    projectsTitle: "featured projects.",
+    projectsTitle: "live demos.",
     projectsLead:
-      "Functional systems that show how I approach inventory, commercial management, internal operations and personal finance.",
+      "Systems I built that you can try right now with sample data. They work as a starting point to adapt to your business.",
     servicesTitle: "services.",
     servicesLead:
-      "Two simple ways to work together, depending on what your system needs.",
-    service1Title: "Focused development",
+      "Three ways to take manual work off your team. Fixed price, defined timeline and an optional monthly plan to keep it running.",
+    service1Title: "Systems integration",
     service1Text:
-      "Development of a specific feature, integration or tool based on a defined need. Includes analysis, implementation and delivery of a working solution.",
-    service2Title: "Systems support",
+      "I get your systems talking: online store, MercadoLibre, ERP, invoicing, spreadsheets and supplier APIs, with stock, prices and orders in sync.",
+    service1Price: "from USD 800 · 2–4 weeks",
+    service2Title: "Process automation",
     service2Text:
-      "Diagnosis, fixes and improvements for existing systems. Includes maintenance, database adjustments and integrations that keep operations running.",
+      "Reports that arrive on their own, sales and payment reconciliation, alerts for low stock or failed processes, and automatic loading of orders and spreadsheets.",
+    service2Price: "from USD 350 · 1–2 weeks",
+    service3Title: "Applied AI",
+    service3Text:
+      "Assistants that answer with your real catalog and prices, reading invoices and delivery notes from PDFs, and sorting emails or complaints. Always with a person reviewing.",
+    service3Price: "from USD 900 · 2–4 weeks",
+    processTitle: "how I work.",
+    processLead: "We start with a concrete process, not with the technology.",
+    process1Title: "Free assessment",
+    process1Text:
+      "30 minutes on a video call. We walk through one process and see what is worth automating first.",
+    process2Title: "Proposal in 48 h",
+    process2Text:
+      "One page with the solution, timeline, fixed price and the hours you will save each month.",
+    process3Title: "Implementation",
+    process3Text:
+      "I build it, test it with your data and leave it running. 50% upfront and 50% on delivery.",
+    process4Title: "Monthly plan",
+    process4Text:
+      "Optional: monitoring, fixes and improvements so it keeps working as you grow.",
+    plan1Name: "BASIC",
+    plan1Price: "USD 150/month",
+    plan1Text: "Monitoring, bug fixes and up to 2 h of adjustments.",
+    plan2Name: "PRO",
+    plan2Price: "USD 350/month",
+    plan2Text:
+      "Everything in Basic, 6 h of improvements and a reply within 24 business hours.",
+    plan3Name: "TECH PARTNER",
+    plan3Price: "USD 700/month",
+    plan3Text:
+      "15 h per month, one new automation per month and a monthly meeting.",
+    plansNote:
+      "Prices in USD, before taxes. Every proposal is adjusted to the real scope of your process.",
     stackTitle: "technical stack.",
     stackLead:
       "Tools I use to build, integrate and operate software and data solutions.",
@@ -45,15 +80,16 @@
       "ERP implementation and optimization for stock, billing and inventory. Database design and optimization.",
     experienceStackTitle: "experience & stack.",
     experienceStackLead:
-      "Professional experience and the tools I use to build software and data solutions.",
+      "Over 4 years working with data, ERPs and integrations in retail and distribution, and the tools I use.",
     aboutLinkedin: "View LinkedIn ↗",
-    roleLine: "Backend · Software · Data · Integrations",
-    contactTitle: "let’s talk.",
+    roleLine: "Integrations · Automation · AI",
+    contactTitle: "book your assessment.",
     contactLead:
-      "If you have a job opportunity, a project or a process that needs a technical solution, write to me with some context.",
+      "Tell me which process takes the most time and which systems you use. I reply within 24 business hours to set up 30 minutes at no cost.",
     formName: "Name",
     formMessage: "Message",
-    formPlaceholder: "Tell me what you need to build, improve or connect.",
+    formPlaceholder:
+      "E.g. we enter online store orders into our management system by hand, about 10 h per week.",
     formPrivacyNote: "Your data is used only to reply to this message.",
     privacyLink: "Privacy",
     formSubmit: "Send message",
@@ -103,8 +139,8 @@
 
   const englishMetadata = {
     home: [
-      "Matías López — Software Developer | MatuDev",
-      "Portfolio of Matías López, a Software Developer focused on backend, web applications, databases, data, BI and integrations.",
+      "Matías López — Integrations, automation and AI for SMBs",
+      "Matías López connects systems, automates processes and implements AI for small and mid-sized businesses in Uruguay, Argentina and Chile. Free 30-minute assessment.",
     ],
     privacy: [
       "Privacy policy | MatuDev",
